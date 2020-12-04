@@ -9,7 +9,7 @@ public class Planet : ScriptableObject
     public Sprite planetSprite;
 
 
-
+    public string Nom;
     public float QuantitatPoblació = 0;
     public regim Regim;
     public int EdatEspecie;
@@ -19,6 +19,8 @@ public class Planet : ScriptableObject
     public float perillositat;
     public float pastaGenerada;
     public raca especie;
+
+
 
 
     public enum raca { humans, reptilians, ewoks}
