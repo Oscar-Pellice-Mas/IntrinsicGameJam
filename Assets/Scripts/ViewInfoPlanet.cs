@@ -31,7 +31,7 @@ public class ViewInfoPlanet : MonoBehaviour
     }
 
     void Start()
-    {
+    {/*
         nom.enabled = true;
         poblacio.enabled = false;
         material.enabled = false;
@@ -44,6 +44,7 @@ public class ViewInfoPlanet : MonoBehaviour
         raca.enabled = false;
         densitat.enabled = false;
         agresivitat.enabled = false;
+        */
     }
 
     public void SetData(Planet planet)
