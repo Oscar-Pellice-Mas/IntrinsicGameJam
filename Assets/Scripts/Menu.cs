@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
@@ -67,6 +68,7 @@ public class Menu : MonoBehaviour
     public void startGame()
     {
         Debug.Log("Start Game");
+        SceneManager.LoadScene("mainGame");
 
     }
 
