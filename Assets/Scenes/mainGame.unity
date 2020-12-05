@@ -3108,6 +3108,7 @@ GameObject:
   - component: {fileID: 3360859450800428913}
   - component: {fileID: 3360859450800428914}
   - component: {fileID: 3360859450800428918}
+  - component: {fileID: 3360859450800428916}
   m_Layer: 5
   m_Name: Info
   m_TagString: Untagged
@@ -3115,6 +3116,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3360859450800428916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3360859450800428915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e26fd75b81a72e44ba117b657264b5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectsToShake:
+  - {fileID: 1109804740}
+  - {fileID: 3360859450369717345}
+  - {fileID: 3360859451987949650}
+  - {fileID: 1900642722}
+  - {fileID: 1344811824}
+  triggerShake: 0
+  ShakeAmplitude: 5
 --- !u!114 &3360859450800428918
 MonoBehaviour:
   m_ObjectHideFlags: 0
