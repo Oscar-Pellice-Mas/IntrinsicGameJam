@@ -31,7 +31,7 @@ public class ViewInfoPlanet : MonoBehaviour
     }
 
     void Start()
-    {
+    {/*
         nom.enabled = true;
         quantitatPoblacio.enabled = false;
         regim.enabled = false;
@@ -41,7 +41,7 @@ public class ViewInfoPlanet : MonoBehaviour
         //recursos.enabled = false;
         perillositat.enabled = false;
         //dineros.enabled = false;
-        especie.enabled = false;
+        especie.enabled = false;*/
     }
 
     public void SetData(Planet planet)
