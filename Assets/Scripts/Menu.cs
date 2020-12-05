@@ -21,11 +21,11 @@ public class Menu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetButtonDown("Seleccionar"))
         {
             Select();
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetButtonDown("Moure"))
         {
             Move();
         }
