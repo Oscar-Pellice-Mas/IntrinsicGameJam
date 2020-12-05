@@ -23,11 +23,11 @@ public class Menu_Opcions : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Seleccionar"))
+        if (Input.GetButtonDown("A"))
         {
             Select();
         }
-        if (Input.GetButtonDown("Moure"))
+        if (Input.GetButtonDown("B"))
         {
             Move();
         }

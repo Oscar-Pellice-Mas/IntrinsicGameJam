@@ -21,11 +21,11 @@ public class Menu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Seleccionar"))
+        if (Input.GetButtonDown("A"))
         {
             Select();
         }
-        if (Input.GetButtonDown("Moure"))
+        if (Input.GetButtonDown("B"))
         {
             Move();
         }
@@ -102,7 +102,11 @@ public class Menu : MonoBehaviour
         switch (selected_Option)
         {
             case 0:
-                startGame();
+                if (start_menu.activeSelf)
+                {
+                    startGame();
+                }
+                
                 break;
             case 1:
                 show_options();
