@@ -35,14 +35,6 @@ public class PlanetGenerator : MonoBehaviour
         Planet planet = new Planet();
         planet.tipusPlaneta = (Planet.tipus)Random.Range(0, 4);
 
-<<<<<<< Updated upstream
-        //Poblacio
-        float radi = Random.Range(RadiMin, RadiMax);
-        planet.radi = radi;
-        float area = 4 * Mathf.PI * radi * radi;
-        float poblacioCalculada = area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio);
-        planet.Poblacio = poblacioCalculada;
-=======
         switch (planet.tipusPlaneta)
         {
             case Planet.tipus.primitiu:
@@ -63,7 +55,6 @@ public class PlanetGenerator : MonoBehaviour
             default:
                 break;
         }
->>>>>>> Stashed changes
 
         //Crear un planeta primitiu
         void creaPrimitiu()
@@ -118,7 +109,7 @@ public class PlanetGenerator : MonoBehaviour
         //Crear un planeta modern
         void creaModern()
         {
-            planet.radi = Random.Range(RadiMin * 3, RadiMin * 4);
+            planet.radi = Random.Range(RadiMin, RadiMin * 4);
             float area = 4 * Mathf.PI * planet.radi * planet.radi;
             float poblacioCalculada = area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio);
             planet.Poblacio = poblacioCalculada;
@@ -140,7 +131,7 @@ public class PlanetGenerator : MonoBehaviour
         //Crear un planeta avançat
         void creaAvançat()
         {
-            planet.radi = Random.Range(RadiMin * 4, RadiMin * 5);
+            planet.radi = Random.Range(RadiMin, RadiMin * 5);
             float area = 4 * Mathf.PI * planet.radi * planet.radi;
             float poblacioCalculada = area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio);
             planet.Poblacio = poblacioCalculada;
@@ -165,7 +156,7 @@ public class PlanetGenerator : MonoBehaviour
         //Crear un planeta futurista
         void creaFuturista()
         {
-            planet.radi = Random.Range(RadiMin * 5, RadiMin * 6);
+            planet.radi = Random.Range(RadiMin, RadiMin * 6);
             float area = 4 * Mathf.PI * planet.radi * planet.radi;
             float poblacioCalculada = area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio);
             planet.Poblacio = poblacioCalculada;
