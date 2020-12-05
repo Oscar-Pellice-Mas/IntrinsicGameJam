@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     private int numPlanets = 0;
     private List<Planet> savedPlanets;
 
+    public Terra terra;
+    public List<Faction> factions;
+
     private int round = 1;
 
     public bool roundActive = false;
@@ -22,6 +25,9 @@ public class GameManager : MonoBehaviour
         
     void Start()
     {
+        factions = TerraGenerator.GenerateFactions();
+        terra = TerraGenerator.GenerateTerra();
+
         poolControler = GetComponent<PoolControler>();
         poolControler.CreatePool(InitialPoolNumber);
 

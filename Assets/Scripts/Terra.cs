@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Terra", menuName = "Jam/Terra")]
 public class Terra : ScriptableObject
 {
-    public Sprite planetSprite;
+    public GameObject planetPrefab;
 
     public string Nom;
     public float Poblacio = 0;
@@ -22,9 +22,6 @@ public class Terra : ScriptableObject
 
     public regim Regim;
     public enum regim { democracia, dictadura, monarquia }
-
-    public raca especie;
-    public enum raca { humans, ewoks, daleks, xenos, vortigaunts }
 
 
 }
