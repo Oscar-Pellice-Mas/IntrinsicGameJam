@@ -39,19 +39,19 @@ public class PlanetGenerator : MonoBehaviour
         planet.radi = radi;
         float area = 4 * Mathf.PI * radi * radi;
         float poblacioCalculada = area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio);
-        planet.QuantitatPoblacio = poblacioCalculada;
+        planet.Poblacio = poblacioCalculada;
 
         //Especie
         planet.EdatEspecie = Random.Range(EdatEspecieMin, EdatEspecieMax);
 
         //Energia i economia
-        planet.EnergiaConsumida = poblacioCalculada * Random.Range(EnergyConsumedPerPersonMin, EnergyConsumedPerPersonMax);
+        //planet.EnergiaConsumida = poblacioCalculada * Random.Range(EnergyConsumedPerPersonMin, EnergyConsumedPerPersonMax);
 
         //Agresivitat
         planet.perillositat = Random.Range(0f, 1f);
         
         
-        
+        //Generar materials
 
 
 

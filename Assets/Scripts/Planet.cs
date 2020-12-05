@@ -8,59 +8,39 @@ public class Planet : ScriptableObject
 {
     public Sprite planetSprite;
 
-
     public string Nom;
-    public float QuantitatPoblacio;
-    public int LlunesExplotades;
+    public float Poblacio = 0;
+    public float[] materials = new float[3];
+    public tipus tipusPlaneta;
+    public Faction faction;
+    public int Llunes;
     public int EdatEspecie;
-    public float EnergiaConsumida;
     public float perillositat;
     public float radi;
-    public int llunes;
-    public Faction faction;
 
-    public tipus tipusPlaneta;
-    public float recursosConsumitsPerAny;
-    public float pastaGenerada;    
+    public enum tipus { primitiu, basic, modern, avancat, futurista }
+    
+    //INFORMACIO EXTRA
+
     public regim Regim;
-
-    public enum tipus { primitiu, avancat, futurista }
     public enum regim { democracia, dictadura, monarquia}
+
+    public raca especie;
+    public enum raca { humans, ewoks, daleks, xenos, vortigaunts }
+
+
 }
 
 [CreateAssetMenu(fileName = "new faction", menuName = "Jam/New faction")]
 public class Faction : ScriptableObject
 {
     public string nom;
-    public raca especie;
     public float agresivitat;
+    public float densitat;
 
     public Faction[] allies;
     public Faction[] enemies;
 
-    public enum raca { humans, ewoks, daleks, xenos, vortigaunts }
 }
-/*
-    
-    Petar planeta:
-    pros:
-    - el teu planeta pot minar les llunes
-    - jefe content
-    
-    cons:
-    - aliats s'enfaden ->   puja agresivitat dels aliats. (mateixa raça)
-    - 
 
-
-    ignorar planeta
-    pros:
-    - agresivitat baixa (per ell i aliats)
-    - aporten recursos
-    
-
-    cons:
-    - et poden atacar si són agresius.
-    - jefe s'enfada si l'havies de rebentar
-
-*/
 

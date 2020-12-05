@@ -50,15 +50,15 @@ public class ViewInfoPlanet : MonoBehaviour
         //imatge.sprite = planeta.planetSprite;
         ShowInfo(nom, planeta.Nom);
 
-        ShowInfo(quantitatPoblacio, planeta.QuantitatPoblacio.ToString());
+        ShowInfo(quantitatPoblacio, planeta.Poblacio.ToString());
         ShowInfo(regim, planeta.Regim.ToString());
         ShowInfo(edat, planeta.EdatEspecie.ToString());
-        ShowInfo(energia ,planeta.EnergiaConsumida.ToString());
+        //ShowInfo(energia ,planeta.EnergiaConsumida.ToString());
         ShowInfo(tipus, planeta.tipusPlaneta.ToString());
         //recursos.text = planeta.recursosConsumitsPerAny.ToString();
         ShowInfo(perillositat, planeta.perillositat.ToString());
         ShowInfo(radi, planeta.radi.ToString());
-        ShowInfo(llunes, planeta.llunes.ToString());
+        ShowInfo(llunes, planeta.Llunes.ToString());
 
         //dineros.text = planeta.pastaGenerada.ToString();
         //especie.text = planeta.especie.ToString();

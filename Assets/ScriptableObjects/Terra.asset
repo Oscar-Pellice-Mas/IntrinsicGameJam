@@ -9,17 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2682e13c6b157e9499d310f61a12c02c, type: 3}
-  m_Name: Terra
+  m_Script: {fileID: 11500000, guid: a9f14201974c3f84dabc6fbc71ac9b11, type: 3}
+  m_Name: Terra 1
   m_EditorClassIdentifier: 
-  planetSprite: {fileID: 21300000, guid: b8a2187858a474544bda692f394256ef, type: 3}
-  Nom: Terra
-  "QuantitatPoblaci\xF3": 0
-  Regim: 0
-  EdatEspecie: 0
-  EnergiaConsumida: 0
+  planetSprite: {fileID: 0}
+  Nom: 
+  Poblacio: 0
+  materials:
+  - 0
+  - 0
+  - 0
   tipusPlaneta: 0
-  recursosConsumitsPerAny: 0
+  faction: {fileID: 0}
+  Llunes: 0
+  EdatEspecie: 0
   perillositat: 0
-  pastaGenerada: 0
+  Regim: 0
   especie: 0
