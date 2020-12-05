@@ -10,17 +10,17 @@ public class ViewInfoPlanet : MonoBehaviour
 
     public Image imatge;
     public TextMeshProUGUI nom;
-    public TextMeshProUGUI quantitatPoblacio;
-    public TextMeshProUGUI regim;
-    public TextMeshProUGUI edat;
-    public TextMeshProUGUI energia;
-    public TextMeshProUGUI tipus;
-    //public TextMeshProUGUI recursos;
-    public TextMeshProUGUI perillositat;
-    //public TextMeshProUGUI dineros;
-    public TextMeshProUGUI especie;
-    public TextMeshProUGUI radi;
+    public TextMeshProUGUI poblacio;
+    public TextMeshProUGUI material;
     public TextMeshProUGUI llunes;
+    public TextMeshProUGUI tipus;
+    public TextMeshProUGUI edatEspecie;
+    public TextMeshProUGUI perillositat;
+    public TextMeshProUGUI faction;
+    public TextMeshProUGUI regim;
+    public TextMeshProUGUI raca;
+    public TextMeshProUGUI densitat;
+    public TextMeshProUGUI agresivitat;
 
     private int dificulty = 0;
     public bool showData = false;
@@ -33,15 +33,17 @@ public class ViewInfoPlanet : MonoBehaviour
     void Start()
     {
         nom.enabled = true;
-        quantitatPoblacio.enabled = false;
-        regim.enabled = false;
-        edat.enabled = false;
-        energia.enabled = false;
+        poblacio.enabled = false;
+        material.enabled = false;
+        llunes.enabled = false;
         tipus.enabled = false;
-        //recursos.enabled = false;
+        edatEspecie.enabled = false;
         perillositat.enabled = false;
-        //dineros.enabled = false;
-        especie.enabled = false;
+        faction.enabled = false;
+        regim.enabled = false;
+        raca.enabled = false;
+        densitat.enabled = false;
+        agresivitat.enabled = false;
     }
 
     public void SetData(Planet planet)
@@ -50,14 +52,14 @@ public class ViewInfoPlanet : MonoBehaviour
         //imatge.sprite = planeta.planetSprite;
         ShowInfo(nom, planeta.Nom);
 
-        ShowInfo(quantitatPoblacio, planeta.Poblacio.ToString());
+        //ShowInfo(quantitatPoblacio, planeta.Poblacio.ToString());
         ShowInfo(regim, planeta.Regim.ToString());
-        ShowInfo(edat, planeta.EdatEspecie.ToString());
+        //ShowInfo(edat, planeta.EdatEspecie.ToString());
         //ShowInfo(energia ,planeta.EnergiaConsumida.ToString());
         ShowInfo(tipus, planeta.tipusPlaneta.ToString());
         //recursos.text = planeta.recursosConsumitsPerAny.ToString();
         ShowInfo(perillositat, planeta.perillositat.ToString());
-        ShowInfo(radi, planeta.radi.ToString());
+        //ShowInfo(radi, planeta.radi.ToString());
         ShowInfo(llunes, planeta.Llunes.ToString());
 
         //dineros.text = planeta.pastaGenerada.ToString();
@@ -89,7 +91,7 @@ public class ViewInfoPlanet : MonoBehaviour
             nom.enabled = true;
             if (dificulty > 0)
             {
-                quantitatPoblacio.enabled = true;
+                //quantitatPoblacio.enabled = true;
                 //Debug.Log("Població: " + planet.QuantitatPoblació);
             }
             if (dificulty > 1)
@@ -99,12 +101,12 @@ public class ViewInfoPlanet : MonoBehaviour
             }
             if (dificulty > 2)
             {
-                edat.enabled = true;
+                //edat.enabled = true;
                 //Debug.Log("Edat espècie: " + planet.EdatEspecie);
             }
             if (dificulty > 3)
             {
-                energia.enabled = true;
+                //energia.enabled = true;
                 //Debug.Log("Energia consumida: " + planet.EnergiaConsumida);
             }
             if (dificulty > 4)
@@ -129,7 +131,7 @@ public class ViewInfoPlanet : MonoBehaviour
             }
             if (dificulty > 8)
             {
-                especie.enabled = true;
+                //especie.enabled = true;
                 //Debug.Log("Nom: " + planet.Nom);
             }
         }
