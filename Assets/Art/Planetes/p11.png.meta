@@ -211,7 +211,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -241,10 +241,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -253,10 +253,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -271,7 +271,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 448
         width: 64
         height: 64
       alignment: 0
@@ -292,7 +292,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
+        y: 448
         width: 64
         height: 64
       alignment: 0
@@ -313,7 +313,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
+        y: 448
         width: 64
         height: 64
       alignment: 0
@@ -334,7 +334,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 0
+        y: 448
         width: 64
         height: 64
       alignment: 0
@@ -355,7 +355,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 0
+        y: 448
         width: 64
         height: 64
       alignment: 0
@@ -376,7 +376,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 0
+        y: 448
         width: 64
         height: 64
       alignment: 0
@@ -397,7 +397,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 0
+        y: 448
         width: 64
         height: 64
       alignment: 0
@@ -418,7 +418,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 0
+        y: 448
         width: 64
         height: 64
       alignment: 0
@@ -438,8 +438,8 @@ TextureImporter:
       name: p11_8
       rect:
         serializedVersion: 2
-        x: 512
-        y: 0
+        x: 0
+        y: 384
         width: 64
         height: 64
       alignment: 0
@@ -459,8 +459,8 @@ TextureImporter:
       name: p11_9
       rect:
         serializedVersion: 2
-        x: 576
-        y: 0
+        x: 64
+        y: 384
         width: 64
         height: 64
       alignment: 0
@@ -480,8 +480,8 @@ TextureImporter:
       name: p11_10
       rect:
         serializedVersion: 2
-        x: 640
-        y: 0
+        x: 128
+        y: 384
         width: 64
         height: 64
       alignment: 0
@@ -501,8 +501,8 @@ TextureImporter:
       name: p11_11
       rect:
         serializedVersion: 2
-        x: 704
-        y: 0
+        x: 192
+        y: 384
         width: 64
         height: 64
       alignment: 0
@@ -522,8 +522,8 @@ TextureImporter:
       name: p11_12
       rect:
         serializedVersion: 2
-        x: 768
-        y: 0
+        x: 256
+        y: 384
         width: 64
         height: 64
       alignment: 0
@@ -543,8 +543,8 @@ TextureImporter:
       name: p11_13
       rect:
         serializedVersion: 2
-        x: 832
-        y: 0
+        x: 320
+        y: 384
         width: 64
         height: 64
       alignment: 0
@@ -564,8 +564,8 @@ TextureImporter:
       name: p11_14
       rect:
         serializedVersion: 2
-        x: 896
-        y: 0
+        x: 384
+        y: 384
         width: 64
         height: 64
       alignment: 0
@@ -585,8 +585,8 @@ TextureImporter:
       name: p11_15
       rect:
         serializedVersion: 2
-        x: 960
-        y: 0
+        x: 448
+        y: 384
         width: 64
         height: 64
       alignment: 0
@@ -606,8 +606,8 @@ TextureImporter:
       name: p11_16
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 0
+        x: 0
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -627,8 +627,8 @@ TextureImporter:
       name: p11_17
       rect:
         serializedVersion: 2
-        x: 1088
-        y: 0
+        x: 64
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -648,8 +648,8 @@ TextureImporter:
       name: p11_18
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 0
+        x: 128
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -669,8 +669,8 @@ TextureImporter:
       name: p11_19
       rect:
         serializedVersion: 2
-        x: 1216
-        y: 0
+        x: 192
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -690,8 +690,8 @@ TextureImporter:
       name: p11_20
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 0
+        x: 256
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -711,8 +711,8 @@ TextureImporter:
       name: p11_21
       rect:
         serializedVersion: 2
-        x: 1344
-        y: 0
+        x: 320
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -732,8 +732,8 @@ TextureImporter:
       name: p11_22
       rect:
         serializedVersion: 2
-        x: 1408
-        y: 0
+        x: 384
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -753,8 +753,8 @@ TextureImporter:
       name: p11_23
       rect:
         serializedVersion: 2
-        x: 1472
-        y: 0
+        x: 448
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -774,8 +774,8 @@ TextureImporter:
       name: p11_24
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 0
+        x: 0
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -795,8 +795,8 @@ TextureImporter:
       name: p11_25
       rect:
         serializedVersion: 2
-        x: 1600
-        y: 0
+        x: 64
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -816,8 +816,8 @@ TextureImporter:
       name: p11_26
       rect:
         serializedVersion: 2
-        x: 1664
-        y: 0
+        x: 128
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -837,8 +837,8 @@ TextureImporter:
       name: p11_27
       rect:
         serializedVersion: 2
-        x: 1728
-        y: 0
+        x: 192
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -858,8 +858,8 @@ TextureImporter:
       name: p11_28
       rect:
         serializedVersion: 2
-        x: 1792
-        y: 0
+        x: 256
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -879,8 +879,8 @@ TextureImporter:
       name: p11_29
       rect:
         serializedVersion: 2
-        x: 1856
-        y: 0
+        x: 320
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -900,8 +900,8 @@ TextureImporter:
       name: p11_30
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 0
+        x: 384
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -921,8 +921,8 @@ TextureImporter:
       name: p11_31
       rect:
         serializedVersion: 2
-        x: 1984
-        y: 0
+        x: 448
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -942,8 +942,8 @@ TextureImporter:
       name: p11_32
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 0
+        x: 0
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -963,8 +963,8 @@ TextureImporter:
       name: p11_33
       rect:
         serializedVersion: 2
-        x: 2112
-        y: 0
+        x: 64
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -984,8 +984,8 @@ TextureImporter:
       name: p11_34
       rect:
         serializedVersion: 2
-        x: 2176
-        y: 0
+        x: 128
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -1005,8 +1005,8 @@ TextureImporter:
       name: p11_35
       rect:
         serializedVersion: 2
-        x: 2240
-        y: 0
+        x: 192
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -1026,8 +1026,8 @@ TextureImporter:
       name: p11_36
       rect:
         serializedVersion: 2
-        x: 2304
-        y: 0
+        x: 256
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -1047,8 +1047,8 @@ TextureImporter:
       name: p11_37
       rect:
         serializedVersion: 2
-        x: 2368
-        y: 0
+        x: 320
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -1068,8 +1068,8 @@ TextureImporter:
       name: p11_38
       rect:
         serializedVersion: 2
-        x: 2432
-        y: 0
+        x: 384
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -1089,8 +1089,8 @@ TextureImporter:
       name: p11_39
       rect:
         serializedVersion: 2
-        x: 2496
-        y: 0
+        x: 448
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -1110,8 +1110,8 @@ TextureImporter:
       name: p11_40
       rect:
         serializedVersion: 2
-        x: 2560
-        y: 0
+        x: 0
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -1131,8 +1131,8 @@ TextureImporter:
       name: p11_41
       rect:
         serializedVersion: 2
-        x: 2624
-        y: 0
+        x: 64
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -1152,8 +1152,8 @@ TextureImporter:
       name: p11_42
       rect:
         serializedVersion: 2
-        x: 2688
-        y: 0
+        x: 128
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -1173,8 +1173,8 @@ TextureImporter:
       name: p11_43
       rect:
         serializedVersion: 2
-        x: 2752
-        y: 0
+        x: 192
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -1194,8 +1194,8 @@ TextureImporter:
       name: p11_44
       rect:
         serializedVersion: 2
-        x: 2816
-        y: 0
+        x: 256
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -1215,8 +1215,8 @@ TextureImporter:
       name: p11_45
       rect:
         serializedVersion: 2
-        x: 2880
-        y: 0
+        x: 320
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -1236,8 +1236,8 @@ TextureImporter:
       name: p11_46
       rect:
         serializedVersion: 2
-        x: 2944
-        y: 0
+        x: 384
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -1257,8 +1257,8 @@ TextureImporter:
       name: p11_47
       rect:
         serializedVersion: 2
-        x: 3008
-        y: 0
+        x: 448
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -1278,8 +1278,8 @@ TextureImporter:
       name: p11_48
       rect:
         serializedVersion: 2
-        x: 3072
-        y: 0
+        x: 0
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -1299,8 +1299,8 @@ TextureImporter:
       name: p11_49
       rect:
         serializedVersion: 2
-        x: 3136
-        y: 0
+        x: 64
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -1320,8 +1320,8 @@ TextureImporter:
       name: p11_50
       rect:
         serializedVersion: 2
-        x: 3200
-        y: 0
+        x: 128
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -1341,8 +1341,8 @@ TextureImporter:
       name: p11_51
       rect:
         serializedVersion: 2
-        x: 3264
-        y: 0
+        x: 192
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -1362,8 +1362,8 @@ TextureImporter:
       name: p11_52
       rect:
         serializedVersion: 2
-        x: 3328
-        y: 0
+        x: 256
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -1383,8 +1383,8 @@ TextureImporter:
       name: p11_53
       rect:
         serializedVersion: 2
-        x: 3392
-        y: 0
+        x: 320
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -1404,8 +1404,8 @@ TextureImporter:
       name: p11_54
       rect:
         serializedVersion: 2
-        x: 3456
-        y: 0
+        x: 384
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -1425,8 +1425,8 @@ TextureImporter:
       name: p11_55
       rect:
         serializedVersion: 2
-        x: 3520
-        y: 0
+        x: 448
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -1446,7 +1446,7 @@ TextureImporter:
       name: p11_56
       rect:
         serializedVersion: 2
-        x: 3584
+        x: 0
         y: 0
         width: 64
         height: 64
@@ -1467,7 +1467,7 @@ TextureImporter:
       name: p11_57
       rect:
         serializedVersion: 2
-        x: 3648
+        x: 64
         y: 0
         width: 64
         height: 64
@@ -1488,7 +1488,7 @@ TextureImporter:
       name: p11_58
       rect:
         serializedVersion: 2
-        x: 3712
+        x: 128
         y: 0
         width: 64
         height: 64
@@ -1509,7 +1509,7 @@ TextureImporter:
       name: p11_59
       rect:
         serializedVersion: 2
-        x: 3776
+        x: 192
         y: 0
         width: 64
         height: 64
@@ -1529,7 +1529,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f302d9a08c8a34645be32f4d6301c702
+    spriteID: ed1c6b3191123654ebe7723430e9f645
     internalID: 0
     vertices: []
     indices: 
