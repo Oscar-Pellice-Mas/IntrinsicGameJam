@@ -47,14 +47,11 @@ public class ViewInfoPlanet : MonoBehaviour
         planeta = planet;
         //imatge.sprite = planeta.planetSprite;
         nom.text = planeta.Nom;    
-        quantitatPoblacio.text = planeta.QuantitatPoblacio.ToString();
+        //quantitatPoblacio.text = planeta.QuantitatPoblacio.ToString();
         regim.text = planeta.Regim.ToString();
         edat.text = planeta.EdatEspecie.ToString();
-        energia.text = planeta.EnergiaConsumida.ToString();
         tipus.text = planeta.tipusPlaneta.ToString();
-        recursos.text = planeta.recursosConsumitsPerAny.ToString();
         perillositat.text = planeta.perillositat.ToString();
-        dineros.text = planeta.pastaGenerada.ToString();
         //especie.text = planeta.especie.ToString();
         showData = true;
         //Debug.Log(quantitatPoblacio.text);
