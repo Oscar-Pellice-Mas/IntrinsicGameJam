@@ -24,6 +24,28 @@ public class PoolControler : MonoBehaviour
         }
     }
 
+    public void RefreshFactions()
+    {
+        int[] count = new int[5];
+
+        foreach (Planet p in planetPool)
+        {
+            for (int i = 0; i < gameManager.factions.Count; i++)
+            {
+                if (p.faction.especie == gameManager.factions[i].especie)
+                {
+                    Debug.Log(i);
+                    count[i]++;
+                    break;
+                }
+            }
+        }
+        for (int i = 0; i < gameManager.factions.Count; i++)
+        {
+            gameManager.factions[i].densitat = count[i] * 100 / planetPool.Count;
+        }
+    }
+
     public List<Planet> GetRoundPool(int num)
     {
         List<Planet> planetList = new List<Planet>();
