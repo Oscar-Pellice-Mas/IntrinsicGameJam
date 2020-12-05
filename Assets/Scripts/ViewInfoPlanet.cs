@@ -50,7 +50,7 @@ public class ViewInfoPlanet : MonoBehaviour
         recursos.text = planeta.recursosConsumitsPerAny.ToString();
         perillositat.text = planeta.perillositat.ToString();
         dineros.text = planeta.pastaGenerada.ToString();
-        especie.text = planeta.especie.ToString();
+        //especie.text = planeta.especie.ToString();
         showData = true;
         //Debug.Log(quantitatPoblacio.text);
         //Debug.Log(planeta.QuantitatPoblacio);

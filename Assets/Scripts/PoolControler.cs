@@ -37,4 +37,45 @@ public class PoolControler : MonoBehaviour
         if (planetObjects.Count == 0) gameManager.RoundDone();
         return obj;
     }
+
+    public void OnPlanetInteraction(Planet planet, bool isDestroyed)
+    {
+        for (int i = 0; i < planetObjects.Count; i++)
+        {
+            if (planetObjects[i] != planet)
+            {
+                if (isDestroyed)
+                {
+                    if (Contains(planetObjects[i].faction.allies, planet.faction)) //isAlly
+                    {
+
+                    }else if (Contains(planetObjects[i].faction.enemies, planet.faction)) //isenemy
+                    {
+
+                    }
+                }
+                else
+                {
+
+                }
+
+            }
+        }
+
+
+    }
+
+    public bool Contains(Faction[] factions, Faction faction)
+    {
+        for(int i = 0; i < factions.Length; i++)
+        {
+            if (factions[i] == faction)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }
