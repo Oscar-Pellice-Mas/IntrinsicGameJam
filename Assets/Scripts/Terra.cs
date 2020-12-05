@@ -12,6 +12,7 @@ public class Terra : ScriptableObject
     public float Poblacio = 0;
     public float[] materials = new float[3];
     public float[] consum = new float[3];
+    public int indexTipus;
     public tipus tipusPlaneta;
     public Faction faction;
    

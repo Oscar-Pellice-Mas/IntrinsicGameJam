@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public Terra terra;
     public List<Faction> factions;
 
-    private int round = 1;
+    public int round = 1;
 
     public bool roundActive = false;
 
@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
 
     public void NextPlanet()
     {
+        poolControler.OnPlanetInteraction(roundPlanets[roundCounter], false);
         savedPlanets.Add(roundPlanets[roundCounter]);
         Debug.Log("Desicio: " + roundCounter + " Next");
         if (roundCounter+1 >= numPlanets)
@@ -64,6 +65,7 @@ public class GameManager : MonoBehaviour
 
     public void DestroyPlanet()
     {
+        poolControler.OnPlanetInteraction(roundPlanets[roundCounter],true);
         Debug.Log(roundCounter + " Destroyed");
         if (roundCounter+1 >= numPlanets) {
             RoundDone();
@@ -75,6 +77,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public void RoundDone()
     {
         roundActive = false;
@@ -82,6 +85,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("Round finished - " + savedPlanets.Count + "saved.");
         round++;
         StartRound();
+
+
     }
 
 }

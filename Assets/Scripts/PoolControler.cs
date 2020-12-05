@@ -9,7 +9,8 @@ public class PoolControler : MonoBehaviour
     public List<Planet> planetPool;
     public Planet objectToPool;
 
-
+    private Terra terra;
+    private Terra terraAnterior;
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -50,58 +51,45 @@ public class PoolControler : MonoBehaviour
 
     public void OnPlanetInteraction(Planet planet, bool isDestroyed)
     {
+        terra = gameManager.terra;
+
         if (isDestroyed)
         {
-
-            
-            //Aliats del planeta s'enfaden
-            /*
-            if (Contains(planetObjects[i].faction.allies, planet.faction)) 
+            //Actualizar valors materials
+            for(int i = 0; i < 3; i++)
             {
-                planet.faction.agresivitat = Mathf.Lerp(planet.faction.agresivitat, 1, 0.1f);
-                planet.perillositat = Mathf.Lerp(planet.perillositat, planet.faction.agresivitat, 0.1f);
+                terra.materials[i] += planet.materials[i];
             }
-            */
-
-
-
-            //Enemics s'alegren
-            /*if (Contains(planetObjects[i].faction.enemies, planet.faction)) 
+            //Agressivitat de la faccio
+            for (int i = 0; i < gameManager.factions.Count; i++)
             {
-                planet.faction.agresivitat = Mathf.Lerp(planet.faction.agresivitat, 0, 0.1f);
-            }*/
+                if (planet.faction.especie == gameManager.factions[i].especie)
+                {
+                    
+                    //Calculem la agresivitat que generem en una faccio al matar un dels seus planetes
+                    gameManager.factions[i].agresivitat += (planet.Poblacio / PlanetGenerator.maxPopulation) * terra.indexTipus;
+                    break;
+                }
 
-            //Jefe content
-            //Afegir llunes al planeta del jugador
+            }
 
-        }
+            }
         else
         {
-            //Aliats s'alegren
-
-
-            /*if (Contains(planetObjects[i].faction.allies, planet.faction)) 
+            for (int i = 0; i < gameManager.factions.Count; i++)
             {
-                planet.faction.agresivitat = Mathf.Lerp(planet.faction.agresivitat, 0, 0.1f);
-            }*/
+                if (planet.faction.especie == gameManager.factions[i].especie)
+                {
 
+                    //Calculem la agresivitat que generem en una faccio al matar un dels seus planetes
+                    gameManager.factions[i].agresivitat += (planet.Poblacio / PlanetGenerator.maxPopulation) * terra.indexTipus;
+                    break;
+                }
 
-            //Enemics s'enfaden
-
-            /*if (Contains(planetObjects[i].faction.enemies, planet.faction))  
-            {
-                planet.faction.agresivitat = Mathf.Lerp(planet.faction.agresivitat, 1, 0.1f);
-
-
-            }*/
-
-
-            //jefe s'enfada
-
-
-
+            }
 
         }
+        gameManager.terra = terra;
     }
 
     public bool Contains(Faction[] factions, Faction faction)
@@ -117,28 +105,45 @@ public class PoolControler : MonoBehaviour
         return false;
     }
 
-    //IDEAS
-    /*
-     * Queficient d'amistat = QA
-     * Si mates als planetes de la seva faccio el QA es redueix i si els deixes viure el QA puja
-     * Les faccions tenen densitats (fins al 100%), mentre mes densitat tenen, mes poder.
-     * Les llunes proveeixen un material en especific, si les petes consgueixes X material i sino no
-     * Els planetes tenen materials que pots obtenir als destruir-los
-     * -Materials:
-     * -Metall?????
-     * -Hi ha un material generi, mes gran, mes material
-     * -També hi ha tipos de materials segons el tipus de planeta
-     * 
-     * 
-     * EL NOSTRE PLANETA
-     * -La poblacio pot variar segons els atacs que et fagin, el recursos que tinguis 
-     *  Mentres mes aliats tinguis mes proteccio tens 
-     * -Si tens molts recursos la poblacio augmenta, si augmenta la poblacio augmenta el consum i per tant has
-     * proveeir mes materials (matar mes planetes)
-     * -5 Tipus de planetes, començes al tipus 3 i pot pujar al 4 i 5
-     * Quan estas al nivell 4 i 5 apareixen altres materials 
-     * Mes tipus mes consum
-     * Maxim i minim de planetes que pots matar cada ronda
-     */
+    public void actualitzaTerra()
+    {
+        float materialsRestants = 0;
+        float materialsConsumits = 0;
+        int valorAugment = 1;
+
+
+        //MIRAR SI THAN ATACAT
+        for (int i = 0; i < gameManager.factions.Count; i++)
+        {
+            int probabilitat = Random.Range(0, 100);
+            //Son enemics
+            if (gameManager.factions[i].agresivitat > 30)
+            {
+                //t'ataquen
+                if (probabilitat > gameManager.factions[i].agresivitat)
+                {
+                    terra.Poblacio -= (gameManager.factions[i].densitat / 100) * terra.Poblacio;
+                }
+            }
+        }
+
+
+        for (int i = 0; i < 3; i++)
+        {
+            terra.materials[i] -= terra.consum[i];
+            materialsRestants += terra.materials[i] * (i+1);
+            materialsConsumits += terra.consum[i] * (i + 1);
+        }
+        if(materialsRestants > 2*materialsConsumits)
+        {
+            valorAugment = (int)(materialsRestants / materialsConsumits);
+            terra.Poblacio *= valorAugment;
+        }
+
+        terra.consum[0] = terra.Poblacio * (int)gameManager.round/5 * terra.indexTipus * 3;
+        terra.consum[1] = terra.Poblacio * (int)gameManager.round / 5 * terra.indexTipus * 2;
+        terra.consum[2] = terra.Poblacio * (int)gameManager.round / 5 * terra.indexTipus * 1;
+
+    }
 }
 
