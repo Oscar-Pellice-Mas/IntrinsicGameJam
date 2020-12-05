@@ -52,8 +52,8 @@ public class ViewInfoPlanet : MonoBehaviour
         dineros.text = planeta.pastaGenerada.ToString();
         especie.text = planeta.especie.ToString();
         showData = true;
-        Debug.Log(quantitatPoblacio.text);
-        Debug.Log(planeta.QuantitatPoblacio);
+        //Debug.Log(quantitatPoblacio.text);
+        //Debug.Log(planeta.QuantitatPoblacio);
     }
 
     void Update()

@@ -5,8 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     PoolControler poolControler;
-    public GameObject prefabViewInfo;
-    GameObject viewInfo;
+    
+    public GameObject viewInfo;
 
     public bool roundActive = false;
 
@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     {
         poolControler = GetComponent<PoolControler>();
         poolControler.CreatePool(5);
-        viewInfo = Instantiate(prefabViewInfo, Vector3.zero, Quaternion.identity);
+        //viewInfo = Instantiate(prefabViewInfo, Vector3.zero, Quaternion.identity);
         viewInfo.GetComponent<ViewInfoPlanet>().SetData(poolControler.GetPooledObject());
         roundActive = true;
     }
