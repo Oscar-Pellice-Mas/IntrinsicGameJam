@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     PoolControler poolControler;
     
-    public GameObject viewInfo;
+    public ViewInfoPlanet viewInfo;
 
     public bool roundActive = false;
 
@@ -14,19 +14,18 @@ public class GameManager : MonoBehaviour
     {
         poolControler = GetComponent<PoolControler>();
         poolControler.CreatePool(5);
-        //viewInfo = Instantiate(prefabViewInfo, Vector3.zero, Quaternion.identity);
-        viewInfo.GetComponent<ViewInfoPlanet>().SetData(poolControler.GetPooledObject());
+        viewInfo.SetData(poolControler.GetPooledObject());
         roundActive = true;
     }
 
     public void NextPlanet()
     {
-        viewInfo.GetComponent<ViewInfoPlanet>().SetData(poolControler.GetPooledObject());
+        viewInfo.SetData(poolControler.GetPooledObject());
     }
 
     public void DestroyPlanet()
     {
-        viewInfo.GetComponent<ViewInfoPlanet>().SetData(poolControler.GetPooledObject());
+        viewInfo.SetData(poolControler.GetPooledObject());
         Debug.Log("DESTROYED");
     }
 

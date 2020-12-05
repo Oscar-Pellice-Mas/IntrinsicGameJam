@@ -19,10 +19,9 @@ public class PoolControler : MonoBehaviour
 
     public void CreatePool (int num)
     {
-        Planet planet;
         for (int i = 0; i < num; i++)
         {
-            planet = PlanetGenerator.GeneratePlanet();
+            Planet planet = PlanetGenerator.GeneratePlanet();
             planetObjects.Add(planet);
         }
     }
