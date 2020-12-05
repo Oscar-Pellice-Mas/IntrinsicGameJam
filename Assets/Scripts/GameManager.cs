@@ -16,9 +16,15 @@ public class GameManager : MonoBehaviour
         prefabViewInfo.GetComponent<ViewInfoPlanet>().SetData(poolControler.GetPooledObject());
     }
 
-    // Update is called once per frame
-    void Update()
+    public void NextPlanet()
     {
-        
+        prefabViewInfo.GetComponent<ViewInfoPlanet>().SetData(poolControler.GetPooledObject());
     }
+
+    public void DestroyPlanet()
+    {
+        prefabViewInfo.GetComponent<ViewInfoPlanet>().SetData(poolControler.GetPooledObject());
+        Debug.Log("DESTROYED");
+    }
+
 }

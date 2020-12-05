@@ -22,6 +22,7 @@ public class ViewInfoPlanet : MonoBehaviour
 
     public int dificulty = 0;
     public bool showData = false;
+
     void Start()
     {
         nom.enabled = false;
@@ -39,7 +40,6 @@ public class ViewInfoPlanet : MonoBehaviour
     public void SetData(Planet planet)
     {
         planeta = planet;
-        Debug.Log(planeta.Nom);
         //imatge.sprite = planeta.planetSprite;
         nom.text = planeta.Nom;    
         quantitatPoblacio.text = planeta.QuantitatPoblació.ToString();
@@ -51,7 +51,7 @@ public class ViewInfoPlanet : MonoBehaviour
         perillositat.text = planeta.perillositat.ToString();
         dineros.text = planeta.pastaGenerada.ToString();
         especie.text = planeta.especie.ToString();
-
+        showData = true;
     }
 
     void Update()
