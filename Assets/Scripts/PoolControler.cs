@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class PoolControler : MonoBehaviour
 {
-    private PoolControler SharedInstance;
     private GameManager gameManager;
 
-    public List<Planet> planetObjects;
+    public List<Planet> planetPool;
     public Planet objectToPool;
 
 
     private void Awake()
     {
-        SharedInstance = this;
         gameManager = FindObjectOfType<GameManager>();
     }
 
@@ -22,19 +20,32 @@ public class PoolControler : MonoBehaviour
         for (int i = 0; i < num; i++)
         {
             Planet planet = PlanetGenerator.GeneratePlanet();
-            planetObjects.Add(planet);
+            planetPool.Add(planet);
         }
     }
 
-    public Planet GetPooledObject()
+    public List<Planet> GetRoundPool(int num)
     {
-        Planet obj = null;
-        if (planetObjects.Count > 0)
+        List<Planet> planetList = new List<Planet>();
+
+        if (num > planetPool.Count) CreatePool(num);
+
+        for (int i = 0; i < num; i++)
         {
-            obj = planetObjects[0];
-            planetObjects.RemoveAt(0);
+            int randomInt = Random.Range(0, planetPool.Count - 1);
+            Planet p = planetPool[randomInt];
+            planetList.Add(p);
+            planetPool.RemoveAt(randomInt);
         }
-        if (planetObjects.Count == 0) gameManager.RoundDone();
-        return obj;
+
+        return planetList;
     }
+
+    public void AddPlanets(List<Planet> planets)
+    {
+        foreach(Planet p in planets){
+            planetPool.Add(p);
+        }
+    }
+
 }
