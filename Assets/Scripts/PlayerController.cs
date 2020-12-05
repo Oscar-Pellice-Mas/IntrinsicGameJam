@@ -16,11 +16,11 @@ public class PlayerController : MonoBehaviour
     {
         if (gameManager.roundActive)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetButtonDown("A"))
             {
                 gameManager.NextPlanet();
             }
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetButtonDown("B"))
             {
                 gameManager.DestroyPlanet();
             }
