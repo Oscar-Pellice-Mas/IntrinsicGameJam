@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PoolControler : MonoBehaviour
 {
-    public static PoolControler SharedInstance;
+    private PoolControler SharedInstance;
 
     public List<Planet> planetObjects;
     public Planet objectToPool;
@@ -16,11 +16,11 @@ public class PoolControler : MonoBehaviour
 
     public void CreatePool (int num)
     {
+        Planet planet;
         for (int i = 0; i < num; i++)
         {
-            Planet obj = (Planet)Instantiate(objectToPool);
-            PlanetGenerator.GeneratePlanet();
-            planetObjects.Add(obj);
+            planet = PlanetGenerator.GeneratePlanet();
+            planetObjects.Add(planet);
         }
     }
 

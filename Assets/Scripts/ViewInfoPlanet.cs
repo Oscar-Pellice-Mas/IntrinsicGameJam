@@ -20,11 +20,27 @@ public class ViewInfoPlanet : MonoBehaviour
     public TextMeshProUGUI dineros;
     public TextMeshProUGUI especie;
 
-
-    // Start is called before the first frame update
+    public int dificulty = 0;
+    public bool showData = false;
     void Start()
     {
-        imatge.sprite = planeta.planetSprite;
+        nom.enabled = false;
+        quantitatPoblacio.enabled = false;
+        regim.enabled = false;
+        edat.enabled = false;
+        energia.enabled = false;
+        tipus.enabled = false;
+        recursos.enabled = false;
+        perillositat.enabled = false;
+        dineros.enabled = false;
+        especie.enabled = false;
+    }
+
+    public void SetData(Planet planet)
+    {
+        planeta = planet;
+        Debug.Log(planeta.Nom);
+        //imatge.sprite = planeta.planetSprite;
         nom.text = planeta.Nom;    
         quantitatPoblacio.text = planeta.QuantitatPoblació.ToString();
         regim.text = planeta.Regim.ToString();
@@ -38,5 +54,58 @@ public class ViewInfoPlanet : MonoBehaviour
 
     }
 
-
+    void Update()
+    {
+        if (showData)
+        {
+            showData = false;
+            //Debug.Log("Nom: " + planet.Nom);
+            nom.enabled = true;
+            if (dificulty > 0)
+            {
+                quantitatPoblacio.enabled = true;
+                //Debug.Log("Població: " + planet.QuantitatPoblació);
+            }
+            if (dificulty > 1)
+            {
+                regim.enabled = true;
+                //Debug.Log("Regim: " + planet.Regim);
+            }
+            if (dificulty > 2)
+            {
+                edat.enabled = true;
+                //Debug.Log("Edat espècie: " + planet.EdatEspecie);
+            }
+            if (dificulty > 3)
+            {
+                energia.enabled = true;
+                //Debug.Log("Energia consumida: " + planet.EnergiaConsumida);
+            }
+            if (dificulty > 4)
+            {
+                tipus.enabled = true;
+                //Debug.Log("Nom: " + planet.Nom);
+            }
+            if (dificulty > 5)
+            {
+                recursos.enabled = true;
+                //Debug.Log("Nom: " + planet.Nom);
+            }
+            if (dificulty > 6)
+            {
+                perillositat.enabled = true;
+                //Debug.Log("Nom: " + planet.Nom);
+            }
+            if (dificulty > 7)
+            {
+                dineros.enabled = true;
+                //Debug.Log("Nom: " + planet.Nom);
+            }
+            if (dificulty > 8)
+            {
+                especie.enabled = true;
+                //Debug.Log("Nom: " + planet.Nom);
+            }
+        }
+    }
 }

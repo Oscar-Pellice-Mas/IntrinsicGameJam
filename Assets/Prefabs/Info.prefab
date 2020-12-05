@@ -1156,7 +1156,7 @@ GameObject:
   - component: {fileID: 3360859451683089296}
   - component: {fileID: 3360859451683089299}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1256,7 +1256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba0c9c1d0c8ccf429641385cb50bfc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planeta: {fileID: 11400000, guid: 69c5fbf2365698b48a6ab23d8e8aceee, type: 2}
+  planeta: {fileID: 0}
   imatge: {fileID: 3360859450597653195}
   nom: {fileID: 3360859450360488451}
   quantitatPoblacio: {fileID: 3360859451408894969}
@@ -1268,6 +1268,8 @@ MonoBehaviour:
   perillositat: {fileID: 3360859450710114703}
   dineros: {fileID: 3360859450164486976}
   especie: {fileID: 3360859450215685638}
+  dificulty: 0
+  showData: 0
 --- !u!114 &3360859451683089299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1280,10 +1282,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ad35ff80e1d404e990ababf5d0c5ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planet: {fileID: 11400000, guid: 69c5fbf2365698b48a6ab23d8e8aceee, type: 2}
+  planet: {fileID: 0}
   info: {fileID: 3360859451683089296}
-  dificulty: 0
-  showData: 0
+  dificulty: 9
+  showData: 1
 --- !u!1 &3360859451695818816
 GameObject:
   m_ObjectHideFlags: 0
