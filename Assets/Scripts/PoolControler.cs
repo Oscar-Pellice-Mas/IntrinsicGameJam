@@ -48,4 +48,81 @@ public class PoolControler : MonoBehaviour
         }
     }
 
+    public void OnPlanetInteraction(Planet planet, bool isDestroyed)
+    {
+        if (isDestroyed)
+        {
+
+            //Aliats s'enfaden
+
+
+            /*if (Contains(planetObjects[i].faction.allies, planet.faction)) 
+            {
+                planet.faction.agresivitat = Mathf.Lerp(planet.faction.agresivitat, 1, 0.1f);
+                planet.perillositat = Mathf.Lerp(planet.perillositat, planet.faction.agresivitat, 0.1f);
+
+
+            }*/
+
+            //Enemics s'alegren
+
+
+            /*if (Contains(planetObjects[i].faction.enemies, planet.faction)) 
+            {
+                planet.faction.agresivitat = Mathf.Lerp(planet.faction.agresivitat, 0, 0.1f);
+
+
+            }*/
+
+            //Jefe content
+
+
+            //Afegir llunes al planeta del jugador
+
+
+
+
+        }
+        else
+        {
+            //Aliats s'alegren
+
+
+            /*if (Contains(planetObjects[i].faction.allies, planet.faction)) 
+            {
+                planet.faction.agresivitat = Mathf.Lerp(planet.faction.agresivitat, 0, 0.1f);
+            }*/
+
+
+            //Enemics s'enfaden
+
+            /*if (Contains(planetObjects[i].faction.enemies, planet.faction))  
+            {
+                planet.faction.agresivitat = Mathf.Lerp(planet.faction.agresivitat, 1, 0.1f);
+
+
+            }*/
+
+
+            //jefe s'enfada
+
+
+
+
+        }
+    }
+
+    public bool Contains(Faction[] factions, Faction faction)
+    {
+        for(int i = 0; i < factions.Length; i++)
+        {
+            if (factions[i] == faction)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }

@@ -25,7 +25,7 @@ public class PlanetGenerator : MonoBehaviour
     private const float perillositatMin = 0, perillositatMax = 0;
     private const float pastaGeneradaMin = 0, pastaGeneradaMax = 0;
 
-    private Planet.raca especie;
+    //private Planet.raca especie;
     private Planet.tipus tipusPlaneta;
     private Planet.regim Regim;
 
@@ -55,9 +55,9 @@ public class PlanetGenerator : MonoBehaviour
 
 
         //....
-        planet.recursosConsumitsPerAny = Random.Range(recursosConsumitsPerAnyMin, recursosConsumitsPerAnyMax);
+        //planet.recursosConsumitsPerAny = Random.Range(recursosConsumitsPerAnyMin, recursosConsumitsPerAnyMax);
         
-        planet.pastaGenerada = Random.Range(pastaGeneradaMin, pastaGeneradaMax);
+        //planet.pastaGenerada = Random.Range(pastaGeneradaMin, pastaGeneradaMax);
         
        
         return planet;
