@@ -25,21 +25,18 @@ public class Planet : ScriptableObject
     public regim Regim;
     public enum regim { democracia, dictadura, monarquia}
 
-    public raca especie;
-    public enum raca { humans, ewoks, daleks, xenos, vortigaunts }
-
+    
 
 }
 
 [CreateAssetMenu(fileName = "new faction", menuName = "Jam/New faction")]
 public class Faction : ScriptableObject
 {
-    public string nom;
     public float agresivitat;
     public float densitat;
+    public raca especie;
+    public enum raca { humans, ewoks, daleks, xenos, vortigaunts }
 
-    public Faction[] allies;
-    public Faction[] enemies;
 
 }
 
