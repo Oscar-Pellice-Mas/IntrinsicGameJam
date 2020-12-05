@@ -10,12 +10,13 @@ public class TerraGenerator : MonoBehaviour
     public static List<Faction> GenerateFactions()
     {
         List<Faction> factions = new List<Faction>();
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 5; i++)
         {
             Faction f = new Faction();
             f.agresivitat = 0;
             f.densitat = 0; //Setejar un cop es creein planetes nous
             f.especie = (Faction.raca)i;
+            factions.Add(f);
         }
         return factions;
     }
@@ -47,7 +48,8 @@ public class TerraGenerator : MonoBehaviour
         terra.tipusPlaneta = Terra.tipus.modern;
 
         //Faction
-        terra.faction = FindObjectOfType<GameManager>().factions[Random.Range(0,4)];
+        GameManager manager = FindObjectOfType<GameManager>();
+        terra.faction = manager.factions[Random.Range(0, manager.factions.Count)];
 
         //Regim
         terra.Regim = (Terra.regim)Random.Range(0, 2);
