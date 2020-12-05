@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1816288915461226295}
   - component: {fileID: 923509629200495495}
   m_Layer: 0
-  m_Name: horitzontal_64px_60frames_0
+  m_Name: Planet 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
