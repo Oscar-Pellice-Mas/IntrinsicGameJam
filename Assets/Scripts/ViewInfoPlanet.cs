@@ -6,6 +6,15 @@ using UnityEngine.UI;
 
 public class ViewInfoPlanet : MonoBehaviour
 {
+    public GameManager manager;
+
+    public GameObject PlanetGO;
+    public GameObject PlanetPlaceholderA;
+    public GameObject PlanetPlaceholderB;
+
+    public float TimePerRound;
+    float currentTime = 0;
+    bool RoundActive = false;
     public Planet planeta;
 
     public Image imatge;
@@ -30,6 +39,7 @@ public class ViewInfoPlanet : MonoBehaviour
         dificulty = num;
     }
 
+
     void Start()
     {/*
         nom.enabled = true;
@@ -44,8 +54,15 @@ public class ViewInfoPlanet : MonoBehaviour
         especie.enabled = false;*/
     }
 
-    public void SetData(Planet planet)
+    public void SetData(Planet planet, bool startRound = true)
     {
+
+        if (startRound)
+        {
+            currentTime = 0;
+            RoundActive = true;
+        }
+
         planeta = planet;
         //imatge.sprite = planeta.planetSprite;
         ShowInfo(nom, planeta.Nom);
@@ -82,6 +99,18 @@ public class ViewInfoPlanet : MonoBehaviour
 
     void Update()
     {
+        if (RoundActive)
+        {
+            PlanetGO.transform.position = Vector3.Lerp(PlanetPlaceholderA.transform.position, PlanetPlaceholderB.transform.position, currentTime / TimePerRound);
+            currentTime += Time.deltaTime;
+            if (currentTime > TimePerRound)
+            {
+                if (manager != null)
+                    manager.NextPlanet();
+                else
+                    Debug.LogError("Game manager is null.");
+            }
+        }
         if (showData)
         {
             showData = false;

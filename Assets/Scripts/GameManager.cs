@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public bool roundActive = false;
 
     private const int InitialPoolNumber = 10;
-
+        
     void Start()
     {
         poolControler = GetComponent<PoolControler>();
