@@ -36,6 +36,7 @@ public class PlanetGenerator : MonoBehaviour
 
         //Poblacio
         float radi = Random.Range(RadiMin, RadiMax);
+        planet.radi = radi;
         float area = 4 * Mathf.PI * radi * radi;
         float poblacioCalculada = area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio);
         planet.QuantitatPoblacio = poblacioCalculada;

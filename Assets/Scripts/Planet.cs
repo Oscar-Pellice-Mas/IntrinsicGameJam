@@ -10,12 +10,13 @@ public class Planet : ScriptableObject
 
 
     public string Nom;
-    public float QuantitatPoblacio = 0;
+    public float QuantitatPoblacio;
     public int LlunesExplotades;
     public int EdatEspecie;
     public float EnergiaConsumida;
     public float perillositat;
-    
+    public float radi;
+    public int llunes;
     public Faction faction;
 
     public tipus tipusPlaneta;
