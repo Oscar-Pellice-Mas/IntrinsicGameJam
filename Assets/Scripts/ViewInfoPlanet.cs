@@ -26,7 +26,7 @@ public class ViewInfoPlanet : MonoBehaviour
     {
         imatge.sprite = planeta.planetSprite;
         nom.text = planeta.Nom;    
-        quantitatPoblacio.text = planeta.QuantitatPoblació.ToString();
+        quantitatPoblacio.text = planeta.QuantitatPoblacio.ToString();
         regim.text = planeta.Regim.ToString();
         edat.text = planeta.EdatEspecie.ToString();
         energia.text = planeta.EnergiaConsumida.ToString();

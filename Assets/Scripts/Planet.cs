@@ -10,7 +10,7 @@ public class Planet : ScriptableObject
 
 
     public string Nom;
-    public float QuantitatPoblació = 0;
+    public float QuantitatPoblacio = 0;
     public regim Regim;
     public int EdatEspecie;
     public float EnergiaConsumida;
