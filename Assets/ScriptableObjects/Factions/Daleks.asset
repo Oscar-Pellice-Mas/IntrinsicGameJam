@@ -10,8 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: new faction 2
+  m_Name: Daleks
   m_EditorClassIdentifier: Assembly-CSharp::Faction
-  nom: 
-  especie: 0
+  nom: Daleks
+  especie: 2
   agresivitat: 0
+  allies:
+  - {fileID: 11400000, guid: a572387fd39b672498d25b49f26676a5, type: 2}
+  enemies:
+  - {fileID: 11400000, guid: 898b42d0e13fac74d81cb7baebf18f8b, type: 2}
+  - {fileID: 11400000, guid: df2740aba6716dc42af1d5b8f09a2deb, type: 2}
+  - {fileID: 11400000, guid: b5d243890dba2a848a352638378bf497, type: 2}

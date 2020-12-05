@@ -48,15 +48,32 @@ public class PoolControler : MonoBehaviour
                 {
                     if (Contains(planetObjects[i].faction.allies, planet.faction)) //isAlly
                     {
+                        planet.faction.agresivitat = Mathf.Lerp(planet.faction.agresivitat, 1, 0.1f);
+                        planet.perillositat = Mathf.Lerp(planet.perillositat, planet.faction.agresivitat, 0.1f);
+
 
                     }else if (Contains(planetObjects[i].faction.enemies, planet.faction)) //isenemy
                     {
+                        planet.faction.agresivitat = Mathf.Lerp(planet.faction.agresivitat, 0, 0.1f);
+
 
                     }
                 }
                 else
                 {
+                    if (Contains(planetObjects[i].faction.allies, planet.faction)) //isAlly
+                    {
+                        planet.faction.agresivitat = Mathf.Lerp(planet.faction.agresivitat, 0, 0.1f);
 
+
+
+                    }
+                    else if (Contains(planetObjects[i].faction.enemies, planet.faction)) //isenemy
+                    {
+                        planet.faction.agresivitat = Mathf.Lerp(planet.faction.agresivitat, 1, 0.1f);
+
+
+                    }
                 }
 
             }
