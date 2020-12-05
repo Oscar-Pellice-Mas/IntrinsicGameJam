@@ -78,5 +78,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosio
       objectReference: {fileID: 0}
+    - target: {fileID: 8549516900693234394, guid: 296c9d0fea17d8e499127f511e2384cc,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5635095090020934947, guid: b1e62688fe7292b47b3e76766ca51179,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 296c9d0fea17d8e499127f511e2384cc, type: 3}
