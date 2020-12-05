@@ -5,13 +5,16 @@ using UnityEngine;
 public class PoolControler : MonoBehaviour
 {
     private PoolControler SharedInstance;
+    private GameManager gameManager;
 
     public List<Planet> planetObjects;
     public Planet objectToPool;
 
+
     private void Awake()
     {
         SharedInstance = this;
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     public void CreatePool (int num)
@@ -32,6 +35,7 @@ public class PoolControler : MonoBehaviour
             obj = planetObjects[0];
             planetObjects.RemoveAt(0);
         }
+        if (planetObjects.Count == 0) gameManager.RoundDone();
         return obj;
     }
 }

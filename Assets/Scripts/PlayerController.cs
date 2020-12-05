@@ -14,15 +14,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (gameManager.roundActive)
         {
-            Debug.Log("Space Pressed");
-            gameManager.NextPlanet();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Debug.Log("Space Pressed");
+                gameManager.NextPlanet();
+            }
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                Debug.Log("Return Pressed");
+                gameManager.DestroyPlanet();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            Debug.Log("Return Pressed");
-            gameManager.DestroyPlanet();
-        }
+        
     }
 }

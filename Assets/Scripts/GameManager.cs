@@ -6,25 +6,33 @@ public class GameManager : MonoBehaviour
 {
     PoolControler poolControler;
     public GameObject prefabViewInfo;
+    GameObject viewInfo;
 
-    // Start is called before the first frame update
+    public bool roundActive = false;
+
     void Start()
     {
         poolControler = GetComponent<PoolControler>();
         poolControler.CreatePool(5);
-        Instantiate(prefabViewInfo, Vector3.zero, Quaternion.identity);
-        prefabViewInfo.GetComponent<ViewInfoPlanet>().SetData(poolControler.GetPooledObject());
+        viewInfo = Instantiate(prefabViewInfo, Vector3.zero, Quaternion.identity);
+        viewInfo.GetComponent<ViewInfoPlanet>().SetData(poolControler.GetPooledObject());
+        roundActive = true;
     }
 
     public void NextPlanet()
     {
-        prefabViewInfo.GetComponent<ViewInfoPlanet>().SetData(poolControler.GetPooledObject());
+        viewInfo.GetComponent<ViewInfoPlanet>().SetData(poolControler.GetPooledObject());
     }
 
     public void DestroyPlanet()
     {
-        prefabViewInfo.GetComponent<ViewInfoPlanet>().SetData(poolControler.GetPooledObject());
+        viewInfo.GetComponent<ViewInfoPlanet>().SetData(poolControler.GetPooledObject());
         Debug.Log("DESTROYED");
+    }
+
+    public void RoundDone()
+    {
+        roundActive = false;
     }
 
 }
