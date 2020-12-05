@@ -11,12 +11,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 1773c66804cf0b54f8da43f9a9d3387e, type: 2}
+      objectReference: {fileID: 9100000, guid: 175f7903bded566478778bc8ad260ee4, type: 2}
     - target: {fileID: 1816288915461226295, guid: 296c9d0fea17d8e499127f511e2384cc,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -8310578835852675831, guid: 26097a416e96f324ba9cae21b8b1191b,
+      objectReference: {fileID: -4136115161483952103, guid: e6cbc8fe10213e94c9c8b980bd7fc9db,
         type: 3}
     - target: {fileID: 3013831177781016335, guid: 296c9d0fea17d8e499127f511e2384cc,
         type: 3}
@@ -76,7 +76,7 @@ PrefabInstance:
     - target: {fileID: 5054299803597108288, guid: 296c9d0fea17d8e499127f511e2384cc,
         type: 3}
       propertyPath: m_Name
-      value: Planet 1
+      value: Planet 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 296c9d0fea17d8e499127f511e2384cc, type: 3}
