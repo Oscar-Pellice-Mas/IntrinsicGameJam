@@ -9,6 +9,7 @@ public class Planet : ScriptableObject
     public Sprite planetSprite;
 
     public string Nom;
+    public float radi;
     public float Poblacio = 0;
     public float[] materials = new float[3];
     public tipus tipusPlaneta;
