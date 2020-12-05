@@ -20,12 +20,17 @@ public class ViewInfoPlanet : MonoBehaviour
     public TextMeshProUGUI dineros;
     public TextMeshProUGUI especie;
 
-    public int dificulty = 0;
+    private int dificulty = 0;
     public bool showData = false;
+
+    public void SetDificulty(int num)
+    {
+        dificulty = num;
+    }
 
     void Start()
     {
-        nom.enabled = false;
+        nom.enabled = true;
         quantitatPoblacio.enabled = false;
         regim.enabled = false;
         edat.enabled = false;

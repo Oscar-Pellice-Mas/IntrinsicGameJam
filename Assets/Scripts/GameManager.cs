@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     {
         roundCounter = 0;
         savedPlanets = new List<Planet>();
+        viewInfo.SetDificulty(round);
+
         roundPlanets = poolControler.GetRoundPool(5);
         numPlanets = roundPlanets.Count;
         viewInfo.SetData(roundPlanets[roundCounter]);
