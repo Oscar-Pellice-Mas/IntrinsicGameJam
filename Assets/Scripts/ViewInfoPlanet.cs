@@ -53,7 +53,7 @@ public class ViewInfoPlanet : MonoBehaviour
         especie.text = planeta.especie.ToString();
         showData = true;
         Debug.Log(quantitatPoblacio.text);
-        Debug.Log(planeta.QuantitatPoblació);
+        Debug.Log(planeta.QuantitatPoblacio);
     }
 
     void Update()
