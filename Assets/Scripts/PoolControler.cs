@@ -63,6 +63,8 @@ public class PoolControler : MonoBehaviour
             }
             */
 
+
+
             //Enemics s'alegren
             /*if (Contains(planetObjects[i].faction.enemies, planet.faction)) 
             {
