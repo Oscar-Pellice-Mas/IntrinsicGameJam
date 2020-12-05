@@ -6,11 +6,15 @@ public class CameraShakeManager : MonoBehaviour
 {
     public Transform[] ObjectsToShake;
     Vector3[] InitialPositions;
-    public bool triggerShake = false;
+
+    [SerializeField]
+    bool triggerShake = false;
     bool isShaking = false;
-    float shakeDuration = 1;
     float currentShakeDuration = 0;
+
     public float ShakeAmplitude = 5;
+    public float shakeDuration = 1;
+
     void Start()
     {
         InitialPositions = new Vector3[ObjectsToShake.Length];
@@ -47,9 +51,15 @@ public class CameraShakeManager : MonoBehaviour
             }
 
             currentShakeDuration -= Time.deltaTime;
+
             if (currentShakeDuration <= 0)
             {
                 isShaking = false;
+
+                for (int i = 0; i < ObjectsToShake.Length; i++)
+                {
+                    ObjectsToShake[i].transform.position = InitialPositions[i];
+                }
             }
         }
     }
