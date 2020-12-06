@@ -197,7 +197,7 @@ public class PlanetGenerator : MonoBehaviour
             planet.perillositat = Random.Range(0, 100);
         }
 
-
+        Debug.Log("El planeta te: "+planet.perillositat);
         return planet;
     }
 
@@ -402,6 +402,9 @@ public class PlanetGenerator : MonoBehaviour
 
         //Regim
         terra.Regim = (Terra.regim)Random.Range(0, 2);
+
+        //Creo la llista d'atacants
+        terra.atacants = new List<string>();
 
         return terra;
     }

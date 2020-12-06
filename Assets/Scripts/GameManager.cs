@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     private List<Planet> savedPlanets;
 
     public Terra terra;
+    public Terra terraAnterior;
+
     public List<Faction> factions;
 
     public int round = 1;
@@ -37,7 +39,8 @@ public class GameManager : MonoBehaviour
         planetGenerator = GetComponent<PlanetGenerator>();
         factions = planetGenerator.GenerateFactions();
         terra = planetGenerator.GenerateTerra();
-
+        //Guardem la terra del principi
+        terraAnterior = terra;
         poolControler = GetComponent<PoolControler>();
         poolControler.CreatePool(InitialPoolNumber);
 
@@ -139,11 +142,16 @@ public class GameManager : MonoBehaviour
         poolControler.AddPlanets(savedPlanets);
         Debug.Log("Round finished - " + savedPlanets.Count + "saved.");
         round++;
+        //Creem un script amb tota la informacio que necessitem de la terra al final i al començar la ronda
+        RoundInfo roundInfo = new RoundInfo();
+        //Mostrem la info
+
+        //Canviar la terra anterior per guardar els canvis
+        terraAnterior = terra;
         StartRound();
 
 
     }
-
 
     private void Update()
     {   if(viewInfo.PlanetGO != null && laser2.activeInHierarchy)
@@ -161,4 +169,22 @@ public class GameManager : MonoBehaviour
         }
         
     }
+    public void generaInfoRonda()
+    {
+        RoundInfo roundInfo = new RoundInfo();
+        //Agafar els valors de poblacio la terra nova i antiga
+        roundInfo.poblacio[0] = terraAnterior.Poblacio;
+        roundInfo.poblacio[1] = terra.Poblacio;
+
+        //Agafar els materials
+        roundInfo.materials_abans = terraAnterior.materials;
+        roundInfo.materials_ara = terra.materials;
+
+        //Agafar els materials
+        roundInfo.consum_abans = terraAnterior.consum;
+        roundInfo.consum_ara = terra.consum;
+
+        roundInfo.atacants = terra.atacants;
+    }
+
 }

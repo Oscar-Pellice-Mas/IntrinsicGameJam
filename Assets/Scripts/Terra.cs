@@ -15,6 +15,7 @@ public class Terra : ScriptableObject
     public int indexTipus;
     public tipus tipusPlaneta;
     public Faction faction;
+    public List<string> atacants;
    
 
     public enum tipus { primitiu, basic, modern, avancat, futurista }
