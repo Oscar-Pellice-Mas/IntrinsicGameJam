@@ -403,6 +403,9 @@ public class PlanetGenerator : MonoBehaviour
         //Regim
         terra.Regim = (Terra.regim)Random.Range(0, 2);
 
+        //Creo la llista d'atacants
+        terra.atacants = new List<string>();
+
         return terra;
     }
 

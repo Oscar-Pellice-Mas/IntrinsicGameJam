@@ -1628,6 +1628,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Botons
       objectReference: {fileID: 0}
+    - target: {fileID: 5054299803597108288, guid: 593947867aefa7d47a170e43ae27f9b8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9042794949101100096, guid: 593947867aefa7d47a170e43ae27f9b8,
         type: 3}
       propertyPath: m_LocalPosition.x

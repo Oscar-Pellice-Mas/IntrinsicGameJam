@@ -11,7 +11,6 @@ public class PoolControler : MonoBehaviour
     public Planet objectToPool;
 
     private Terra terra;
-    private Terra terraAnterior;
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -75,7 +74,7 @@ public class PoolControler : MonoBehaviour
     public void OnPlanetInteraction(Planet planet, bool isDestroyed)
     {
         terra = gameManager.terra;
-
+        
         if (isDestroyed)
         {
             //Actualizar valors materials
@@ -136,7 +135,7 @@ public class PoolControler : MonoBehaviour
         int valorAugment = 1;
 
 
-        //MIRAR SI THAN ATACAT
+        //Primer mirerm si al tornar
         for (int i = 0; i < gameManager.factions.Count; i++)
         {
             int probabilitat = Random.Range(0, 100);
@@ -147,6 +146,8 @@ public class PoolControler : MonoBehaviour
                 if (probabilitat > gameManager.factions[i].agresivitat)
                 {
                     terra.Poblacio -= (gameManager.factions[i].densitat / 100) * terra.Poblacio;
+                    //ens apuntem qui ens ha atacat
+                    terra.atacants.Add(gameManager.factions[i].especie.ToString());
                 }
             }
         }
