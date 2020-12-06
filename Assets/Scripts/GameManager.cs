@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         laser1.SetActive(false);
         laser2.SetActive(false);
 
-        roundInfo = new RoundInfo();
+        roundInfo = gameObject.AddComponent<RoundInfo>();
 
         StartRound();
     }
