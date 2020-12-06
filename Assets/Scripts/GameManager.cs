@@ -31,6 +31,12 @@ public class GameManager : MonoBehaviour
         poolControler = GetComponent<PoolControler>();
         poolControler.CreatePool(InitialPoolNumber);
 
+        poolControler.RefreshFactions();
+        for (int i = 0; i < factions.Count; i++)
+        {
+            Debug.Log(factions[i].densitat);
+        }
+       
         StartRound();
     }
 

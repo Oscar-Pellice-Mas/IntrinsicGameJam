@@ -40,6 +40,8 @@ public class PlanetGenerator : MonoBehaviour
     {
         Planet planet = new Planet();
         planet.tipusPlaneta = (Planet.tipus)Random.Range(0, 4);
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        planet.faction = gameManager.factions[Random.Range(0, gameManager.factions.Count)];
 
         switch (planet.tipusPlaneta)
         {
