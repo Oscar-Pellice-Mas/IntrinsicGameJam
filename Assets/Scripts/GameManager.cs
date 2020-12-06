@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     public List<Faction> factions;
 
+    public RoundInfo roundInfo;
     public int round = 1;
 
     public bool roundActive = false;
@@ -43,19 +44,19 @@ public class GameManager : MonoBehaviour
         planetGenerator = GetComponent<PlanetGenerator>();
         factions = planetGenerator.GenerateFactions();
         terra = planetGenerator.GenerateTerra();
+
         //Guardem la terra del principi
         terraAnterior = terra;
+
         poolControler = GetComponent<PoolControler>();
         poolControler.CreatePool(InitialPoolNumber);
 
         poolControler.RefreshFactions();
-        for (int i = 0; i < factions.Count; i++)
-        {
-            Debug.Log(factions[i].densitat);
-        }
 
         laser1.SetActive(false);
         laser2.SetActive(false);
+
+        roundInfo = gameObject.AddComponent<RoundInfo>();
 
         StartRound();
     }
@@ -66,8 +67,10 @@ public class GameManager : MonoBehaviour
         savedPlanets = new List<Planet>();
         viewInfo.SetDificulty(round);
 
+        poolControler.RefreshFactions();
         roundPlanets = poolControler.GetRoundPool(5);
         numPlanets = roundPlanets.Count;
+        
         viewInfo.SetData(roundPlanets[roundCounter]);
         roundActive = true;
     }
@@ -78,9 +81,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         poolControler.OnPlanetInteraction(roundPlanets[roundCounter], false);
         savedPlanets.Add(roundPlanets[roundCounter]);
-        Debug.Log("Desicio: " + roundCounter + " Next");
         yield return new WaitForSeconds(0.5f);
-        //yield return new WaitForSeconds(0.2f);
         saveLeverAnimator.SetBool("palancaDown", false);
         yield return new WaitForSeconds(0.2f);
         if (roundCounter+1 >= numPlanets)
@@ -127,6 +128,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
         poolControler.OnPlanetInteraction(roundPlanets[roundCounter],true);
+
         Debug.Log(roundCounter + " Destroyed");
         cameraShake.StartShake(6f, 15, CameraShakeManager.ShakeType.decremental);
         WhiteFadeScreen.color = new Color(1,1,1,1);
@@ -161,10 +163,10 @@ public class GameManager : MonoBehaviour
     {
         roundActive = false;
         poolControler.AddPlanets(savedPlanets);
-        Debug.Log("Round finished - " + savedPlanets.Count + "saved.");
         round++;
+
         //Creem un script amb tota la informacio que necessitem de la terra al final i al començar la ronda
-        RoundInfo roundInfo = new RoundInfo();
+        generaInfoRonda();
         //Mostrem la info
 
         //Canviar la terra anterior per guardar els canvis
@@ -196,9 +198,9 @@ public class GameManager : MonoBehaviour
 
 
     }
-    public void generaInfoRonda()
+    public RoundInfo generaInfoRonda()
     {
-        RoundInfo roundInfo = new RoundInfo();
+        
         //Agafar els valors de poblacio la terra nova i antiga
         roundInfo.poblacio[0] = terraAnterior.Poblacio;
         roundInfo.poblacio[1] = terra.Poblacio;
@@ -212,6 +214,8 @@ public class GameManager : MonoBehaviour
         roundInfo.consum_ara = terra.consum;
 
         roundInfo.atacants = terra.atacants;
+
+        return roundInfo;
     }
 
 }

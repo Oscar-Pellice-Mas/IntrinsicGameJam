@@ -37,6 +37,7 @@ public class Faction : ScriptableObject
     public int agresivitat;
     public int densitat;
     public raca especie;
+    public Sprite imatge; 
     public enum raca { humans, ewoks, daleks, xenos, vortigaunts }
 }
 
