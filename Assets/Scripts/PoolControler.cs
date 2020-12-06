@@ -78,7 +78,7 @@ public class PoolControler : MonoBehaviour
         if (isDestroyed)
         {
             //Actualizar valors materials
-            for(int i = 0; i < 3; i++)
+            for(int i = 0; i < planet.materials.Length; i++)
             {
                 terra.materials[i] += planet.materials[i];
             }
@@ -95,7 +95,8 @@ public class PoolControler : MonoBehaviour
 
             }
 
-            }
+
+        }
         else
         {
             for (int i = 0; i < gameManager.factions.Count; i++)
@@ -150,7 +151,7 @@ public class PoolControler : MonoBehaviour
         }
 
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < terra.consum.Length; i++)
         {
             terra.materials[i] -= terra.consum[i];
             materialsRestants += terra.materials[i] * (i+1);

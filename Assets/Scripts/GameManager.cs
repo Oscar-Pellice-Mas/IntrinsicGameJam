@@ -73,6 +73,9 @@ public class GameManager : MonoBehaviour
     {
         poolControler.OnPlanetInteraction(roundPlanets[roundCounter],true);
         Debug.Log(roundCounter + " Destroyed");
+
+        //Destroy planet
+
         if (roundCounter+1 >= numPlanets) {
             RoundDone();
             return;
