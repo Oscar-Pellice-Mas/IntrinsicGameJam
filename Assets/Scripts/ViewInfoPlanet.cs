@@ -9,6 +9,7 @@ public class ViewInfoPlanet : MonoBehaviour
     public GameManager gameManager;
 
     public GameObject PlanetGO;
+    public GameObject[] moons;
     public GameObject PlanetPlaceholderA;
     public GameObject PlanetPlaceholderB;
 
@@ -62,6 +63,19 @@ public class ViewInfoPlanet : MonoBehaviour
             PlanetGO = Instantiate(planet.planetPrefab, parent);
             PlanetGO.transform.SetSiblingIndex(siblingIndex);
             PlanetGO.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(320, 320);
+            if (moons != null)
+            {
+                for (int i = 0; i < moons.Length; i++)
+                {
+                    DestroyImmediate(moons[i]);
+                }
+            }
+            moons = new GameObject[planet.llunes.Length];
+            for (int i = 0; i < moons.Length; i++)
+            {
+                moons[i] = Instantiate(planet.llunes[i], parent);
+                moons[i].transform.SetSiblingIndex(siblingIndex+1);
+            }
 
             //PlanetGO.transform.localScale = planet.radi
         }
@@ -168,6 +182,14 @@ public class ViewInfoPlanet : MonoBehaviour
                     StartCoroutine(gameManager.NextPlanet());
                 else
                     Debug.LogError("Game manager is null.");
+            }
+            float orbit = 200;
+            for (int i = 0; i < moons.Length; i++)
+            {
+                float angle = 360 * ((float)i / (float)moons.Length);
+                angle += currentTime *  Mathf.Lerp( 0.5f, 0.2f, ((float)i / (float)moons.Length));
+                moons[i].transform.position = PlanetGO.transform.position + new Vector3(orbit * Mathf.Sin(angle ), orbit * Mathf.Cos(angle), 0);
+                orbit += 55;
             }
         }
         if (showData)
