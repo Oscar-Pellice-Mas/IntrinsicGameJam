@@ -520,7 +520,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 225.8, y: -307.2}
+  m_AnchoredPosition: {x: 226, y: -307.2}
   m_SizeDelta: {x: 56, y: 82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &205841423
@@ -536,13 +536,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.84313726}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.65882355}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 784aa6bc73a9a3545aede40bc1454234, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 065f54ea5d95b624c8e03823425ae55c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4017,6 +4017,7 @@ MonoBehaviour:
   terra: {fileID: 0}
   terraAnterior: {fileID: 0}
   factions: []
+  roundInfo: {fileID: 0}
   round: 1
   roundActive: 0
 --- !u!4 &2015185285
@@ -4150,6 +4151,12 @@ MonoBehaviour:
   - {fileID: 5054299803597108288, guid: 2e493a0d490db8f41acbed2d587e3427, type: 3}
   - {fileID: 5054299803597108288, guid: a47a94ff14ed99e46a1dab60b8e778ba, type: 3}
   - {fileID: 5054299803597108288, guid: b7ba2f5b13763994f9860c923c4b66fc, type: 3}
+  Sprites:
+  - {fileID: 21300000, guid: 784aa6bc73a9a3545aede40bc1454234, type: 3}
+  - {fileID: 21300000, guid: a3beb30829057424aafb4f4fa7b0c421, type: 3}
+  - {fileID: 21300000, guid: 7ea5bf8fa5944ce4ebb855c0d6bba6ff, type: 3}
+  - {fileID: 21300000, guid: 5e74238dbc064cd45a222feee7332f09, type: 3}
+  - {fileID: 21300000, guid: 065f54ea5d95b624c8e03823425ae55c, type: 3}
   maxPopulation: 0
 --- !u!1 &2083531260
 GameObject:
@@ -4824,13 +4831,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba0c9c1d0c8ccf429641385cb50bfc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 2015185284}
+  gameManager: {fileID: 0}
   PlanetGO: {fileID: 231172833}
   PlanetPlaceholderA: {fileID: 1650971038}
   PlanetPlaceholderB: {fileID: 397176398}
   TimePerRound: 60
   planeta: {fileID: 0}
-  imatge: {fileID: 0}
+  imatge: {fileID: 205841423}
   nom: {fileID: 3360859452187909861}
   poblacio: {fileID: 3360859451057846047}
   material: {fileID: 254896705}
