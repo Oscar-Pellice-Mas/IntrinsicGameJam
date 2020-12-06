@@ -21,19 +21,6 @@ public class PlanetGenerator : MonoBehaviour
     //Edat espècie. Homo sapiens = 160000 anys.
     int EdatEspecieMin = 60000, EdatEspecieMax = 400000;
 
-    //Energia i recursos. Terra: 1.6kW per persona
-    //static float EnergyConsumedPerPersonMin = 0.5f; //kW
-    //static float EnergyConsumedPerPersonMax = 4f; //kW
-
-    //private const float EnergiaConsumidaMin = 0, EnergiaConsumidaMax = 0;
-    //private const float recursosConsumitsPerAnyMin = 0, recursosConsumitsPerAnyMax = 0;
-    //private const float perillositatMin = 0, perillositatMax = 0;
-    //private const float pastaGeneradaMin = 0, pastaGeneradaMax = 0;
-
-    //private Planet.raca especie;
-    //private Planet.tipus tipusPlaneta;
-    //private Planet.regim Regim;
-
     // Terra creator values
     private const long PoblacioInicial = 1000;
     private const int MaterialsInicials = 1000;
@@ -58,145 +45,22 @@ public class PlanetGenerator : MonoBehaviour
         switch (planet.tipusPlaneta)
         {
             case Planet.tipus.primitiu:
-                creaPrimitiu();
+                CreaPrimitiu(planet);
                 break;
             case Planet.tipus.basic:
-                creaBasic();
+                CreaBasic(planet);
                 break;
             case Planet.tipus.modern:
-                creaModern();
+                CreaModern(planet);
                 break;
             case Planet.tipus.avancat:
-                creaAvançat();
+                CreaAvançat(planet);
                 break;
             case Planet.tipus.futurista:
-                creaFuturista();
+                CreaFuturista(planet);
                 break;
             default:
                 break;
-        }
-
-        //Crear un planeta primitiu
-        void creaPrimitiu()
-        {
-            //TAMANY I POBLACIO
-            planet.radi = Random.Range(RadiMin, RadiMin * 2);
-            float area = 4 * Mathf.PI * planet.radi * planet.radi;
-            long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
-            planet.Poblacio = poblacioCalculada;
-
-            //MATERIALS I CONSUM
-            //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
-            //Surten numeros molt alts s'haura de normalitzar
-            planet.materials[0] = (int)(area * 0.2f);
-
-            //Material mig prove de les llunes (en el cas dels primitius no tenen llunes)
-            //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
-            float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
-            planet.Llunes = 0;
-            planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
-
-            //Materials avançats (els materials primitius no tenen avançat)
-
-
-            //Perillositat
-            planet.perillositat = Random.Range(0, 20);
-        }
-        //Crear un planeta basic
-        void creaBasic()
-        {
-            //TAMANY I POBLACIO
-            planet.radi = Random.Range(RadiMin, RadiMin * 3);
-            float area = 4 * Mathf.PI * planet.radi * planet.radi;
-            long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
-            planet.Poblacio = poblacioCalculada;
-
-            //MATERIALS I CONSUM
-            //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
-            //Surten numeros molt alts s'haura de normalitzar
-            planet.materials[0] = (int)(area * 0.2f);
-
-            //Material mig prove de les llunes (en el cas dels basics tenen entre 1 i 3 llunes)
-            //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
-            float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
-            planet.Llunes = Random.Range(1, 3);
-            planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
-            //Materials avançats (els materials primitius no tenen avançat)
-
-            //Perillositat
-            planet.perillositat = Random.Range(0, 40);
-        }
-        //Crear un planeta modern
-        void creaModern()
-        {
-            planet.radi = Random.Range(RadiMin, RadiMin * 4);
-            float area = 4 * Mathf.PI * planet.radi * planet.radi;
-            long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
-            planet.Poblacio = poblacioCalculada;
-
-            //MATERIALS I CONSUM
-            //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
-            //Surten numeros molt alts s'haura de normalitzar
-            planet.materials[0] = (int)(area * 0.2f);
-
-            //Material mig prove de les llunes (en el cas dels basics tenen entre 3 i 10 llunes)
-            //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
-            float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
-            planet.Llunes = Random.Range(1, 10);
-            planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
-
-            //Perillositat
-            planet.perillositat = Random.Range(0, 60);
-        }
-        //Crear un planeta avançat
-        void creaAvançat()
-        {
-            planet.radi = Random.Range(RadiMin, RadiMin * 5);
-            float area = 4 * Mathf.PI * planet.radi * planet.radi;
-            long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
-            planet.Poblacio = poblacioCalculada;
-
-            //MATERIALS I CONSUM
-            //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
-            //Surten numeros molt alts s'haura de normalitzar
-            planet.materials[0] = (int)(area * 0.2f);
-
-            //Material mig prove de les llunes (en el cas dels basics tenen entre 10 i 20 llunes)
-            //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
-            float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
-            planet.Llunes = Random.Range(10, 20);
-            planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
-
-
-            //Materila Especial (2% de l'area del planeta)
-            planet.materials[2] = (int)(area * 0.02f);
-            //Perillositat
-            planet.perillositat = Random.Range(0, 80);
-        }
-        //Crear un planeta futurista
-        void creaFuturista()
-        {
-            planet.radi = Random.Range(RadiMin, RadiMax);
-            float area = 4 * Mathf.PI * planet.radi * planet.radi;
-            long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
-            planet.Poblacio = poblacioCalculada;
-
-            //MATERIALS I CONSUM
-            //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
-            //Surten numeros molt alts s'haura de normalitzar
-            planet.materials[0] = (int)(area * 0.2f);
-
-            //Material mig prove de les llunes (en el cas dels basics tenen entre 20 i 30 llunes)
-            //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
-            float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
-            planet.Llunes = Random.Range(20, 30);
-            planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
-
-            //Materila Especial (4% de l'area del planeta)
-            planet.materials[2] = (int)(area * 0.04f);
-
-            //Perillositat
-            planet.perillositat = Random.Range(0, 100);
         }
 
         return planet;
@@ -212,149 +76,149 @@ public class PlanetGenerator : MonoBehaviour
         switch (tipus)
         {
             case "primitiu":
-                creaPrimitiu();
+                CreaPrimitiu(planet);
                 break;
             case "basic":
-                creaBasic();
+                CreaBasic(planet);
                 break;
             case "modern":
-                creaModern();
+                CreaModern(planet);
                 break;
             case "avancat":
-                creaAvançat();
+                CreaAvançat(planet);
                 break;
             case "futurista":
-                creaFuturista();
+                CreaFuturista(planet);
                 break;
             default:
                 break;
         }
 
-        //Crear un planeta primitiu
-        void creaPrimitiu()
-        {
-            //TAMANY I POBLACIO
-            planet.radi = Random.Range(RadiMin, RadiMin * 2);
-            float area = 4 * Mathf.PI * planet.radi * planet.radi;
-            long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
-            planet.Poblacio = poblacioCalculada;
-
-            //MATERIALS I CONSUM
-            //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
-            //Surten numeros molt alts s'haura de normalitzar
-            planet.materials[0] = (int)(area * 0.2f);
-
-            //Material mig prove de les llunes (en el cas dels primitius no tenen llunes)
-            //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
-            float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
-            planet.Llunes = 0;
-            planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
-
-            //Materials avançats (els materials primitius no tenen avançat)
-
-
-            //Perillositat
-            planet.perillositat = Random.Range(0, 20);
-        }
-        //Crear un planeta basic
-        void creaBasic()
-        {
-            //TAMANY I POBLACIO
-            planet.radi = Random.Range(RadiMin, RadiMin * 3);
-            float area = 4 * Mathf.PI * planet.radi * planet.radi;
-            long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
-            planet.Poblacio = poblacioCalculada;
-
-            //MATERIALS I CONSUM
-            //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
-            //Surten numeros molt alts s'haura de normalitzar
-            planet.materials[0] = (int)(area * 0.2f);
-
-            //Material mig prove de les llunes (en el cas dels basics tenen entre 1 i 3 llunes)
-            //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
-            float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
-            planet.Llunes = Random.Range(1, 3);
-            planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
-            //Materials avançats (els materials primitius no tenen avançat)
-
-            //Perillositat
-            planet.perillositat = Random.Range(0, 40);
-        }
-        //Crear un planeta modern
-        void creaModern()
-        {
-            planet.radi = Random.Range(RadiMin, RadiMin * 4);
-            float area = 4 * Mathf.PI * planet.radi * planet.radi;
-            long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
-            planet.Poblacio = poblacioCalculada;
-
-            //MATERIALS I CONSUM
-            //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
-            //Surten numeros molt alts s'haura de normalitzar
-            planet.materials[0] = (int)(area * 0.2f);
-
-            //Material mig prove de les llunes (en el cas dels basics tenen entre 3 i 10 llunes)
-            //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
-            float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
-            planet.Llunes = Random.Range(1, 10);
-            planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
-
-            //Perillositat
-            planet.perillositat = Random.Range(0, 60);
-        }
-        //Crear un planeta avançat
-        void creaAvançat()
-        {
-            planet.radi = Random.Range(RadiMin, RadiMin * 5);
-            float area = 4 * Mathf.PI * planet.radi * planet.radi;
-            long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
-            planet.Poblacio = poblacioCalculada;
-
-            //MATERIALS I CONSUM
-            //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
-            //Surten numeros molt alts s'haura de normalitzar
-            planet.materials[0] = (int)(area * 0.2f);
-
-            //Material mig prove de les llunes (en el cas dels basics tenen entre 10 i 20 llunes)
-            //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
-            float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
-            planet.Llunes = Random.Range(10, 20);
-            planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
-
-
-            //Materila Especial (2% de l'area del planeta)
-            planet.materials[2] = (int)(area * 0.02f);
-            //Perillositat
-            planet.perillositat = Random.Range(0, 80);
-        }
-        //Crear un planeta futurista
-        void creaFuturista()
-        {
-            planet.radi = Random.Range(RadiMin, RadiMax);
-            float area = 4 * Mathf.PI * planet.radi * planet.radi;
-            long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
-            planet.Poblacio = poblacioCalculada;
-
-            //MATERIALS I CONSUM
-            //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
-            //Surten numeros molt alts s'haura de normalitzar
-            planet.materials[0] = (int)(area * 0.2f);
-
-            //Material mig prove de les llunes (en el cas dels basics tenen entre 20 i 30 llunes)
-            //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
-            float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
-            planet.Llunes = Random.Range(20, 30);
-            planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
-
-            //Materila Especial (4% de l'area del planeta)
-            planet.materials[2] = (int)(area * 0.04f);
-
-            //Perillositat
-            planet.perillositat = Random.Range(0, 100);
-        }
-
-
         return planet;
+    }
+
+    //Crear un planeta primitiu
+    void CreaPrimitiu(Planet planet)
+    {
+        //TAMANY I POBLACIO
+        planet.radi = Random.Range(RadiMin, RadiMin * 2);
+        float area = 4 * Mathf.PI * planet.radi * planet.radi;
+        long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
+        planet.Poblacio = poblacioCalculada;
+
+        //MATERIALS I CONSUM
+        //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
+        //Surten numeros molt alts s'haura de normalitzar
+        planet.materials[0] = (int)(area * 0.2f);
+
+        //Material mig prove de les llunes (en el cas dels primitius no tenen llunes)
+        //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
+        float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
+        planet.Llunes = 0;
+        planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
+
+        //Materials avançats (els materials primitius no tenen avançat)
+
+
+        //Perillositat
+        //planet.perillositat = Random.Range(0, 20);
+        planet.perillositat = 100;
+    }
+    //Crear un planeta basic
+    void CreaBasic(Planet planet)
+    {
+        //TAMANY I POBLACIO
+        planet.radi = Random.Range(RadiMin, RadiMin * 3);
+        float area = 4 * Mathf.PI * planet.radi * planet.radi;
+        long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
+        planet.Poblacio = poblacioCalculada;
+
+        //MATERIALS I CONSUM
+        //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
+        //Surten numeros molt alts s'haura de normalitzar
+        planet.materials[0] = (int)(area * 0.2f);
+
+        //Material mig prove de les llunes (en el cas dels basics tenen entre 1 i 3 llunes)
+        //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
+        float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
+        planet.Llunes = Random.Range(1, 3);
+        planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
+        //Materials avançats (els materials primitius no tenen avançat)
+
+        //Perillositat
+        planet.perillositat = Random.Range(0, 40);
+    }
+    //Crear un planeta modern
+    void CreaModern(Planet planet)
+    {
+        planet.radi = Random.Range(RadiMin, RadiMin * 4);
+        float area = 4 * Mathf.PI * planet.radi * planet.radi;
+        long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
+        planet.Poblacio = poblacioCalculada;
+
+        //MATERIALS I CONSUM
+        //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
+        //Surten numeros molt alts s'haura de normalitzar
+        planet.materials[0] = (int)(area * 0.2f);
+
+        //Material mig prove de les llunes (en el cas dels basics tenen entre 3 i 10 llunes)
+        //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
+        float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
+        planet.Llunes = Random.Range(1, 10);
+        planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
+
+        //Perillositat
+        planet.perillositat = Random.Range(0, 60);
+    }
+    //Crear un planeta avançat
+    void CreaAvançat(Planet planet)
+    {
+        planet.radi = Random.Range(RadiMin, RadiMin * 5);
+        float area = 4 * Mathf.PI * planet.radi * planet.radi;
+        long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
+        planet.Poblacio = poblacioCalculada;
+
+        //MATERIALS I CONSUM
+        //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
+        //Surten numeros molt alts s'haura de normalitzar
+        planet.materials[0] = (int)(area * 0.2f);
+
+        //Material mig prove de les llunes (en el cas dels basics tenen entre 10 i 20 llunes)
+        //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
+        float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
+        planet.Llunes = Random.Range(10, 20);
+        planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
+
+
+        //Materila Especial (2% de l'area del planeta)
+        planet.materials[2] = (int)(area * 0.02f);
+        //Perillositat
+        planet.perillositat = Random.Range(0, 80);
+    }
+    //Crear un planeta futurista
+    void CreaFuturista(Planet planet)
+    {
+        planet.radi = Random.Range(RadiMin, RadiMax);
+        float area = 4 * Mathf.PI * planet.radi * planet.radi;
+        long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
+        planet.Poblacio = poblacioCalculada;
+
+        //MATERIALS I CONSUM
+        //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
+        //Surten numeros molt alts s'haura de normalitzar
+        planet.materials[0] = (int)(area * 0.2f);
+
+        //Material mig prove de les llunes (en el cas dels basics tenen entre 20 i 30 llunes)
+        //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
+        float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
+        planet.Llunes = Random.Range(20, 30);
+        planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
+
+        //Materila Especial (4% de l'area del planeta)
+        planet.materials[2] = (int)(area * 0.04f);
+
+        //Perillositat
+        planet.perillositat = Random.Range(0, 100);
     }
 
     public List<Faction> GenerateFactions()
@@ -363,7 +227,7 @@ public class PlanetGenerator : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             Faction f = ScriptableObject.CreateInstance<Faction>();
-            f.agresivitat = 0;
+            f.agresivitat = Random.Range(-100, 100);
             f.densitat = 0; //Setejar un cop es creein planetes nous
             f.especie = (Faction.raca)i;
             f.imatge = Sprites[i];
