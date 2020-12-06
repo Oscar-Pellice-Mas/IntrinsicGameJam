@@ -263,8 +263,8 @@ public class PlanetGenerator : MonoBehaviour
         terra.tipusPlaneta = Terra.tipus.modern;
 
         //Faction
-        GameManager manager = FindObjectOfType<GameManager>();
-        terra.faction = manager.factions[Random.Range(0, manager.factions.Count)];
+        terra.idFaction = Random.Range(0, gameManager.factions.Count);
+        terra.faction = gameManager.factions[terra.idFaction];
 
         //Regim
         terra.Regim = (Terra.regim)Random.Range(0, 2);

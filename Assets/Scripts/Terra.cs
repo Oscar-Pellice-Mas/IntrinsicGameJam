@@ -15,6 +15,7 @@ public class Terra : ScriptableObject
     public int indexTipus;
     public tipus tipusPlaneta;
     public Faction faction;
+    public int idFaction;
 
     public List<Faction> atacants;
     public long[] danyAtac = new long[3];
