@@ -11,6 +11,7 @@ public class PoolControler : MonoBehaviour
     public Planet objectToPool;
 
     private Terra terra;
+
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -29,6 +30,7 @@ public class PoolControler : MonoBehaviour
     public void RefreshFactions()
     {
         int[] count = new int[5];
+        foreach(Faction f in gameManager.factions) f.mitjaPerillositat = 0;
 
         foreach (Planet p in planetPool)
         {
@@ -36,14 +38,17 @@ public class PoolControler : MonoBehaviour
             {
                 if (p.faction.especie == gameManager.factions[i].especie)
                 {
+                    gameManager.factions[i].mitjaPerillositat += p.perillositat;
                     count[i]++;
                     break;
                 }
             }
         }
+
         for (int i = 0; i < gameManager.factions.Count; i++)
         {
             gameManager.factions[i].densitat = count[i] * 100 / planetPool.Count;
+            //gameManager.factions[i].mitjaPerillositat = gameManager.factions[i].mitjaPerillositat / count[i];
         }
     }
 
@@ -128,26 +133,33 @@ public class PoolControler : MonoBehaviour
         return false;
     }
 
-    public void actualitzaTerra()
+    public void ActualitzaTerra()
     {
+        terra = gameManager.terra;
+
         float materialsRestants = 0;
         float materialsConsumits = 0;
-        int valorAugment = 1;
 
+        int probabilitat;
+        int attack;
+
+        terra.atacants = new List<Faction>();
 
         //Primer mirerm si al tornar
         for (int i = 0; i < gameManager.factions.Count; i++)
         {
-            int probabilitat = Random.Range(0, 100);
+            probabilitat = Random.Range(0, 100);
             //Son enemics
             if (gameManager.factions[i].agresivitat > 30)
             {
                 //t'ataquen
-                if (probabilitat < gameManager.factions[i].agresivitat)
+                attack = gameManager.factions[i].agresivitat * gameManager.factions[i].mitjaPerillositat / 100;
+                if (probabilitat < attack)
                 {
-                    terra.Poblacio -= (gameManager.factions[i].densitat / 100) * terra.Poblacio;
+                    terra.danyAtac[i] = (gameManager.factions[i].densitat / 100) * terra.Poblacio;
+                    terra.Poblacio -= terra.danyAtac[i];
                     //ens apuntem qui ens ha atacat
-                    terra.atacants.Add(gameManager.factions[i].especie.ToString());
+                    terra.atacants.Add(gameManager.factions[i]);
                 }
             }
         }
@@ -161,7 +173,7 @@ public class PoolControler : MonoBehaviour
         }
         if(materialsRestants > 2*materialsConsumits)
         {
-            valorAugment = (int)(materialsRestants / materialsConsumits);
+            int valorAugment = (int)(materialsRestants / materialsConsumits);
             terra.Poblacio *= valorAugment;
         }
 
@@ -169,6 +181,7 @@ public class PoolControler : MonoBehaviour
         terra.consum[1] = (int)(terra.Poblacio * gameManager.round / 5 * terra.indexTipus * 2);
         terra.consum[2] = (int)(terra.Poblacio * gameManager.round / 5 * terra.indexTipus * 1);
 
+        gameManager.terra = terra;
     }
 }
 

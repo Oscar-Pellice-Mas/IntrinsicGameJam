@@ -35,6 +35,7 @@ public class Planet : ScriptableObject
 public class Faction : ScriptableObject
 {
     public int agresivitat;
+    public int mitjaPerillositat;
     public int densitat;
     public raca especie;
     public Sprite imatge; 

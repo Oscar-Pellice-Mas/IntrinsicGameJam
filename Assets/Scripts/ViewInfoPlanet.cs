@@ -32,6 +32,16 @@ public class ViewInfoPlanet : MonoBehaviour
     public TextMeshProUGUI densitat;
     public TextMeshProUGUI agresivitat;
 
+    public TextMeshProUGUI nomTerra;
+    public TextMeshProUGUI poblacioTerra;
+    public TextMeshProUGUI FaccioTerra;
+    public TextMeshProUGUI recursosXTerra;
+    public TextMeshProUGUI consumXTerra;
+    public TextMeshProUGUI recursosYTerra;
+    public TextMeshProUGUI consumYTerra;
+    public TextMeshProUGUI recursosZTerra;
+    public TextMeshProUGUI consumZTerra;
+
     public TextMeshProUGUI day;
     public TextMeshProUGUI planetnumber;
 
@@ -46,6 +56,21 @@ public class ViewInfoPlanet : MonoBehaviour
     void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
+    }
+
+    public void SetDataTerra(Terra terra)
+    {
+        ShowInfo(nomTerra, terra.Nom);
+        ShowInfo(poblacioTerra, TransformLong(terra.Poblacio));
+        ShowInfo(FaccioTerra, terra.faction.especie.ToString());
+        ShowInfo(recursosXTerra, terra.materials[0].ToString());
+        ShowInfo(consumXTerra, terra.consum[0].ToString());
+        ShowInfo(recursosYTerra, terra.materials[1].ToString());
+        ShowInfo(consumYTerra, terra.consum[1].ToString());
+        ShowInfo(recursosZTerra, terra.materials[2].ToString());
+        ShowInfo(consumZTerra, terra.consum[2].ToString());
+
+
     }
 
     public void SetData(Planet planet, bool startRound = true)

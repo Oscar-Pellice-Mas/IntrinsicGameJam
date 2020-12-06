@@ -15,7 +15,9 @@ public class Terra : ScriptableObject
     public int indexTipus;
     public tipus tipusPlaneta;
     public Faction faction;
-    public List<string> atacants;
+
+    public List<Faction> atacants;
+    public long[] danyAtac = new long[3];
    
 
     public enum tipus { primitiu, basic, modern, avancat, futurista }
@@ -24,7 +26,6 @@ public class Terra : ScriptableObject
 
     public regim Regim;
     public enum regim { democracia, dictadura, monarquia }
-
 
 }
 

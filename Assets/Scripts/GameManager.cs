@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     private PoolControler poolControler;
     private PlanetGenerator planetGenerator;
+    public RoundInfo roundInfo;
     public CameraShakeManager cameraShake;
     public ViewInfoPlanet viewInfo;
     public Animator saveLeverAnimator;
@@ -31,8 +32,7 @@ public class GameManager : MonoBehaviour
     public Terra terraAnterior;
 
     public List<Faction> factions;
-
-    public RoundInfo roundInfo;
+    
     public int round = 1;
 
     public bool roundActive = false;
@@ -202,8 +202,8 @@ public class GameManager : MonoBehaviour
     {
         
         //Agafar els valors de poblacio la terra nova i antiga
-        roundInfo.poblacio[0] = terraAnterior.Poblacio;
-        roundInfo.poblacio[1] = terra.Poblacio;
+        roundInfo.poblacio_abans = terraAnterior.Poblacio;
+        roundInfo.poblacio_ara = terra.Poblacio;
 
         //Agafar els materials
         roundInfo.materials_abans = terraAnterior.materials;
@@ -214,6 +214,7 @@ public class GameManager : MonoBehaviour
         roundInfo.consum_ara = terra.consum;
 
         roundInfo.atacants = terra.atacants;
+        roundInfo.danyRebut = terra.danyAtac;
 
         return roundInfo;
     }
