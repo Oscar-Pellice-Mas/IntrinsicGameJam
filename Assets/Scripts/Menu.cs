@@ -67,9 +67,7 @@ public class Menu : MonoBehaviour
 
     public void startGame()
     {
-        Debug.Log("Start Game");
         SceneManager.LoadScene("mainGame");
-
     }
 
     public void Move()

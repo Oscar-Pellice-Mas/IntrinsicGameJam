@@ -129,7 +129,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
         poolControler.OnPlanetInteraction(roundPlanets[roundCounter],true);
 
-        Debug.Log(roundCounter + " Destroyed");
         cameraShake.StartShake(6f, 15, CameraShakeManager.ShakeType.decremental);
         WhiteFadeScreen.color = new Color(1,1,1,1);
         ExplosionObject.GetComponent<Animator>().SetTrigger("triggerExplosion");
