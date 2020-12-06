@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ViewInfoPlanet : MonoBehaviour
 {
-    public GameManager manager;
+    public GameManager gameManager;
 
     public GameObject PlanetGO;
     public GameObject PlanetPlaceholderA;
@@ -45,7 +45,7 @@ public class ViewInfoPlanet : MonoBehaviour
 
     void Awake()
     {
-        manager = FindObjectOfType<GameManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     public void SetData(Planet planet, bool startRound = true)
@@ -67,6 +67,8 @@ public class ViewInfoPlanet : MonoBehaviour
         }
 
         planeta = planet;
+
+        imatge.sprite = gameManager.factions[planeta.idFaction].imatge;
 
         ShowInfo(nom, planeta.Nom);
         ShowInfo(poblacio, TransformLong(planeta.Poblacio));
@@ -90,8 +92,8 @@ public class ViewInfoPlanet : MonoBehaviour
         ShowInfo(densitat, planeta.faction.densitat.ToString());
         ShowInfo(agresivitat, planeta.faction.agresivitat.ToString());
 
-        ShowInfo(day, string.Format("Day {0}", manager.round));
-        ShowInfo(planetnumber, string.Format("Planet {0} of {1}", manager.roundCounter+1,manager.numPlanets));
+        ShowInfo(day, string.Format("Day {0}", gameManager.round));
+        ShowInfo(planetnumber, string.Format("Planet {0} of {1}", gameManager.roundCounter+1,gameManager.numPlanets));
 
         showData = true;
     }
@@ -164,8 +166,8 @@ public class ViewInfoPlanet : MonoBehaviour
             currentTime += Time.deltaTime;
             if (currentTime > TimePerRound)
             {
-                if (manager != null)
-                    StartCoroutine(manager.NextPlanet());
+                if (gameManager != null)
+                    StartCoroutine(gameManager.NextPlanet());
                 else
                     Debug.LogError("Game manager is null.");
             }

@@ -10,6 +10,7 @@ public class PlanetGenerator : MonoBehaviour
     public TextAsset nameFile;
     private string[] Nom; // = new string[] { "Kedroapra", "Talvounus", "Olviri", "Ecrilia", "Oatis", "Theiter", "Chuubos", "Griyeyama", "Byria L3", "Lleron 7GVD" }; //Pool de noms
     public GameObject[] PlanetPrefab;
+    public Sprite[] Sprites;
     //Tamany i població
     private float RadiMin = 2439, RadiMax = 69911;
     //static float RadiTerra = 6371;
@@ -365,6 +366,7 @@ public class PlanetGenerator : MonoBehaviour
             f.agresivitat = 0;
             f.densitat = 0; //Setejar un cop es creein planetes nous
             f.especie = (Faction.raca)i;
+            f.imatge = Sprites[i];
             factions.Add(f);
         }
         return factions;
