@@ -7,7 +7,7 @@ using UnityEngine;
 public class Planet : ScriptableObject
 {
     public GameObject planetPrefab;
-
+    public GameObject[] llunes;
     public string Nom;
     public float radi;
     public long Poblacio;
@@ -37,6 +37,7 @@ public class Faction : ScriptableObject
     public int agresivitat;
     public int densitat;
     public raca especie;
+    public Sprite imatge; 
     public enum raca { humans, ewoks, daleks, xenos, vortigaunts }
 }
 

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour
     public ViewInfoPlanet viewInfo;
     public Animator saveLeverAnimator;
     public Animator killPlanetButton;
+    public Animator LightSpeedAnimation;
+    public Image WhiteFadeScreen;
+    public GameObject ExplosionObject;
 
     public GameObject laser1;
     public GameObject laser2;
@@ -28,10 +32,11 @@ public class GameManager : MonoBehaviour
 
     public List<Faction> factions;
 
+    public RoundInfo roundInfo;
     public int round = 1;
 
     public bool roundActive = false;
-
+    public bool decisionMade = false;
     private const int InitialPoolNumber = 10;
         
     void Start()
@@ -39,19 +44,19 @@ public class GameManager : MonoBehaviour
         planetGenerator = GetComponent<PlanetGenerator>();
         factions = planetGenerator.GenerateFactions();
         terra = planetGenerator.GenerateTerra();
+
         //Guardem la terra del principi
         terraAnterior = terra;
+
         poolControler = GetComponent<PoolControler>();
         poolControler.CreatePool(InitialPoolNumber);
 
         poolControler.RefreshFactions();
-        for (int i = 0; i < factions.Count; i++)
-        {
-            Debug.Log(factions[i].densitat);
-        }
 
         laser1.SetActive(false);
         laser2.SetActive(false);
+
+        roundInfo = gameObject.AddComponent<RoundInfo>();
 
         StartRound();
     }
@@ -62,8 +67,10 @@ public class GameManager : MonoBehaviour
         savedPlanets = new List<Planet>();
         viewInfo.SetDificulty(round);
 
+        poolControler.RefreshFactions();
         roundPlanets = poolControler.GetRoundPool(5);
         numPlanets = roundPlanets.Count;
+        
         viewInfo.SetData(roundPlanets[roundCounter]);
         roundActive = true;
     }
@@ -74,9 +81,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         poolControler.OnPlanetInteraction(roundPlanets[roundCounter], false);
         savedPlanets.Add(roundPlanets[roundCounter]);
-        Debug.Log("Desicio: " + roundCounter + " Next");
         yield return new WaitForSeconds(0.5f);
-        //yield return new WaitForSeconds(0.2f);
         saveLeverAnimator.SetBool("palancaDown", false);
         yield return new WaitForSeconds(0.2f);
         if (roundCounter+1 >= numPlanets)
@@ -86,6 +91,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            LightSpeedAnimation.SetTrigger("goLightSpeed");
+            yield return new WaitForSeconds(3f);
             roundCounter++;
             viewInfo.SetData(roundPlanets[roundCounter]);
         }
@@ -101,7 +108,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
 
 
-        cameraShake.StartShake();
+        cameraShake.StartShake(cameraShake.GetTintDuration() / 4, 5, CameraShakeManager.ShakeType.incremental);
         yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
 
         laser1.transform.position = viewInfo.PlanetGO.transform.position;
@@ -117,12 +124,16 @@ public class GameManager : MonoBehaviour
         laser1.SetActive(true);
         laser2.SetActive(true);
 
+        cameraShake.StartShake(cameraShake.GetTintDuration() / 4, 7, CameraShakeManager.ShakeType.constant);
 
         yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
         poolControler.OnPlanetInteraction(roundPlanets[roundCounter],true);
+
         Debug.Log(roundCounter + " Destroyed");
-
-
+        cameraShake.StartShake(6f, 15, CameraShakeManager.ShakeType.decremental);
+        WhiteFadeScreen.color = new Color(1,1,1,1);
+        ExplosionObject.GetComponent<Animator>().SetTrigger("triggerExplosion");
+        viewInfo.PlanetGO.SetActive(false);
         yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
 
         laser1.SetActive(false);
@@ -130,14 +141,16 @@ public class GameManager : MonoBehaviour
 
         killPlanetButton.SetBool("buttonDown", false);
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(9f);
         //Destroy planet
-
         if (roundCounter+1 >= numPlanets) {
             RoundDone();
             yield return null;
         } else
         {
+
+            LightSpeedAnimation.SetTrigger("goLightSpeed");
+            yield return new WaitForSeconds(3f);
             roundCounter++;
             viewInfo.SetData(roundPlanets[roundCounter]);
         }
@@ -150,10 +163,10 @@ public class GameManager : MonoBehaviour
     {
         roundActive = false;
         poolControler.AddPlanets(savedPlanets);
-        Debug.Log("Round finished - " + savedPlanets.Count + "saved.");
         round++;
+
         //Creem un script amb tota la informacio que necessitem de la terra al final i al començar la ronda
-        RoundInfo roundInfo = new RoundInfo();
+        generaInfoRonda();
         //Mostrem la info
 
         //Canviar la terra anterior per guardar els canvis
@@ -166,7 +179,6 @@ public class GameManager : MonoBehaviour
     private void Update()
     {   if(viewInfo.PlanetGO != null && laser2.activeInHierarchy)
         {
-            Debug.LogError("ei");
             laser1.transform.position = viewInfo.PlanetGO.transform.position;
 
             laser1.transform.LookAt(LeftCorner.transform.position, Vector3.up);
@@ -177,11 +189,18 @@ public class GameManager : MonoBehaviour
             laser2.transform.LookAt(RightCorner.transform.position, Vector3.up);
             laser2.transform.Rotate(new Vector3(0, 1, 0), 90f);
         }
-        
+
+        ExplosionObject.transform.position = viewInfo.PlanetGO.transform.position;
+        if (WhiteFadeScreen.color.a > 0)
+        {
+            WhiteFadeScreen.color = new Color(WhiteFadeScreen.color.r, WhiteFadeScreen.color.g, WhiteFadeScreen.color.b, WhiteFadeScreen.color.a-0.01f);
+        }
+
+
     }
-    public void generaInfoRonda()
+    public RoundInfo generaInfoRonda()
     {
-        RoundInfo roundInfo = new RoundInfo();
+        
         //Agafar els valors de poblacio la terra nova i antiga
         roundInfo.poblacio[0] = terraAnterior.Poblacio;
         roundInfo.poblacio[1] = terra.Poblacio;
@@ -195,6 +214,8 @@ public class GameManager : MonoBehaviour
         roundInfo.consum_ara = terra.consum;
 
         roundInfo.atacants = terra.atacants;
+
+        return roundInfo;
     }
 
 }

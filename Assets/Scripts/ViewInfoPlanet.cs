@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class ViewInfoPlanet : MonoBehaviour
 {
-    public GameManager manager;
+    public GameManager gameManager;
 
     public GameObject PlanetGO;
+    public GameObject[] moons;
     public GameObject PlanetPlaceholderA;
     public GameObject PlanetPlaceholderB;
 
@@ -45,11 +46,12 @@ public class ViewInfoPlanet : MonoBehaviour
 
     void Awake()
     {
-        manager = FindObjectOfType<GameManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     public void SetData(Planet planet, bool startRound = true)
     {
+        gameManager.decisionMade = false;
 
         if (startRound)
         {
@@ -62,11 +64,26 @@ public class ViewInfoPlanet : MonoBehaviour
             PlanetGO = Instantiate(planet.planetPrefab, parent);
             PlanetGO.transform.SetSiblingIndex(siblingIndex);
             PlanetGO.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(320, 320);
+            if (moons != null)
+            {
+                for (int i = 0; i < moons.Length; i++)
+                {
+                    DestroyImmediate(moons[i]);
+                }
+            }
+            moons = new GameObject[planet.llunes.Length];
+            for (int i = 0; i < moons.Length; i++)
+            {
+                moons[i] = Instantiate(planet.llunes[i], parent);
+                moons[i].transform.SetSiblingIndex(siblingIndex+1);
+            }
 
             //PlanetGO.transform.localScale = planet.radi
         }
 
         planeta = planet;
+
+        imatge.sprite = gameManager.factions[planeta.idFaction].imatge;
 
         ShowInfo(nom, planeta.Nom);
         ShowInfo(poblacio, TransformLong(planeta.Poblacio));
@@ -87,18 +104,17 @@ public class ViewInfoPlanet : MonoBehaviour
         ShowInfo(faction,planeta.faction.especie.ToString());
         ShowInfo(regim, planeta.Regim.ToString());
         ShowInfo(raca, planeta.faction.especie.ToString());
-        ShowInfo(densitat, planeta.faction.densitat.ToString());
+        ShowInfo(densitat, string.Format("{0}%", planeta.faction.densitat));
         ShowInfo(agresivitat, planeta.faction.agresivitat.ToString());
 
-        ShowInfo(day, string.Format("Day {0}", manager.round));
-        ShowInfo(planetnumber, string.Format("Planet {0} of {1}", manager.roundCounter+1,manager.numPlanets));
+        ShowInfo(day, string.Format("Day {0}", gameManager.round));
+        ShowInfo(planetnumber, string.Format("Planet {0} of {1}", gameManager.roundCounter+1,gameManager.numPlanets));
 
         showData = true;
     }
 
     private void ShowInfo(TextMeshProUGUI component, string data)
     {
-        Debug.Log("showing: "+data);
         if (string.IsNullOrEmpty(data))
         {
             component.text = "?????";
@@ -124,7 +140,7 @@ public class ViewInfoPlanet : MonoBehaviour
         {
             retorn = string.Format("{0}M", data / 1000000);
         }
-        else if (data / 1000000000000 < 1)
+        else
         {
             retorn = string.Format("{0}B", data / 1000000000);
         }
@@ -134,8 +150,7 @@ public class ViewInfoPlanet : MonoBehaviour
 
     private string TransformLong(long data)
     {
-        string retorn = "";
-
+        string retorn;
         if (data / 1000 < 1)
         {
             retorn = string.Format("{0}", data);
@@ -164,10 +179,18 @@ public class ViewInfoPlanet : MonoBehaviour
             currentTime += Time.deltaTime;
             if (currentTime > TimePerRound)
             {
-                if (manager != null)
-                    StartCoroutine(manager.NextPlanet());
+                if (gameManager != null)
+                    StartCoroutine(gameManager.NextPlanet());
                 else
                     Debug.LogError("Game manager is null.");
+            }
+            float orbit = 200;
+            for (int i = 0; i < moons.Length; i++)
+            {
+                float angle = 360 * ((float)i / (float)moons.Length);
+                angle += currentTime *  Mathf.Lerp( 0.3f, 0.05f, ((float)i / (float)moons.Length));
+                moons[i].transform.position = PlanetGO.transform.position + new Vector3(orbit * Mathf.Sin(angle ), orbit * Mathf.Cos(angle), 0);
+                orbit += 55;
             }
         }
         if (showData)
