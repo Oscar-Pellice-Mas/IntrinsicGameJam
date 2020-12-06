@@ -32,6 +32,9 @@ public class ViewInfoPlanet : MonoBehaviour
     public TextMeshProUGUI densitat;
     public TextMeshProUGUI agresivitat;
 
+    public TextMeshProUGUI day;
+    public TextMeshProUGUI planetnumber;
+
     private int dificulty = 0;
     public bool showData = false;
 
@@ -40,9 +43,9 @@ public class ViewInfoPlanet : MonoBehaviour
         dificulty = num;
     }
 
-    void Start()
+    void Awake()
     {
-
+        manager = FindObjectOfType<GameManager>();
     }
 
     public void SetData(Planet planet, bool startRound = true)
@@ -86,6 +89,9 @@ public class ViewInfoPlanet : MonoBehaviour
         ShowInfo(raca, planeta.faction.especie.ToString());
         ShowInfo(densitat, planeta.faction.densitat.ToString());
         ShowInfo(agresivitat, planeta.faction.agresivitat.ToString());
+
+        ShowInfo(day, string.Format("Day {0}", manager.round));
+        ShowInfo(planetnumber, string.Format("Planet {0} of {1}", manager.roundCounter+1,manager.numPlanets));
 
         showData = true;
     }
