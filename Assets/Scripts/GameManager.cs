@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
 
     public List<Faction> factions;
 
+    public RoundInfo roundInfo;
     public int round = 1;
 
     public bool roundActive = false;
@@ -50,6 +51,8 @@ public class GameManager : MonoBehaviour
 
         laser1.SetActive(false);
         laser2.SetActive(false);
+
+        roundInfo = new RoundInfo();
 
         StartRound();
     }
@@ -150,7 +153,7 @@ public class GameManager : MonoBehaviour
         round++;
 
         //Creem un script amb tota la informacio que necessitem de la terra al final i al començar la ronda
-        RoundInfo roundInfo = new RoundInfo();
+        generaInfoRonda();
         //Mostrem la info
 
         //Canviar la terra anterior per guardar els canvis
@@ -176,9 +179,9 @@ public class GameManager : MonoBehaviour
         }
         
     }
-    public void generaInfoRonda()
+    public RoundInfo generaInfoRonda()
     {
-        RoundInfo roundInfo = new RoundInfo();
+        
         //Agafar els valors de poblacio la terra nova i antiga
         roundInfo.poblacio[0] = terraAnterior.Poblacio;
         roundInfo.poblacio[1] = terra.Poblacio;
@@ -192,6 +195,8 @@ public class GameManager : MonoBehaviour
         roundInfo.consum_ara = terra.consum;
 
         roundInfo.atacants = terra.atacants;
+
+        return roundInfo;
     }
 
 }
