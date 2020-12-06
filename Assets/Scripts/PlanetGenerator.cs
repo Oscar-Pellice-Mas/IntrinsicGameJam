@@ -10,6 +10,7 @@ public class PlanetGenerator : MonoBehaviour
     public TextAsset nameFile;
     private string[] Nom; // = new string[] { "Kedroapra", "Talvounus", "Olviri", "Ecrilia", "Oatis", "Theiter", "Chuubos", "Griyeyama", "Byria L3", "Lleron 7GVD" }; //Pool de noms
     public GameObject[] PlanetPrefab;
+    public GameObject[] MoonPrefab;
     //Tamany i població
     private float RadiMin = 2439, RadiMax = 69911;
     //static float RadiTerra = 6371;
