@@ -2795,9 +2795,16 @@ MonoBehaviour:
   - {fileID: 3360859451987949650}
   - {fileID: 1900642722}
   - {fileID: 1344811824}
+  ObjectsToTint:
+  - {fileID: 1344811825}
   triggerShake: 0
   ShakeAmplitude: 5
   shakeDuration: 1
+  trigerTint: 0
+  timeOn: 0.7
+  timeOff: 0.7
+  FlickerCount: 5
+  tintedColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &2015185289
 MonoBehaviour:
   m_ObjectHideFlags: 0
