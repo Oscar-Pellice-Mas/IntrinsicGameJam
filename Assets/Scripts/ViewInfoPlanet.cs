@@ -51,6 +51,7 @@ public class ViewInfoPlanet : MonoBehaviour
 
     public void SetData(Planet planet, bool startRound = true)
     {
+        gameManager.decisionMade = false;
 
         if (startRound)
         {
@@ -187,7 +188,7 @@ public class ViewInfoPlanet : MonoBehaviour
             for (int i = 0; i < moons.Length; i++)
             {
                 float angle = 360 * ((float)i / (float)moons.Length);
-                angle += currentTime *  Mathf.Lerp( 0.5f, 0.2f, ((float)i / (float)moons.Length));
+                angle += currentTime *  Mathf.Lerp( 0.3f, 0.05f, ((float)i / (float)moons.Length));
                 moons[i].transform.position = PlanetGO.transform.position + new Vector3(orbit * Mathf.Sin(angle ), orbit * Mathf.Cos(angle), 0);
                 orbit += 55;
             }

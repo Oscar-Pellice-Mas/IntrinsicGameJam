@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     public int round = 1;
 
     public bool roundActive = false;
-
+    public bool decisionMade = false;
     private const int InitialPoolNumber = 10;
         
     void Start()
