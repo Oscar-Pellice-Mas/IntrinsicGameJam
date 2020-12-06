@@ -76,7 +76,7 @@ public class PoolControler : MonoBehaviour
         }
     }
 
-    public void OnPlanetInteraction(Planet planet, bool isDestroyed)
+    public Terra OnPlanetInteraction(Planet planet, bool isDestroyed)
     {
         terra = gameManager.terra;
         
@@ -117,7 +117,7 @@ public class PoolControler : MonoBehaviour
             }
 
         }
-        gameManager.terra = terra;
+        return terra;
     }
 
     public bool Contains(Faction[] factions, Faction faction)

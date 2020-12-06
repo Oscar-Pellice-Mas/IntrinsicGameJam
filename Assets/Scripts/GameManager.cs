@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     private PoolControler poolControler;
-    private PlanetGenerator planetGenerator;
+    public PlanetGenerator planetGenerator;
     public RoundInfo roundInfo;
     public CameraShakeManager cameraShake;
     public ViewInfoPlanet viewInfo;
+    public ViewInfoTerra viewInfoTerra;
     public Animator saveLeverAnimator;
     public Animator killPlanetButton;
     public Animator LightSpeedAnimation;
@@ -41,12 +42,16 @@ public class GameManager : MonoBehaviour
         
     void Start()
     {
+
+
         planetGenerator = GetComponent<PlanetGenerator>();
         factions = planetGenerator.GenerateFactions();
+        Debug.Log(factions[0].agresivitat);
         terra = planetGenerator.GenerateTerra();
 
         //Guardem la terra del principi
         terraAnterior = terra;
+
 
         poolControler = GetComponent<PoolControler>();
         poolControler.CreatePool(InitialPoolNumber);
@@ -127,7 +132,11 @@ public class GameManager : MonoBehaviour
         cameraShake.StartShake(cameraShake.GetTintDuration() / 4, 7, CameraShakeManager.ShakeType.constant);
 
         yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
-        poolControler.OnPlanetInteraction(roundPlanets[roundCounter],true);
+        terra = poolControler.OnPlanetInteraction(roundPlanets[roundCounter],true);
+
+        Debug.Log(terra.materials[0]);
+        Debug.Log(terraAnterior.materials[0]);
+
 
         cameraShake.StartShake(6f, 15, CameraShakeManager.ShakeType.decremental);
         WhiteFadeScreen.color = new Color(1,1,1,1);
@@ -165,11 +174,12 @@ public class GameManager : MonoBehaviour
         round++;
 
         //Creem un script amb tota la informacio que necessitem de la terra al final i al començar la ronda
-        generaInfoRonda();
+        //generaInfoRonda();
+        viewInfoTerra.SetDataTerra(terra,terraAnterior);
         //Mostrem la info
 
         //Canviar la terra anterior per guardar els canvis
-        terraAnterior = terra;
+        //terraAnterior = terra;
         StartRound();
 
 
