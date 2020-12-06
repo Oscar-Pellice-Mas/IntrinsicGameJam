@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
     public GameObject RightCorner;
 
     private List<Planet> roundPlanets;
-    private int roundCounter = 0;
-    private int numPlanets = 0;
+    public int roundCounter = 0;
+    public int numPlanets = 0;
     private List<Planet> savedPlanets;
 
     public Terra terra;
