@@ -104,6 +104,16 @@ public class GameManager : MonoBehaviour
         cameraShake.StartShake();
         yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
 
+        laser1.transform.position = viewInfo.PlanetGO.transform.position;
+
+        laser1.transform.LookAt(LeftCorner.transform.position, Vector3.up);
+        laser1.transform.Rotate(new Vector3(0, 1, 0), 90f);
+
+        laser2.transform.position = viewInfo.PlanetGO.transform.position;
+
+        laser2.transform.LookAt(RightCorner.transform.position, Vector3.up);
+        laser2.transform.Rotate(new Vector3(0, 1, 0), 90f);
+
         laser1.SetActive(true);
         laser2.SetActive(true);
 
