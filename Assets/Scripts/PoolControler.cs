@@ -37,7 +37,6 @@ public class PoolControler : MonoBehaviour
             {
                 if (p.faction.especie == gameManager.factions[i].especie)
                 {
-                    Debug.Log(i);
                     count[i]++;
                     break;
                 }

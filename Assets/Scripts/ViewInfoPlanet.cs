@@ -118,7 +118,7 @@ public class ViewInfoPlanet : MonoBehaviour
             if (currentTime > TimePerRound)
             {
                 if (manager != null)
-                    manager.NextPlanet();
+                    StartCoroutine(manager.NextPlanet());
                 else
                     Debug.LogError("Game manager is null.");
             }

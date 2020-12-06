@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour
 {
     private PoolControler poolControler;
     private PlanetGenerator planetGenerator;
-
+    public CameraShakeManager cameraShake;
     public ViewInfoPlanet viewInfo;
+    public Animator saveLeverAnimator;
+    public Animator killPlanetButton;
 
     private List<Planet> roundPlanets;
     private int roundCounter = 0;
@@ -54,15 +56,21 @@ public class GameManager : MonoBehaviour
         roundActive = true;
     }
 
-    public void NextPlanet()
+    public IEnumerator NextPlanet()
     {
+        saveLeverAnimator.SetBool("palancaDown", true);
+        yield return new WaitForSeconds(0.5f);
         poolControler.OnPlanetInteraction(roundPlanets[roundCounter], false);
         savedPlanets.Add(roundPlanets[roundCounter]);
         Debug.Log("Desicio: " + roundCounter + " Next");
+        yield return new WaitForSeconds(0.5f);
+        //yield return new WaitForSeconds(0.2f);
+        saveLeverAnimator.SetBool("palancaDown", false);
+        yield return new WaitForSeconds(0.2f);
         if (roundCounter+1 >= numPlanets)
         {
             RoundDone();
-            return;
+            yield return null;
         }
         else
         {
@@ -71,21 +79,36 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void DestroyPlanet()
+    public IEnumerator DestroyPlanet()
     {
+
+        killPlanetButton.SetBool("buttonDown", true);
+        yield return new WaitForSeconds(0.2f);
+
+        cameraShake.StartFlicker();
+        yield return new WaitForSeconds(cameraShake.GetTintDuration() / 2);
+        cameraShake.StartShake();
+
         poolControler.OnPlanetInteraction(roundPlanets[roundCounter],true);
         Debug.Log(roundCounter + " Destroyed");
 
+        yield return new WaitForSeconds(cameraShake.GetTintDuration() / 2);
+
+        killPlanetButton.SetBool("buttonDown", false);
+
+        yield return new WaitForSeconds(0.2f);
         //Destroy planet
 
         if (roundCounter+1 >= numPlanets) {
             RoundDone();
-            return;
+            yield return null;
         } else
         {
             roundCounter++;
             viewInfo.SetData(roundPlanets[roundCounter]);
         }
+
+        yield return null;
     }
 
 

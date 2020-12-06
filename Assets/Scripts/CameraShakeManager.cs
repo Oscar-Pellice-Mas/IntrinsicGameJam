@@ -27,7 +27,8 @@ public class CameraShakeManager : MonoBehaviour
     float partialtime = 0;
     float currentTintTime = 0;
     public int FlickerCount = 5;
-    float tintDuration;
+    [HideInInspector]
+    public float tintDuration;
     public Color tintedColor = Color.red;
 
     void Start()
@@ -42,6 +43,16 @@ public class CameraShakeManager : MonoBehaviour
     public void StartShake()
     {
         triggerShake = true;
+    }
+
+    public void StartFlicker()
+    {
+        trigerTint = true;
+    }
+
+    public float GetTintDuration()
+    {
+        return FlickerCount * (timeOn + timeOff);
     }
 
     void Update()

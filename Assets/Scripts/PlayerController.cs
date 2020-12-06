@@ -18,11 +18,11 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("A"))
             {
-                gameManager.NextPlanet();
+                StartCoroutine(gameManager.NextPlanet());
             }
             if (Input.GetButtonDown("B"))
             {
-                gameManager.DestroyPlanet();
+                StartCoroutine(gameManager.DestroyPlanet());
             }
         }
         
