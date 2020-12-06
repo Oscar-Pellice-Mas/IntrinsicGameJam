@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    PoolControler poolControler;
-    PlanetGenerator planetGenerator;
+    private PoolControler poolControler;
+    private PlanetGenerator planetGenerator;
 
     public ViewInfoPlanet viewInfo;
 
