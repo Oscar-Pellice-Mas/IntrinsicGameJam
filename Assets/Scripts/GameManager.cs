@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public ViewInfoPlanet viewInfo;
     public Animator saveLeverAnimator;
     public Animator killPlanetButton;
+    public Animator LightSpeedAnimation;
     public Image WhiteFadeScreen;
     public GameObject ExplosionObject;
 
@@ -89,6 +90,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            LightSpeedAnimation.SetTrigger("goLightSpeed");
+            yield return new WaitForSeconds(3f);
             roundCounter++;
             viewInfo.SetData(roundPlanets[roundCounter]);
         }
@@ -143,6 +146,9 @@ public class GameManager : MonoBehaviour
             yield return null;
         } else
         {
+
+            LightSpeedAnimation.SetTrigger("goLightSpeed");
+            yield return new WaitForSeconds(3f);
             roundCounter++;
             viewInfo.SetData(roundPlanets[roundCounter]);
         }
