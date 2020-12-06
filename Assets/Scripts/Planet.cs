@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "new planet", menuName ="Jam/New planet")]
 public class Planet : ScriptableObject
 {
-    public Sprite planetSprite;
+    public GameObject planetPrefab;
 
     public string Nom;
     public float radi;

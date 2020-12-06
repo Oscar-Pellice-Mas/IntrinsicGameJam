@@ -64,6 +64,15 @@ public class ViewInfoPlanet : MonoBehaviour
         {
             currentTime = 0;
             RoundActive = true;
+            Transform parent = PlanetGO.transform.parent;
+            int siblingIndex = PlanetGO.transform.GetSiblingIndex();
+            DestroyImmediate(PlanetGO);
+
+            PlanetGO = Instantiate(planet.planetPrefab, parent);
+            PlanetGO.transform.SetSiblingIndex(siblingIndex);
+            PlanetGO.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(320, 320);
+
+            //PlanetGO.transform.localScale = planet.radi
         }
 
         planeta = planet;

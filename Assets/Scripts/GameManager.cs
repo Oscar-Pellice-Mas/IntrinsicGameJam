@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
         
     void Start()
     {
+        planetGenerator = GetComponent<PlanetGenerator>();
         factions = planetGenerator.GenerateFactions();
         terra = planetGenerator.GenerateTerra();
 

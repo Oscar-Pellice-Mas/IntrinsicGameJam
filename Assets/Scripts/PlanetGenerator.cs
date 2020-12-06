@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlanetGenerator : MonoBehaviour
 {
     private string[] Nom = new string[] { "Kedroapra", "Talvounus", "Olviri", "Ecrilia", "Oatis", "Theiter", "Chuubos", "Griyeyama", "Byria L3", "Lleron 7GVD" }; //Pool de noms
-
+    public GameObject[] PlanetPrefab;
     //Tamany i població
     static float RadiMin = 2439, RadiMax = 69911;
     //static float RadiTerra = 6371;
@@ -45,6 +45,8 @@ public class PlanetGenerator : MonoBehaviour
         planet.tipusPlaneta = (Planet.tipus)Random.Range(0, 4);
         GameManager gameManager = FindObjectOfType<GameManager>();
         planet.faction = gameManager.factions[Random.Range(0, gameManager.factions.Count)];
+        
+        planet.planetPrefab = PlanetPrefab[Random.Range(0, PlanetPrefab.Length)];
 
         switch (planet.tipusPlaneta)
         {
