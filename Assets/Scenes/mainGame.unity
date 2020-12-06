@@ -4930,6 +4930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  Background: {fileID: 1055707320}
   PlanetGO: {fileID: 231172833}
   moons: []
   PlanetPlaceholderA: {fileID: 1650971038}
