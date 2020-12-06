@@ -143,7 +143,7 @@ public class PoolControler : MonoBehaviour
             if (gameManager.factions[i].agresivitat > 30)
             {
                 //t'ataquen
-                if (probabilitat > gameManager.factions[i].agresivitat)
+                if (probabilitat < gameManager.factions[i].agresivitat)
                 {
                     terra.Poblacio -= (gameManager.factions[i].densitat / 100) * terra.Poblacio;
                     //ens apuntem qui ens ha atacat

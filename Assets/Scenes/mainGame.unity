@@ -3442,6 +3442,7 @@ MonoBehaviour:
   saveLeverAnimator: {fileID: 766737082}
   killPlanetButton: {fileID: 339371729}
   terra: {fileID: 0}
+  terraAnterior: {fileID: 0}
   factions: []
   round: 1
   roundActive: 0
