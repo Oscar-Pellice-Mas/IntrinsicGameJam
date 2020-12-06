@@ -2955,6 +2955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ddfb3e95cf0ae41aefe2147f437a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameFile: {fileID: 4900000, guid: 77be737549b5d1e4e8247ca99a939952, type: 3}
   PlanetPrefab:
   - {fileID: 5054299803597108288, guid: 296c9d0fea17d8e499127f511e2384cc, type: 3}
   - {fileID: 5046945243213039226, guid: 8b3f3758e26694347b1fc95dcf6d21a2, type: 3}
@@ -2992,6 +2993,7 @@ MonoBehaviour:
   - {fileID: 5054299803597108288, guid: 6fcecb2129981b1468acaf953ec4f936, type: 3}
   - {fileID: 5054299803597108288, guid: c551242d52c1376438b709c363cd741a, type: 3}
   - {fileID: 5054299803597108288, guid: 06f9843cbde3a304e9b22549dd5549ab, type: 3}
+  maxPopulation: 0
 --- !u!1 &3360859450350334504
 GameObject:
   m_ObjectHideFlags: 0

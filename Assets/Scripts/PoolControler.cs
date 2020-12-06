@@ -91,7 +91,7 @@ public class PoolControler : MonoBehaviour
                 {
                     
                     //Calculem la agresivitat que generem en una faccio al matar un dels seus planetes
-                    gameManager.factions[i].agresivitat += (planet.Poblacio / PlanetGenerator.maxPopulation) * terra.indexTipus;
+                    gameManager.factions[i].agresivitat += (planet.Poblacio / planetGenerator.maxPopulation) * terra.indexTipus;
                     break;
                 }
 
@@ -107,7 +107,7 @@ public class PoolControler : MonoBehaviour
                 {
 
                     //Calculem la agresivitat que generem en una faccio al matar un dels seus planetes
-                    gameManager.factions[i].agresivitat += (planet.Poblacio / PlanetGenerator.maxPopulation) * terra.indexTipus;
+                    gameManager.factions[i].agresivitat += (planet.Poblacio / planetGenerator.maxPopulation) * terra.indexTipus;
                     break;
                 }
 

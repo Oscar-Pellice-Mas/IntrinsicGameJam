@@ -5,16 +5,19 @@ using UnityEngine;
 
 public class PlanetGenerator : MonoBehaviour
 {
-    private string[] Nom = new string[] { "Kedroapra", "Talvounus", "Olviri", "Ecrilia", "Oatis", "Theiter", "Chuubos", "Griyeyama", "Byria L3", "Lleron 7GVD" }; //Pool de noms
+    GameManager gameManager;
+
+    public TextAsset nameFile;
+    private string[] Nom; // = new string[] { "Kedroapra", "Talvounus", "Olviri", "Ecrilia", "Oatis", "Theiter", "Chuubos", "Griyeyama", "Byria L3", "Lleron 7GVD" }; //Pool de noms
     public GameObject[] PlanetPrefab;
     //Tamany i població
-    static float RadiMin = 2439, RadiMax = 69911;
+    private float RadiMin = 2439, RadiMax = 69911;
     //static float RadiTerra = 6371;
-    static float MinRatio = 0.25f, MaxRatio = 3f;
-    static float PoblacioPerKmTerra = 14.88047f;
-    public static float maxPopulation;
+    private float MinRatio = 0.25f, MaxRatio = 3f;
+    private float PoblacioPerKmTerra = 14.88047f;
+    public float maxPopulation;
     //Edat espècie. Homo sapiens = 160000 anys.
-    //static int EdatEspecieMin = 60000, EdatEspecieMax = 400000;
+    int EdatEspecieMin = 60000, EdatEspecieMax = 400000;
 
     //Energia i recursos. Terra: 1.6kW per persona
     //static float EnergyConsumedPerPersonMin = 0.5f; //kW
@@ -33,20 +36,21 @@ public class PlanetGenerator : MonoBehaviour
     private const float PoblacioInicial = 1000;
     private const float MaterialsInicials = 1000;
 
-    private void Start()
+    private void Awake()
     {
         maxPopulation = (4 * Mathf.PI * RadiMax * RadiMax)* PoblacioPerKmTerra * MaxRatio;
+        gameManager = FindObjectOfType<GameManager>();
+        Nom = nameFile.text.Split('\n');
     }
 
-    [MenuItem("Planets/Generte")]
     public Planet GeneratePlanet()
     {
-        Planet planet = new Planet();
+        Planet planet = ScriptableObject.CreateInstance<Planet>();
         planet.tipusPlaneta = (Planet.tipus)Random.Range(0, 4);
-        GameManager gameManager = FindObjectOfType<GameManager>();
         planet.faction = gameManager.factions[Random.Range(0, gameManager.factions.Count)];
-        
         planet.planetPrefab = PlanetPrefab[Random.Range(0, PlanetPrefab.Length)];
+        planet.EdatEspecie = Random.Range(EdatEspecieMin, EdatEspecieMax);
+        planet.Nom = Nom[Random.Range(0, Nom.Length)];
 
         switch (planet.tipusPlaneta)
         {
@@ -199,7 +203,9 @@ public class PlanetGenerator : MonoBehaviour
     //Aqui haurem de passar algun dels valors del enum de tipus de planeta
     public Planet GenerateSpecificPlanet(string tipus)
     {
-        Planet planet = new Planet();
+        Planet planet = ScriptableObject.CreateInstance<Planet>();
+        planet.tipusPlaneta = (Planet.tipus)Random.Range(0, 4);
+        planet.faction = gameManager.factions[Random.Range(0, gameManager.factions.Count)];
 
         switch (tipus)
         {
@@ -354,7 +360,7 @@ public class PlanetGenerator : MonoBehaviour
         List<Faction> factions = new List<Faction>();
         for (int i = 0; i < 5; i++)
         {
-            Faction f = new Faction();
+            Faction f = ScriptableObject.CreateInstance<Faction>();
             f.agresivitat = 0;
             f.densitat = 0; //Setejar un cop es creein planetes nous
             f.especie = (Faction.raca)i;
@@ -365,7 +371,7 @@ public class PlanetGenerator : MonoBehaviour
 
     public Terra GenerateTerra()
     {
-        Terra terra = new Terra();
+        Terra terra = ScriptableObject.CreateInstance<Terra>();
 
         //Sprite
         //terra.planetPrefab = [Treure de la carpeta]
