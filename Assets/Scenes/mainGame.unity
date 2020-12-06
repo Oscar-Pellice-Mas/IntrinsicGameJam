@@ -4046,6 +4046,7 @@ MonoBehaviour:
   nom: {fileID: 3360859452187909861}
   poblacio: {fileID: 3360859451057846047}
   material: {fileID: 254896705}
+  radi: {fileID: 1824968223}
   llunes: {fileID: 1283603963}
   tipus: {fileID: 3360859451847933050}
   edatEspecie: {fileID: 3360859450838291621}

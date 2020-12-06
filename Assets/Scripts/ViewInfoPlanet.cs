@@ -21,6 +21,7 @@ public class ViewInfoPlanet : MonoBehaviour
     public TextMeshProUGUI nom;
     public TextMeshProUGUI poblacio;
     public TextMeshProUGUI material;
+    public TextMeshProUGUI radi;
     public TextMeshProUGUI llunes;
     public TextMeshProUGUI tipus;
     public TextMeshProUGUI edatEspecie;
@@ -39,22 +40,9 @@ public class ViewInfoPlanet : MonoBehaviour
         dificulty = num;
     }
 
-
     void Start()
-    {/*
-        nom.enabled = true;
-        poblacio.enabled = false;
-        material.enabled = false;
-        llunes.enabled = false;
-        tipus.enabled = false;
-        edatEspecie.enabled = false;
-        perillositat.enabled = false;
-        faction.enabled = false;
-        regim.enabled = false;
-        raca.enabled = false;
-        densitat.enabled = false;
-        agresivitat.enabled = false;
-        */
+    {
+
     }
 
     public void SetData(Planet planet, bool startRound = true)
@@ -76,24 +64,30 @@ public class ViewInfoPlanet : MonoBehaviour
         }
 
         planeta = planet;
-        //imatge.sprite = planeta.planetSprite;
+
         ShowInfo(nom, planeta.Nom);
+        ShowInfo(poblacio, TransformLong(planeta.Poblacio));
 
-        //ShowInfo(quantitatPoblacio, planeta.Poblacio.ToString());
+        string materialsString = "";
+        for (int i = 0; i < planeta.materials.Length; i++)
+        {
+            materialsString += TransformInt(planeta.materials[i]) + " - ";
+        }
+        
+        ShowInfo(material, materialsString);
+        ShowInfo(radi, TransformInt((int)planeta.radi));
         ShowInfo(regim, planeta.Regim.ToString());
-        //ShowInfo(edat, planeta.EdatEspecie.ToString());
-        //ShowInfo(energia ,planeta.EnergiaConsumida.ToString());
-        ShowInfo(tipus, planeta.tipusPlaneta.ToString());
-        //recursos.text = planeta.recursosConsumitsPerAny.ToString();
-        ShowInfo(perillositat, planeta.perillositat.ToString());
-        //ShowInfo(radi, planeta.radi.ToString());
         ShowInfo(llunes, planeta.Llunes.ToString());
+        ShowInfo(tipus, planeta.tipusPlaneta.ToString());
+        ShowInfo(edatEspecie, TransformInt(planeta.EdatEspecie));
+        ShowInfo(perillositat, planeta.perillositat.ToString());
+        ShowInfo(faction,planeta.faction.especie.ToString());
+        ShowInfo(regim, planeta.Regim.ToString());
+        ShowInfo(raca, planeta.faction.especie.ToString());
+        ShowInfo(densitat, planeta.faction.densitat.ToString());
+        ShowInfo(agresivitat, planeta.faction.agresivitat.ToString());
 
-        //dineros.text = planeta.pastaGenerada.ToString();
-        //especie.text = planeta.especie.ToString();
         showData = true;
-        //Debug.Log(quantitatPoblacio.text);
-        //Debug.Log(planeta.QuantitatPoblacio);
     }
 
     private void ShowInfo(TextMeshProUGUI component, string data)
@@ -107,6 +101,53 @@ public class ViewInfoPlanet : MonoBehaviour
         {
             component.text = data;
         }
+    }
+
+    private string TransformInt(int data)
+    {
+        string retorn = "";
+
+        if (data / 1000 < 1)
+        {
+            retorn = string.Format("{0}", data);
+        } else if (data / 1000000 < 1)
+        {
+            retorn = string.Format("{0}K", data / 1000);
+        }
+        else if (data / 1000000000 < 1)
+        {
+            retorn = string.Format("{0}M", data / 1000000);
+        }
+        else if (data / 1000000000000 < 1)
+        {
+            retorn = string.Format("{0}B", data / 1000000000);
+        }
+
+        return retorn;
+    }
+
+    private string TransformLong(long data)
+    {
+        string retorn = "";
+
+        if (data / 1000 < 1)
+        {
+            retorn = string.Format("{0}", data);
+        }
+        else if (data / 1000000 < 1)
+        {
+            retorn = string.Format("{0}K", data / 1000);
+        }
+        else if (data / 1000000000 < 1)
+        {
+            retorn = string.Format("{0}M", data / 1000000);
+        }
+        else 
+        {
+            retorn = string.Format("{0}B", data / 1000000000);
+        }
+
+        return retorn;
     }
 
     void Update()

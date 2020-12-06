@@ -10,13 +10,14 @@ public class Planet : ScriptableObject
 
     public string Nom;
     public float radi;
-    public float Poblacio = 0;
-    public float[] materials = new float[3];
+    public long Poblacio;
+    public int[] materials = new int[3];
     public tipus tipusPlaneta;
     public Faction faction;
+    public int idFaction;
     public int Llunes;
     public int EdatEspecie;
-    public float perillositat;
+    public int perillositat;
     
 
     public enum tipus { primitiu, basic, modern, avancat, futurista }
@@ -33,8 +34,8 @@ public class Planet : ScriptableObject
 [CreateAssetMenu(fileName = "new faction", menuName = "Jam/New faction")]
 public class Faction : ScriptableObject
 {
-    public float agresivitat;
-    public float densitat;
+    public int agresivitat;
+    public int densitat;
     public raca especie;
     public enum raca { humans, ewoks, daleks, xenos, vortigaunts }
 
