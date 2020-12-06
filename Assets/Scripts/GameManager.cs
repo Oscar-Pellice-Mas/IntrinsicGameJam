@@ -6,7 +6,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     PoolControler poolControler;
-    
+    PlanetGenerator planetGenerator;
+
     public ViewInfoPlanet viewInfo;
 
     private List<Planet> roundPlanets;
@@ -25,8 +26,8 @@ public class GameManager : MonoBehaviour
         
     void Start()
     {
-        factions = TerraGenerator.GenerateFactions();
-        terra = TerraGenerator.GenerateTerra();
+        factions = planetGenerator.GenerateFactions();
+        terra = planetGenerator.GenerateTerra();
 
         poolControler = GetComponent<PoolControler>();
         poolControler.CreatePool(InitialPoolNumber);

@@ -14,21 +14,24 @@ public class PlanetGenerator : MonoBehaviour
     static float PoblacioPerKmTerra = 14.88047f;
     public static float maxPopulation;
     //Edat espècie. Homo sapiens = 160000 anys.
-    static int EdatEspecieMin = 60000, EdatEspecieMax = 400000;
+    //static int EdatEspecieMin = 60000, EdatEspecieMax = 400000;
 
     //Energia i recursos. Terra: 1.6kW per persona
-    static float EnergyConsumedPerPersonMin = 0.5f; //kW
-    static float EnergyConsumedPerPersonMax = 4f; //kW
+    //static float EnergyConsumedPerPersonMin = 0.5f; //kW
+    //static float EnergyConsumedPerPersonMax = 4f; //kW
 
-    private const float EnergiaConsumidaMin = 0, EnergiaConsumidaMax = 0;
-    private const float recursosConsumitsPerAnyMin = 0, recursosConsumitsPerAnyMax = 0;
-    private const float perillositatMin = 0, perillositatMax = 0;
-    private const float pastaGeneradaMin = 0, pastaGeneradaMax = 0;
+    //private const float EnergiaConsumidaMin = 0, EnergiaConsumidaMax = 0;
+    //private const float recursosConsumitsPerAnyMin = 0, recursosConsumitsPerAnyMax = 0;
+    //private const float perillositatMin = 0, perillositatMax = 0;
+    //private const float pastaGeneradaMin = 0, pastaGeneradaMax = 0;
 
     //private Planet.raca especie;
-    private Planet.tipus tipusPlaneta;
-    private Planet.regim Regim;
+    //private Planet.tipus tipusPlaneta;
+    //private Planet.regim Regim;
 
+    // Terra creator values
+    private const float PoblacioInicial = 1000;
+    private const float MaterialsInicials = 1000;
 
     private void Start()
     {
@@ -36,7 +39,7 @@ public class PlanetGenerator : MonoBehaviour
     }
 
     [MenuItem("Planets/Generte")]
-    public static Planet GeneratePlanet()
+    public Planet GeneratePlanet()
     {
         Planet planet = new Planet();
         planet.tipusPlaneta = (Planet.tipus)Random.Range(0, 4);
@@ -192,7 +195,7 @@ public class PlanetGenerator : MonoBehaviour
     }
 
     //Aqui haurem de passar algun dels valors del enum de tipus de planeta
-    public static Planet GenerateSpecificPlanet(string tipus)
+    public Planet GenerateSpecificPlanet(string tipus)
     {
         Planet planet = new Planet();
 
@@ -344,5 +347,54 @@ public class PlanetGenerator : MonoBehaviour
         return planet;
     }
 
+    public List<Faction> GenerateFactions()
+    {
+        List<Faction> factions = new List<Faction>();
+        for (int i = 0; i < 5; i++)
+        {
+            Faction f = new Faction();
+            f.agresivitat = 0;
+            f.densitat = 0; //Setejar un cop es creein planetes nous
+            f.especie = (Faction.raca)i;
+            factions.Add(f);
+        }
+        return factions;
+    }
+
+    public Terra GenerateTerra()
+    {
+        Terra terra = new Terra();
+
+        //Sprite
+        //terra.planetPrefab = [Treure de la carpeta]
+
+        //Nom
+        terra.name = "HOME";
+
+        //Poblacio
+        terra.Poblacio = PoblacioInicial;
+
+        //Materials
+        terra.materials[0] = MaterialsInicials;
+        terra.materials[1] = 0;
+        terra.materials[2] = 0;
+
+        //Consum
+        terra.consum[0] = 1 * PoblacioInicial;
+        terra.consum[1] = 0;
+        terra.consum[2] = 0;
+
+        //Tipus
+        terra.tipusPlaneta = Terra.tipus.modern;
+
+        //Faction
+        GameManager manager = FindObjectOfType<GameManager>();
+        terra.faction = manager.factions[Random.Range(0, manager.factions.Count)];
+
+        //Regim
+        terra.Regim = (Terra.regim)Random.Range(0, 2);
+
+        return terra;
+    }
 
 }

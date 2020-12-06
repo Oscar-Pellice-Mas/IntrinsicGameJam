@@ -5,6 +5,7 @@ using UnityEngine;
 public class PoolControler : MonoBehaviour
 {
     private GameManager gameManager;
+    private PlanetGenerator planetGenerator;
 
     public List<Planet> planetPool;
     public Planet objectToPool;
@@ -14,13 +15,14 @@ public class PoolControler : MonoBehaviour
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
+        planetGenerator = GetComponent<PlanetGenerator>();
     }
 
     public void CreatePool (int num)
     {
         for (int i = 0; i < num; i++)
         {
-            Planet planet = PlanetGenerator.GeneratePlanet();
+            Planet planet = planetGenerator.GeneratePlanet();
             planetPool.Add(planet);
         }
     }
