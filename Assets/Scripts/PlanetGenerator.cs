@@ -198,7 +198,6 @@ public class PlanetGenerator : MonoBehaviour
             planet.perillositat = Random.Range(0, 100);
         }
 
-        Debug.Log("El planeta te: "+planet.perillositat);
         return planet;
     }
 

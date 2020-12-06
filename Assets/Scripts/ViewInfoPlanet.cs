@@ -89,7 +89,7 @@ public class ViewInfoPlanet : MonoBehaviour
         ShowInfo(faction,planeta.faction.especie.ToString());
         ShowInfo(regim, planeta.Regim.ToString());
         ShowInfo(raca, planeta.faction.especie.ToString());
-        ShowInfo(densitat, planeta.faction.densitat.ToString());
+        ShowInfo(densitat, string.Format("{0}%", planeta.faction.densitat));
         ShowInfo(agresivitat, planeta.faction.agresivitat.ToString());
 
         ShowInfo(day, string.Format("Day {0}", gameManager.round));
@@ -100,7 +100,6 @@ public class ViewInfoPlanet : MonoBehaviour
 
     private void ShowInfo(TextMeshProUGUI component, string data)
     {
-        Debug.Log("showing: "+data);
         if (string.IsNullOrEmpty(data))
         {
             component.text = "?????";
@@ -126,7 +125,7 @@ public class ViewInfoPlanet : MonoBehaviour
         {
             retorn = string.Format("{0}M", data / 1000000);
         }
-        else if (data / 1000000000000 < 1)
+        else
         {
             retorn = string.Format("{0}B", data / 1000000000);
         }
@@ -136,8 +135,7 @@ public class ViewInfoPlanet : MonoBehaviour
 
     private string TransformLong(long data)
     {
-        string retorn = "";
-
+        string retorn;
         if (data / 1000 < 1)
         {
             retorn = string.Format("{0}", data);
