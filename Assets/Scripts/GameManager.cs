@@ -12,6 +12,12 @@ public class GameManager : MonoBehaviour
     public Animator saveLeverAnimator;
     public Animator killPlanetButton;
 
+    public GameObject laser1;
+    public GameObject laser2;
+
+    public GameObject LeftCorner;
+    public GameObject RightCorner;
+
     private List<Planet> roundPlanets;
     private int roundCounter = 0;
     private int numPlanets = 0;
@@ -40,7 +46,10 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log(factions[i].densitat);
         }
-       
+
+        laser1.SetActive(false);
+        laser2.SetActive(false);
+
         StartRound();
     }
 
@@ -86,13 +95,25 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         cameraShake.StartFlicker();
-        yield return new WaitForSeconds(cameraShake.GetTintDuration() / 2);
-        cameraShake.StartShake();
+        yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
 
+
+        cameraShake.StartShake();
+        yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
+
+        laser1.SetActive(true);
+        laser2.SetActive(true);
+
+
+        yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
         poolControler.OnPlanetInteraction(roundPlanets[roundCounter],true);
         Debug.Log(roundCounter + " Destroyed");
 
-        yield return new WaitForSeconds(cameraShake.GetTintDuration() / 2);
+
+        yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
+
+        laser1.SetActive(false);
+        laser2.SetActive(false);
 
         killPlanetButton.SetBool("buttonDown", false);
 
@@ -123,4 +144,21 @@ public class GameManager : MonoBehaviour
 
     }
 
+
+    private void Update()
+    {   if(viewInfo.PlanetGO != null && laser2.activeInHierarchy)
+        {
+            Debug.LogError("ei");
+            laser1.transform.position = viewInfo.PlanetGO.transform.position;
+
+            laser1.transform.LookAt(LeftCorner.transform.position, Vector3.up);
+            laser1.transform.Rotate(new Vector3(0, 1, 0), 90f);
+
+            laser2.transform.position = viewInfo.PlanetGO.transform.position;
+            
+            laser2.transform.LookAt(RightCorner.transform.position, Vector3.up);
+            laser2.transform.Rotate(new Vector3(0, 1, 0), 90f);
+        }
+        
+    }
 }
