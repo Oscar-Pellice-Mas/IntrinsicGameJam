@@ -16,6 +16,8 @@ public class CameraShakeManager : MonoBehaviour
     float currentShakeDuration = 0;
     public float ShakeAmplitude = 5;
     public float shakeDuration = 1;
+    public ShakeType shakeType;
+    public enum ShakeType { incremental, decremental, constant}
 
     //Tint
     [SerializeField]
@@ -40,8 +42,11 @@ public class CameraShakeManager : MonoBehaviour
         }
     }
 
-    public void StartShake()
+    public void StartShake(float shakeduration, float amplitude, ShakeType shakeType_)
     {
+        shakeType = shakeType_;
+        shakeDuration = shakeduration;
+        ShakeAmplitude = amplitude;
         triggerShake = true;
     }
 
@@ -118,7 +123,17 @@ public class CameraShakeManager : MonoBehaviour
 
         if (isShaking)
         {
-            float scale = ShakeAmplitude * (1-((-currentShakeDuration+shakeDuration) / shakeDuration));
+            float scale = 1;
+            if (shakeType == ShakeType.decremental)
+            {
+                scale = ShakeAmplitude * (1 - ((-currentShakeDuration + shakeDuration) / shakeDuration));
+
+
+            }else if (shakeType == ShakeType.incremental)
+            {
+                scale = ShakeAmplitude * (((-currentShakeDuration + shakeDuration) / shakeDuration));
+
+            }
             Vector3 offset = new Vector3(Random.Range(-scale, scale), Random.Range(-scale, scale), 0);
 
             for (int i = 0; i < ObjectsToShake.Length; i++)
