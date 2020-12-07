@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -57,24 +58,23 @@ public class ViewInfoTerra : MonoBehaviour
         planetaHome = Instantiate(terra.planetPrefab, TerraPlaceholder.transform);
 
         ShowInfo(nomTerra, terra.Nom);
-        ShowInfo(poblacioTerra, TransformLong(terra.Poblacio));
+        ShowInfo(poblacioTerra, string.Format("{0:n0}", terra.Poblacio));
         ShowInfo(poblacioTerraVariacio, TransformLong(terra.Poblacio-terraAnterior.Poblacio));
+        Debug.Log("Poblacio: " + terra.Poblacio + "  ->  " + terraAnterior.Poblacio);
 
-        ShowInfo(recursosXTerra, terra.materials[0].ToString());
-        Debug.Log(terra.materials[0]);
-        Debug.Log(terraAnterior.materials[0]);
+        ShowInfo(recursosXTerra, TransformInt(terra.materials[0]));
         int variacio = terra.materials[0] - terraAnterior.materials[0];
-        ShowInfo(recursosCanviXTerra, variacio.ToString());
+        ShowInfo(recursosCanviXTerra, TransformInt(variacio));
         //ShowInfo(consumXTerra, terra.consum[0].ToString());
 
         variacio = terra.materials[1] - terraAnterior.materials[1];
-        ShowInfo(recursosYTerra, terra.materials[1].ToString());
-        ShowInfo(recursosCanviYTerra, variacio.ToString());
+        ShowInfo(recursosYTerra, TransformInt(terra.materials[1]));
+        ShowInfo(recursosCanviYTerra, TransformInt(variacio));
         //ShowInfo(consumYTerra, terra.consum[1].ToString());
 
         variacio = terra.materials[2] - terraAnterior.materials[2];
-        ShowInfo(recursosZTerra, terra.materials[2].ToString());
-        ShowInfo(recursosCanviZTerra, variacio.ToString());
+        ShowInfo(recursosZTerra, TransformInt(terra.materials[2]));
+        ShowInfo(recursosCanviZTerra, TransformInt(variacio));
         //ShowInfo(consumZTerra, terra.consum[2].ToString());
 
         //ShowInfo(FaccioTerra, terra.faction.especie.ToString());

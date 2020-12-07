@@ -23,7 +23,7 @@ public class PlanetGenerator : MonoBehaviour
 
     // Terra creator values
     private const long PoblacioInicial = 1000;
-    private const int MaterialsInicials = 1000;
+    private const int MaterialsInicials = 10000000;
 
     private void Awake()
     {

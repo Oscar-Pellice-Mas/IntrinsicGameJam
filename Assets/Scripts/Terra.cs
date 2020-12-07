@@ -18,7 +18,7 @@ public class Terra : ScriptableObject
     public int idFaction;
 
     public List<Faction> atacants;
-    public long[] danyAtac = new long[5];
+    public List<long> danyAtac;
    
 
     public enum tipus { primitiu, basic, modern, avancat, futurista }
@@ -28,5 +28,24 @@ public class Terra : ScriptableObject
     public regim Regim;
     public enum regim { democracia, dictadura, monarquia }
 
+    public Terra Copy()
+    {
+        Terra terra = ScriptableObject.CreateInstance<Terra>();
+        terra.Nom = Nom;
+        terra.Poblacio = Poblacio;
+        terra.materials = new int[3];
+        terra.materials[0] = materials[0];
+        terra.materials[1] = materials[1];
+        terra.materials[2] = materials[2];
+        terra.consum = consum;
+        terra.indexTipus = indexTipus;
+        terra.tipusPlaneta = tipusPlaneta;
+        terra.faction = faction;
+        terra.idFaction = idFaction;
+        terra.atacants = atacants;
+        terra.danyAtac = danyAtac;
+
+        return terra;
+    }
 }
 

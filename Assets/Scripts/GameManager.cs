@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
 
     private PoolControler poolControler;
     public PlanetGenerator planetGenerator;
-    public RoundInfo roundInfo;
     public CameraShakeManager cameraShake;
     public ViewInfoPlanet viewInfo;
     public ViewInfoTerra viewInfoTerra;
@@ -54,8 +53,7 @@ public class GameManager : MonoBehaviour
         terra = planetGenerator.GenerateTerra();
 
         //Guardem la terra del principi
-        terraAnterior = terra;
-
+        terraAnterior = terra.Copy();
 
         poolControler = GetComponent<PoolControler>();
         poolControler.CreatePool(InitialPoolNumber);
@@ -64,10 +62,6 @@ public class GameManager : MonoBehaviour
 
         laser1.SetActive(false);
         laser2.SetActive(false);
-
-        roundInfo = gameObject.AddComponent<RoundInfo>();
-
-        viewInfoTerra.SetDataTerra(terra, terraAnterior);
 
         StartRound();
     }
@@ -81,10 +75,11 @@ public class GameManager : MonoBehaviour
 
         roundCounter = 0;
         savedPlanets = new List<Planet>();
+        terraAnterior = terra.Copy();
         viewInfo.SetDificulty(round);
 
         poolControler.RefreshFactions();
-        roundPlanets = poolControler.GetRoundPool(5);
+        roundPlanets = poolControler.GetRoundPool(2);
         numPlanets = roundPlanets.Count;
         
         viewInfo.SetData(roundPlanets[roundCounter]);
@@ -143,11 +138,7 @@ public class GameManager : MonoBehaviour
         cameraShake.StartShake(cameraShake.GetTintDuration() / 4, 7, CameraShakeManager.ShakeType.constant);
 
         yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
-        terra = poolControler.OnPlanetInteraction(roundPlanets[roundCounter],true);
-
-        Debug.Log(terra.materials[0]);
-        Debug.Log(terraAnterior.materials[0]);
-
+        poolControler.OnPlanetInteraction(roundPlanets[roundCounter], true);
 
         cameraShake.StartShake(6f, 15, CameraShakeManager.ShakeType.decremental);
         WhiteFadeScreen.color = new Color(1,1,1,1);
@@ -213,26 +204,5 @@ public class GameManager : MonoBehaviour
 
 
     }
-
-    /*public RoundInfo generaInfoRonda()
-    {
-        
-        //Agafar els valors de poblacio la terra nova i antiga
-        roundInfo.poblacio_abans = terraAnterior.Poblacio;
-        roundInfo.poblacio_ara = terra.Poblacio;
-
-        //Agafar els materials
-        roundInfo.materials_abans = terraAnterior.materials;
-        roundInfo.materials_ara = terra.materials;
-
-        //Agafar els materials
-        roundInfo.consum_abans = terraAnterior.consum;
-        roundInfo.consum_ara = terra.consum;
-
-        roundInfo.atacants = terra.atacants;
-        roundInfo.danyRebut = terra.danyAtac;
-
-        return roundInfo;
-    }*/
 
 }

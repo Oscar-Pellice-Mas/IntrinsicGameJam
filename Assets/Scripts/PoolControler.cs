@@ -76,7 +76,7 @@ public class PoolControler : MonoBehaviour
         }
     }
 
-    public Terra OnPlanetInteraction(Planet planet, bool isDestroyed)
+    public void OnPlanetInteraction(Planet planet, bool isDestroyed)
     {
         terra = gameManager.terra;
         
@@ -117,7 +117,7 @@ public class PoolControler : MonoBehaviour
             }
 
         }
-        return terra;
+        gameManager.terra = terra;
     }
 
     public bool Contains(Faction[] factions, Faction faction)
@@ -144,10 +144,13 @@ public class PoolControler : MonoBehaviour
         int attack;
 
         terra.atacants = new List<Faction>();
+        terra.danyAtac = new List<long>();
 
         //Primer mirerm si al tornar
         for (int i = 0; i < gameManager.factions.Count; i++)
         {
+            if (gameManager.factions[i].densitat == 0) continue;
+
             probabilitat = Random.Range(0, 100);
             //Son enemics
             if (gameManager.factions[i].agresivitat > 30)
@@ -156,9 +159,11 @@ public class PoolControler : MonoBehaviour
                 attack = gameManager.factions[i].agresivitat * gameManager.factions[i].mitjaPerillositat / 100;
                 if (probabilitat < attack)
                 {
-                    terra.danyAtac[i] = (gameManager.factions[i].densitat / 100) * terra.Poblacio;
-                    terra.Poblacio -= terra.danyAtac[i];
+                    long dany = (gameManager.factions[i].densitat * terra.Poblacio) / 100;
+                    terra.Poblacio -= dany;
+                    Debug.LogWarning("Atack - " + dany);
                     //ens apuntem qui ens ha atacat
+                    terra.danyAtac.Add(dany);
                     terra.atacants.Add(gameManager.factions[i]);
                 }
             }
