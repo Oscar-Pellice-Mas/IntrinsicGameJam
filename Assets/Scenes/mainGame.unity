@@ -440,6 +440,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 129069951}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &129069953 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2122359107818992619, guid: 7c4a397724a4f1a489313211d1810570,
+    type: 3}
+  m_PrefabInstance: {fileID: 129069951}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &205841421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,6 +1194,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 659739052}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &659739054 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7947178399010664354, guid: 7583528e84607944887b16514a1974df,
+    type: 3}
+  m_PrefabInstance: {fileID: 659739052}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &695852624
 GameObject:
   m_ObjectHideFlags: 0
@@ -3833,6 +3857,54 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1509201962}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1509201964 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 486389058180036644, guid: ce1478e229d66a54eb17a169584b686e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1509201962}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1509201965 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 486389058126903731, guid: ce1478e229d66a54eb17a169584b686e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1509201962}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1509201966 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 486389057396336684, guid: ce1478e229d66a54eb17a169584b686e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1509201962}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1509201967 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2910499193032319437, guid: ce1478e229d66a54eb17a169584b686e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1509201962}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1562446837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5066,6 +5138,66 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2105884648}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2105884650 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4638709778473029697, guid: d95764a047ea96041b8f7792f97eabca,
+    type: 3}
+  m_PrefabInstance: {fileID: 2105884648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2105884651 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4638709778486288449, guid: d95764a047ea96041b8f7792f97eabca,
+    type: 3}
+  m_PrefabInstance: {fileID: 2105884648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2105884652 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4638709778573404469, guid: d95764a047ea96041b8f7792f97eabca,
+    type: 3}
+  m_PrefabInstance: {fileID: 2105884648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2105884653 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4638709778484496714, guid: d95764a047ea96041b8f7792f97eabca,
+    type: 3}
+  m_PrefabInstance: {fileID: 2105884648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2105884654 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4638709778159298278, guid: d95764a047ea96041b8f7792f97eabca,
+    type: 3}
+  m_PrefabInstance: {fileID: 2105884648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &33957975089125745
 GameObject:
   m_ObjectHideFlags: 0
@@ -6044,19 +6176,17 @@ MonoBehaviour:
   TimePerRound: 60
   planeta: {fileID: 0}
   imatge: {fileID: 205841423}
-  nom: {fileID: 0}
-  poblacio: {fileID: 0}
-  material: {fileID: 0}
-  radi: {fileID: 0}
-  llunes: {fileID: 0}
-  tipus: {fileID: 0}
-  edatEspecie: {fileID: 0}
-  perillositat: {fileID: 0}
-  faction: {fileID: 0}
-  regim: {fileID: 0}
-  raca: {fileID: 0}
-  densitat: {fileID: 0}
-  agresivitat: {fileID: 0}
+  nom: {fileID: 2105884654}
+  poblacio: {fileID: 2105884653}
+  tipus: {fileID: 2105884652}
+  perillositat: {fileID: 2105884651}
+  materialEnemic: {fileID: 2105884650}
+  outResources: {fileID: 129069953}
+  raca: {fileID: 1509201967}
+  strenght: {fileID: 1509201966}
+  attitude: {fileID: 1509201965}
+  edatEspecie: {fileID: 1509201964}
+  agresivitat: {fileID: 659739054}
   day: {fileID: 1900642723}
   planetnumber: {fileID: 1109804741}
   showData: 1

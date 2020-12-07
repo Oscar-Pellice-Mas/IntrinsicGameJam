@@ -23,17 +23,17 @@ public class ViewInfoPlanet : MonoBehaviour
     public Image imatge;
     public TextMeshProUGUI nom;
     public TextMeshProUGUI poblacio;
-    public TextMeshProUGUI material;
-    public TextMeshProUGUI radi;
-    public TextMeshProUGUI llunes;
     public TextMeshProUGUI tipus;
-    public TextMeshProUGUI edatEspecie;
     public TextMeshProUGUI perillositat;
-    public TextMeshProUGUI faction;
-    public TextMeshProUGUI regim;
+    public TextMeshProUGUI materialEnemic;
+    public TextMeshProUGUI outResources;
+
     public TextMeshProUGUI raca;
-    public TextMeshProUGUI densitat;
+    public TextMeshProUGUI strenght;
+    public TextMeshProUGUI attitude;
+    public TextMeshProUGUI edatEspecie;
     public TextMeshProUGUI agresivitat;
+    
 
     public TextMeshProUGUI day;
     public TextMeshProUGUI planetnumber;
@@ -105,7 +105,7 @@ public class ViewInfoPlanet : MonoBehaviour
             materialsString += TransformInt(planeta.materials[i]) + " - ";
         }
         
-        ShowInfo(material, materialsString);
+        /*ShowInfo(material, materialsString);
         ShowInfo(radi, TransformInt((int)planeta.radi));
         ShowInfo(regim, planeta.Regim.ToString());
         ShowInfo(llunes, planeta.Llunes.ToString());
@@ -116,7 +116,7 @@ public class ViewInfoPlanet : MonoBehaviour
         ShowInfo(regim, planeta.Regim.ToString());
         ShowInfo(raca, planeta.faction.especie.ToString());
         ShowInfo(densitat, string.Format("{0}%", planeta.faction.densitat));
-        ShowInfo(agresivitat, planeta.faction.agresivitat.ToString());
+        ShowInfo(agresivitat, planeta.faction.agresivitat.ToString());*/
 
         ShowInfo(day, string.Format("Day {0}", gameManager.round));
         ShowInfo(planetnumber, string.Format("Planet {0} of {1}", gameManager.roundCounter+1,gameManager.numPlanets));
@@ -216,7 +216,7 @@ public class ViewInfoPlanet : MonoBehaviour
             }
             if (dificulty > 1)
             {
-                regim.enabled = true;
+                //regim.enabled = true;
                 //Debug.Log("Regim: " + planet.Regim);
             }
             if (dificulty > 2)
