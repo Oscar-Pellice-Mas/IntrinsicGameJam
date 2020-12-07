@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
         poolControler.OnPlanetInteraction(roundPlanets[roundCounter],true);
 
         Debug.Log(roundCounter + " Destroyed");
-        cameraShake.StartShake(6f, 15, CameraShakeManager.ShakeType.decremental);
+        cameraShake.StartShake(5f, 15, CameraShakeManager.ShakeType.decremental);
         WhiteFadeScreen.color = new Color(1,1,1,1);
         ExplosionObject.GetComponent<Animator>().SetTrigger("triggerExplosion");
         viewInfo.PlanetGO.SetActive(false);
@@ -141,7 +141,7 @@ public class GameManager : MonoBehaviour
 
         killPlanetButton.SetBool("buttonDown", false);
 
-        yield return new WaitForSeconds(9f);
+        yield return new WaitForSeconds(2.5f);
         //Destroy planet
         if (roundCounter+1 >= numPlanets) {
             RoundDone();
