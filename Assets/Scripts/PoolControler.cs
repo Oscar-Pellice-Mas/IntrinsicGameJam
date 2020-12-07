@@ -177,10 +177,6 @@ public class PoolControler : MonoBehaviour
             materialsConsumits += terra.consum[i] * (i + 1);
         }
 
-        //10.000.000 de persones -> 10.000.000 consum
-        //50.000.000 material
-        //em quedan 40.000.000
-
         if (materialsRestants > 2 * materialsConsumits)
         {
 
@@ -191,14 +187,15 @@ public class PoolControler : MonoBehaviour
         
         if (terra.indexTipus >= 2)
         {
-            //una persona cosum 10 de material basic
             terra.consum[0] = terra.Poblacio*50;
             terra.consum[1] = terra.Poblacio * 30;
+            terra.consum[2] = terra.Poblacio * 10;
         }
         if (terra.indexTipus >= 4)
         {
-            //una persona cosum 5 del material maxim
-            terra.consum[2] = (long)(terra.Poblacio * 20);
+            terra.consum[0] = terra.Poblacio * 10;
+            terra.consum[1] = (long)(terra.Poblacio * 30);
+            terra.consum[2] = terra.Poblacio * 50;
         }
         //if (terra.indexTipus >= 2) terra.consum[0] = (terra.Poblacio * (gameManager.round / 5 + 1) * 3);
         //if (terra.indexTipus >= 4) terra.consum[2] = (terra.Poblacio * (gameManager.round / 5 + 1) * 1);
