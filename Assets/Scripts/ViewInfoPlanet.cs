@@ -94,26 +94,114 @@ public class ViewInfoPlanet : MonoBehaviour
         ShowInfo(poblacio, TransformLong(planeta.Poblacio));
 
         string materialsString = "";
+        for (int i = 0; i < gameManager.terra.materials.Length; i++)
+        {
+            if (i != 0) materialsString += " / "; 
+            materialsString += TransformLong(gameManager.terra.materials[i]) ;
+        }
+        ShowInfo(ourResources, materialsString); 
+
+        materialsString = "";
         for (int i = 0; i < planeta.materials.Length; i++)
         {
-            materialsString += TransformInt(planeta.materials[i]) + " / ";
+            if (i != 0) materialsString += " / ";
+            materialsString += TransformLong(planeta.materials[i]);
         }
-        
-        ShowInfo(ourResources, materialsString); //Fix
         ShowInfo(materialEnemic, materialsString);
+        
         ShowInfo(tipus, planeta.tipusPlaneta.ToString());
-        ShowInfo(perillositat, planeta.perillositat.ToString());
+        ShowInfo(perillositat, TransformDanger(planeta.perillositat));
 
         ShowInfo(raca, planeta.faction.especie.ToString());
         ShowInfo(strenght, string.Format("{0}%", planeta.faction.densitat));
-        ShowInfo(attitude, planeta.faction.agresivitat.ToString());
-        ShowInfo(edatEspecie, TransformInt(planeta.EdatEspecie));
-        ShowInfo(agresivitat, planeta.faction.agresivitat.ToString());
+        ShowInfo(attitude, TransformAttitude(planeta.faction.mitjaPerillositat));
+        ShowInfo(edatEspecie, TransformAge(planeta.EdatEspecie));
+        ShowInfo(agresivitat, TransformAgressive(planeta.faction.agresivitat));
 
         ShowInfo(day, string.Format("Day {0}", gameManager.round));
         ShowInfo(planetnumber, string.Format("Planet {0} of {1}", gameManager.roundCounter+1,gameManager.numPlanets));
 
         showData = true;
+    }
+
+    private string TransformAgressive(int agresivitat)
+    {
+        if (agresivitat < -60)
+        {
+            return "Very Friendly";
+        }
+        else if (agresivitat < -25)
+        {
+            return "Friendly";
+        }
+        else if (agresivitat < 25)
+        {
+            return "Neural";
+        }
+        else if (agresivitat < 60)
+        {
+            return "Hostile";
+        }
+        else
+        {
+            return "Very Hostile";
+        }
+    }
+
+    private string TransformAge(int edatEspecie)
+    {
+        if (edatEspecie > 260000)
+        {
+            return "Ancient";
+        }
+        else if (edatEspecie > 160000)
+        {
+            return "Matured";
+        }
+        else if (edatEspecie > 60000)
+        {
+            return "Recent";
+        }
+        else
+        {
+            return "Newborn";
+        }
+    }
+
+    private string TransformAttitude(int mitjaPerillositat)
+    {
+        if (mitjaPerillositat < 30)
+        {
+            return "Passive";
+        }
+        else if (mitjaPerillositat < 60)
+        {
+            return "Neutral";
+        }
+        else
+        {
+            return "Dangerous";
+        }
+    }
+
+    private string TransformDanger(int perillositat)
+    {
+        if (perillositat < 20)
+        {
+            return "Very Low";
+        } else if (perillositat < 40)
+        {
+            return "Low";
+        } else if (perillositat < 60)
+        {
+            return "Medium";
+        } else if (perillositat < 80)
+        {
+            return "High";
+        } else
+        {
+            return "Very Hign";
+        }
     }
 
     private void ShowInfo(TextMeshProUGUI component, string data)

@@ -11,7 +11,7 @@ public class Planet : ScriptableObject
     public string Nom;
     public float radi;
     public long Poblacio;
-    public int[] materials = new int[3];
+    public long[] materials = new long[3];
     public tipus tipusPlaneta;
     public Faction faction;
     public int idFaction;
@@ -19,16 +19,7 @@ public class Planet : ScriptableObject
     public int EdatEspecie;
     public int perillositat;
     
-
-    public enum tipus { primitiu, basic, modern, avancat, futurista }
-    
-    //INFORMACIO EXTRA
-
-    public regim Regim;
-    public enum regim { democracia, dictadura, monarquia}
-
-    
-
+    public enum tipus { Primitive, Basic, Modern, Advanced, Futurist }   
 }
 
 [CreateAssetMenu(fileName = "new faction", menuName = "Jam/New faction")]

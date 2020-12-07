@@ -43,19 +43,19 @@ public class PlanetGenerator : MonoBehaviour
 
         switch (planet.tipusPlaneta)
         {
-            case Planet.tipus.primitiu:
+            case Planet.tipus.Primitive:
                 planet = creaPrimitiu(planet);
                 break;
-            case Planet.tipus.basic:
+            case Planet.tipus.Basic:
                 planet = creaBasic(planet);
                 break;
-            case Planet.tipus.modern:
+            case Planet.tipus.Modern:
                 planet = creaModern(planet);
                 break;
-            case Planet.tipus.avancat:
+            case Planet.tipus.Advanced:
                 planet = creaAvançat(planet);
                 break;
-            case Planet.tipus.futurista:
+            case Planet.tipus.Futurist:
                 planet = creaFuturista(planet);
                 break;
             default:
@@ -83,19 +83,19 @@ public class PlanetGenerator : MonoBehaviour
 
         switch (tipus)
         {
-            case "primitiu":
+            case "Primitive":
                 planet = creaPrimitiu(planet);
                 break;
-            case "basic":
+            case "Basic":
                 planet = creaBasic(planet);
                 break;
-            case "modern":
+            case "Modern":
                 planet = creaModern(planet);
                 break;
-            case "avancat":
+            case "Advanced":
                 planet = creaAvançat(planet);
                 break;
-            case "futurista":
+            case "Futurist":
                 planet = creaFuturista(planet);
                 break;
             default:
