@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     public bool roundActive = false;
     public bool decisionMade = false;
-    private const int InitialPoolNumber = 10;
+    private const int InitialPoolNumber = 100;
 
 
     public SoundManager soundsManager;
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
         viewInfo.SetDificulty(round);
 
         poolControler.RefreshFactions();
-        roundPlanets = poolControler.GetRoundPool(2);
+        roundPlanets = poolControler.GetRoundPool(5);
         numPlanets = roundPlanets.Count;
         
         viewInfo.SetData(roundPlanets[roundCounter]);

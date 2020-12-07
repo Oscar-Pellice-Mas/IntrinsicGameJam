@@ -8,7 +8,8 @@ public class PlanetGenerator : MonoBehaviour
     GameManager gameManager;
 
     public TextAsset nameFile;
-    private string[] Nom; // = new string[] { "Kedroapra", "Talvounus", "Olviri", "Ecrilia", "Oatis", "Theiter", "Chuubos", "Griyeyama", "Byria L3", "Lleron 7GVD" }; //Pool de noms
+    private string[] Nom;
+    private List<string> nomList = new List<string>();
     public GameObject[] PlanetPrefab;
     public GameObject[] MoonPrefab;
     public Sprite[] Sprites;
@@ -30,6 +31,7 @@ public class PlanetGenerator : MonoBehaviour
         maxPopulation = (long)((4 * Mathf.PI * RadiMax * RadiMax)* PoblacioPerKmTerra * MaxRatio);
         gameManager = FindObjectOfType<GameManager>();
         Nom = nameFile.text.Split('\n');
+        nomList.AddRange(Nom);
     }
 
     public Planet GeneratePlanet()
@@ -40,7 +42,10 @@ public class PlanetGenerator : MonoBehaviour
         planet.faction = gameManager.factions[planet.idFaction];
         planet.planetPrefab = PlanetPrefab[Random.Range(0, PlanetPrefab.Length)];
         planet.EdatEspecie = Random.Range(EdatEspecieMin, EdatEspecieMax);
-        planet.Nom = Nom[Random.Range(0, Nom.Length)];
+        if (nomList.Count == 0) nomList.AddRange(Nom);
+        int index = Random.Range(0, nomList.Count);
+        planet.Nom = Nom[index];
+        nomList.RemoveAt(index);
 
         switch (planet.tipusPlaneta)
         {
@@ -249,7 +254,19 @@ public class PlanetGenerator : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             Faction f = ScriptableObject.CreateInstance<Faction>();
-            f.agresivitat = Random.Range(-100, 100);
+            if (i == 1)
+            {
+                f.agresivitat = Random.Range(-50, -25);
+            }
+            else if (i == 2)
+            {
+                f.agresivitat = Random.Range(25, 50);
+            }
+            else
+            {
+                f.agresivitat = Random.Range(-25, 25);
+            }
+            
             f.densitat = 0; //Setejar un cop es creein planetes nous
             f.especie = (Faction.raca)i;
             f.imatge = Sprites[i];
