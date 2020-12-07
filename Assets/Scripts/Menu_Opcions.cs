@@ -19,6 +19,8 @@ public class Menu_Opcions : MonoBehaviour
     public Animator saveLeverAnimator;
     public Animator killPlanetButton;
 
+
+
     bool isLeverPress = false;
     bool isButtonPress = false;
 
@@ -131,7 +133,6 @@ public class Menu_Opcions : MonoBehaviour
                     isButtonPress = false;
                     break;
                 case 2:
-                    Debug.Log("Entra a return");
                     killPlanetButton.SetBool("buttonDown", true);
                     yield return new WaitForSeconds(0.2f);
                     killPlanetButton.SetBool("buttonDown", false);
