@@ -9,7 +9,8 @@ public class ViewInfoTerra : MonoBehaviour
     public GameManager gameManager;
 
     //UI HOME
-    //public GameObject planetaHome;
+    public GameObject planetaHome;
+    public GameObject TerraPlaceholder;
 
     public TextMeshProUGUI nomTerra;
     public TextMeshProUGUI poblacioTerra;
@@ -26,19 +27,23 @@ public class ViewInfoTerra : MonoBehaviour
     //public TextMeshProUGUI consumZTerra;
 
     //public TextMeshProUGUI FaccioTerra;
-    //public Sprite imatgeFaccioTerra;
+    //public Image imatgeFaccioTerra;
+    public GameObject Targeta1;
     public TextMeshProUGUI Faccio1;
     public TextMeshProUGUI dany1;
-    //public Sprite imatgeFaccio1;
+    public Image imatgeFaccio1;
+    public GameObject Targeta2;
     public TextMeshProUGUI Faccio2;
     public TextMeshProUGUI dany2;
-    //public Sprite imatgeFaccio2;
+    public Image imatgeFaccio2;
+    public GameObject Targeta3;
     public TextMeshProUGUI Faccio3;
     public TextMeshProUGUI dany3;
-    //public Sprite imatgeFaccio3;
+    public Image imatgeFaccio3;
+    public GameObject Targeta4;
     public TextMeshProUGUI Faccio4;
     public TextMeshProUGUI dany4;
-    //public Sprite imatgeFaccio4;
+    public Image imatgeFaccio4;
 
 
     void Awake()
@@ -48,12 +53,9 @@ public class ViewInfoTerra : MonoBehaviour
 
     public void SetDataTerra(Terra terra, Terra terraAnterior)
     {
-        //Transform parent = planetaHome.transform.parent;
-        //int siblingIndex = planetaHome.transform.GetSiblingIndex();
-        //DestroyImmediate(planetaHome);
+        Destroy(planetaHome);
+        planetaHome = Instantiate(terra.planetPrefab, TerraPlaceholder.transform);
 
-        //planetaHome = Instantiate(terra.planetPrefab, parent);
-        //planetaHome.transform.SetSiblingIndex(siblingIndex);
         ShowInfo(nomTerra, terra.Nom);
         ShowInfo(poblacioTerra, TransformLong(terra.Poblacio));
         ShowInfo(poblacioTerraVariacio, TransformLong(terra.Poblacio-terraAnterior.Poblacio));
@@ -79,34 +81,38 @@ public class ViewInfoTerra : MonoBehaviour
         //imatgeFaccioTerra = gameManager.factions[terra.idFaction].imatge;
 
         //Desactivar tots el contenidors d'atacs
+        Targeta1.SetActive(false);
+        Targeta2.SetActive(false);
+        Targeta3.SetActive(false);
+        Targeta4.SetActive(false);
 
         for (int i = 0; i < terra.atacants.Count; i++)
         {
             if (i == 0)
             {
-                //Activar contenidor d'atac
-                //imatgeFaccio1 = terra.atacants[i].imatge;
+                Targeta1.SetActive(true);
+                imatgeFaccio1.sprite = terra.atacants[i].imatge;
                 ShowInfo(Faccio1, terra.atacants[i].especie.ToString());
                 ShowInfo(dany1, TransformLong(terra.danyAtac[i]));
             }
             if (i == 1)
             {
-                //Activar contenidor d'atac
-                //imatgeFaccio2 = terra.atacants[i].imatge;
+                Targeta2.SetActive(true);
+                imatgeFaccio2.sprite = terra.atacants[i].imatge;
                 ShowInfo(Faccio2, terra.atacants[i].especie.ToString());
                 ShowInfo(dany2, TransformLong(terra.danyAtac[i]));
             }
             if (i == 2)
             {
-                //Activar contenidor d'atac
-                //imatgeFaccio3 = terra.atacants[i].imatge;
+                Targeta3.SetActive(true);
+                imatgeFaccio3.sprite = terra.atacants[i].imatge;
                 ShowInfo(Faccio3, terra.atacants[i].especie.ToString());
                 ShowInfo(dany3, TransformLong(terra.danyAtac[i]));
             }
             if (i == 3)
             {
-                //Activar contenidor d'atac
-                //imatgeFaccio4 = terra.atacants[i].imatge;
+                Targeta4.SetActive(true);
+                imatgeFaccio4.sprite = terra.atacants[i].imatge;
                 ShowInfo(Faccio4, terra.atacants[i].especie.ToString());
                 ShowInfo(dany4, TransformLong(terra.danyAtac[i]));
             }

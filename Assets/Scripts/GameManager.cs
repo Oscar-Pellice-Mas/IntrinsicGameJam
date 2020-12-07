@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         
     void Start()
     {
-
+        
 
         planetGenerator = GetComponent<PlanetGenerator>();
         factions = planetGenerator.GenerateFactions();
@@ -62,6 +62,8 @@ public class GameManager : MonoBehaviour
         laser2.SetActive(false);
 
         roundInfo = gameObject.AddComponent<RoundInfo>();
+
+        viewInfoTerra.SetDataTerra(terra, terraAnterior);
 
         StartRound();
     }

@@ -241,10 +241,10 @@ public class PlanetGenerator : MonoBehaviour
         Terra terra = ScriptableObject.CreateInstance<Terra>();
 
         //Sprite
-        //terra.planetPrefab = [Treure de la carpeta]
+        terra.planetPrefab = PlanetPrefab[Random.Range(0, PlanetPrefab.Length)];
 
         //Nom
-        terra.name = "HOME";
+        terra.Nom = "HOME";
 
         //Poblacio
         terra.Poblacio = PoblacioInicial;
