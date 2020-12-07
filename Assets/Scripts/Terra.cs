@@ -10,8 +10,8 @@ public class Terra : ScriptableObject
 
     public string Nom;
     public long Poblacio = 0;
-    public int[] materials = new int[3];
-    public int[] consum = new int[3];
+    public long[] materials = new long[3];
+    public long[] consum = new long[3];
     public int indexTipus;
     public tipus tipusPlaneta;
     public Faction faction;
@@ -33,7 +33,7 @@ public class Terra : ScriptableObject
         Terra terra = ScriptableObject.CreateInstance<Terra>();
         terra.Nom = Nom;
         terra.Poblacio = Poblacio;
-        terra.materials = new int[3];
+        terra.materials = new long[3];
         terra.materials[0] = materials[0];
         terra.materials[1] = materials[1];
         terra.materials[2] = materials[2];

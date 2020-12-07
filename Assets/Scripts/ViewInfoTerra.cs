@@ -62,19 +62,19 @@ public class ViewInfoTerra : MonoBehaviour
         ShowInfo(poblacioTerraVariacio, TransformLong(terra.Poblacio-terraAnterior.Poblacio));
         Debug.Log("Poblacio: " + terra.Poblacio + "  ->  " + terraAnterior.Poblacio);
 
-        ShowInfo(recursosXTerra, TransformInt(terra.materials[0]));
-        int variacio = terra.materials[0] - terraAnterior.materials[0];
-        ShowInfo(recursosCanviXTerra, TransformInt(variacio));
+        ShowInfo(recursosXTerra, TransformLong(terra.materials[0]));
+        long variacio = terra.materials[0] - terraAnterior.materials[0];
+        ShowInfo(recursosCanviXTerra, TransformLong(variacio));
         //ShowInfo(consumXTerra, terra.consum[0].ToString());
 
         variacio = terra.materials[1] - terraAnterior.materials[1];
-        ShowInfo(recursosYTerra, TransformInt(terra.materials[1]));
-        ShowInfo(recursosCanviYTerra, TransformInt(variacio));
+        ShowInfo(recursosYTerra, TransformLong(terra.materials[1]));
+        ShowInfo(recursosCanviYTerra, TransformLong(variacio));
         //ShowInfo(consumYTerra, terra.consum[1].ToString());
 
         variacio = terra.materials[2] - terraAnterior.materials[2];
-        ShowInfo(recursosZTerra, TransformInt(terra.materials[2]));
-        ShowInfo(recursosCanviZTerra, TransformInt(variacio));
+        ShowInfo(recursosZTerra, TransformLong(terra.materials[2]));
+        ShowInfo(recursosCanviZTerra, TransformLong(variacio));
         //ShowInfo(consumZTerra, terra.consum[2].ToString());
 
         //ShowInfo(FaccioTerra, terra.faction.especie.ToString());

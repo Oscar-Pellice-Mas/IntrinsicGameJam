@@ -137,8 +137,8 @@ public class PoolControler : MonoBehaviour
     {
         terra = gameManager.terra;
 
-        float materialsRestants = 0;
-        float materialsConsumits = 0;
+        long materialsRestants = 0;
+        long materialsConsumits = 0;
 
         int probabilitat;
         int attack;
@@ -173,18 +173,18 @@ public class PoolControler : MonoBehaviour
         for (int i = 0; i < terra.consum.Length; i++)
         {
             terra.materials[i] -= terra.consum[i];
-            materialsRestants += terra.materials[i] * (i+1);
+            materialsRestants += terra.materials[i] * (i + 1);
             materialsConsumits += terra.consum[i] * (i + 1);
         }
-        if(materialsRestants > 2*materialsConsumits)
+        if(materialsRestants > 2 * materialsConsumits)
         {
-            int valorAugment = (int)(materialsRestants / materialsConsumits);
+            long valorAugment = materialsRestants / materialsConsumits;
             terra.Poblacio *= valorAugment;
         }
-
-        terra.consum[0] = (int)(terra.Poblacio * gameManager.round/5 * terra.indexTipus * 3);
-        terra.consum[1] = (int)(terra.Poblacio * gameManager.round / 5 * terra.indexTipus * 2);
-        terra.consum[2] = (int)(terra.Poblacio * gameManager.round / 5 * terra.indexTipus * 1);
+        if (terra.indexTipus >= 2) terra.consum[0] = (terra.Poblacio * (gameManager.round / 5 + 1) * 3);
+        Debug.LogWarning("Consum: " + terra.Poblacio + " * " + (gameManager.round / 5 + 1) + " * 3 = " + terra.consum[0]);
+        if (terra.indexTipus >= 3) terra.consum[1] = (terra.Poblacio * (gameManager.round / 5 + 1) * 2);
+        if (terra.indexTipus >= 4) terra.consum[2] = (terra.Poblacio * (gameManager.round / 5 + 1) * 1);
 
         gameManager.terra = terra;
     }

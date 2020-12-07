@@ -13,10 +13,10 @@ public class PlanetGenerator : MonoBehaviour
     public GameObject[] MoonPrefab;
     public Sprite[] Sprites;
     //Tamany i població
-    private float RadiMin = 2439, RadiMax = 69911;
+    private float RadiMin = 2439, RadiMax = 6911;
     //static float RadiTerra = 6371;
     private float MinRatio = 0.4f, MaxRatio = 3f;
-    private float PoblacioPerKmTerra = 14.2885f;
+    private float PoblacioPerKmTerra = 14.7f;
     public long maxPopulation;
     //Edat espècie. Homo sapiens = 160000 anys.
     int EdatEspecieMin = 60000, EdatEspecieMax = 400000;
@@ -241,10 +241,10 @@ public class PlanetGenerator : MonoBehaviour
         Terra terra = ScriptableObject.CreateInstance<Terra>();
 
         //Sprite
-        terra.planetPrefab = PlanetPrefab[Random.Range(0, PlanetPrefab.Length)];
+        terra.planetPrefab = PlanetPrefab[10];
 
         //Nom
-        terra.Nom = "HOME";
+        terra.Nom = "Terra";
 
         //Poblacio
         terra.Poblacio = PoblacioInicial;
@@ -255,12 +255,13 @@ public class PlanetGenerator : MonoBehaviour
         terra.materials[2] = 0;
 
         //Consum
-        terra.consum[0] = 1 * (int)PoblacioInicial;
+        terra.consum[0] = 1 * PoblacioInicial;
         terra.consum[1] = 0;
         terra.consum[2] = 0;
 
         //Tipus
         terra.tipusPlaneta = Terra.tipus.modern;
+        terra.indexTipus = 2;
 
         //Faction
         terra.idFaction = Random.Range(0, gameManager.factions.Count);

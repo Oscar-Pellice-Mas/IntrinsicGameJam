@@ -531,7 +531,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5ff53eaa3dac7a04ba99173f761b89b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 33c3c40e8ee1998409f897448770bf1f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4664,7 +4664,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5ff53eaa3dac7a04ba99173f761b89b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 33c3c40e8ee1998409f897448770bf1f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5079,7 +5079,6 @@ MonoBehaviour:
   homeUI: {fileID: 2074651087}
   planetUI: {fileID: 1063823036}
   planetGenerator: {fileID: 0}
-  roundInfo: {fileID: 0}
   cameraShake: {fileID: 2015185288}
   viewInfo: {fileID: 3360859450800428918}
   viewInfoTerra: {fileID: 3360859450800428916}
@@ -5784,7 +5783,7 @@ GameObject:
   - component: {fileID: 7169442875453056170}
   - component: {fileID: 4855090262906364020}
   m_Layer: 5
-  m_Name: Poblacio_matada
+  m_Name: Diferencia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6037,7 +6036,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 59.396942}
+  m_SizeDelta: {x: 200, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2178513912151597908
 CanvasRenderer:
@@ -6099,7 +6098,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 65.1, y: 36.9}
+  m_AnchoredPosition: {x: 65, y: 44.2}
   m_SizeDelta: {x: 100.33005, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2798866615433651353
@@ -6134,7 +6133,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 65.1, y: 15.7}
+  m_AnchoredPosition: {x: 65.1, y: 26.7}
   m_SizeDelta: {x: 100.33005, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3122262061731389002
@@ -7777,7 +7776,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5ff53eaa3dac7a04ba99173f761b89b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 33c3c40e8ee1998409f897448770bf1f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7970,7 +7969,7 @@ GameObject:
   - component: {fileID: 1576553134779199409}
   - component: {fileID: 9045105555035572203}
   m_Layer: 5
-  m_Name: "Nom_Ra\xE7a"
+  m_Name: Quantitat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7992,8 +7991,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 68.6, y: 0.049755}
-  m_SizeDelta: {x: 39.589996, y: 59.49646}
+  m_AnchoredPosition: {x: 66, y: 3}
+  m_SizeDelta: {x: 40, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &4642516456499721480
 RectTransform:
@@ -10338,8 +10337,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 99.899994, y: -33.6}
-  m_SizeDelta: {x: 200, y: 70}
+  m_AnchoredPosition: {x: 100, y: -35}
+  m_SizeDelta: {x: 200, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &8170825027729899170
 RectTransform:
