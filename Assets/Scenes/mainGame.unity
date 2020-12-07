@@ -7163,7 +7163,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ATACS
+  m_text: ATtACKS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 53973e0f17fe53f44b70300168577e26, type: 2}
   m_sharedMaterial: {fileID: -4225306811291168030, guid: 53973e0f17fe53f44b70300168577e26,
@@ -7249,7 +7249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 141, y: 17}
+  m_AnchoredPosition: {x: 141, y: -0.3999939}
   m_SizeDelta: {x: 200, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3607298022877318991
@@ -8971,7 +8971,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: 14}
+  m_AnchoredPosition: {x: 91, y: -18.1}
   m_SizeDelta: {x: 200, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4424843487790569583
