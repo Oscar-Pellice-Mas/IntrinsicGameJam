@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         
     void Start()
     {
-        planetUI.SetActive(false);
+        planetUI.SetActive(true);
         homeUI.SetActive(false);
 
         planetGenerator = GetComponent<PlanetGenerator>();

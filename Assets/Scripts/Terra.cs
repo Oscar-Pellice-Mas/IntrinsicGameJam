@@ -18,7 +18,7 @@ public class Terra : ScriptableObject
     public int idFaction;
 
     public List<Faction> atacants;
-    public long[] danyAtac = new long[3];
+    public long[] danyAtac = new long[5];
    
 
     public enum tipus { primitiu, basic, modern, avancat, futurista }
