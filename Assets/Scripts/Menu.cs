@@ -128,6 +128,11 @@ public class Menu : MonoBehaviour
         options_menu.gameObject.SetActive(false);
         howtoplay_menu.gameObject.SetActive(false);
         credits_menu.gameObject.SetActive(false);
+
+        menu_controls.gameObject.SetActive(true);
+        menu_panel.gameObject.SetActive(true);
+        palanca.gameObject.SetActive(true);
+        boto.gameObject.SetActive(true);
     }
 
     public void startGame()

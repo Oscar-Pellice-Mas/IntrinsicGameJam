@@ -8,6 +8,7 @@ public class ScrollZ : MonoBehaviour
 
 	public bool activarScroll = false;
 
+	public Menu m;
 
 	void Update()
 	{
@@ -19,7 +20,17 @@ public class ScrollZ : MonoBehaviour
 
 			pos += localVectorUp * scrollSpeed * Time.deltaTime;
 			transform.position = pos;
+
 		}
+
+		float top = this.gameObject.GetComponent<RectTransform>().offsetMax.y;
+		top = top * (-1);
+
+		if (top < -953.3248)
+        {
+			m.show_start();
+        }
+
 	}
 
 }
