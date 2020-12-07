@@ -5917,6 +5917,7 @@ MonoBehaviour:
   - {fileID: 701649972}
   - {fileID: 528967251}
   initialPos: []
+  selectedColor: {r: 0.09019608, g: 0.43137258, b: 0.19607845, a: 1}
   menu_panel: {fileID: 528205599}
   menu_controls: {fileID: 1104898573}
   palanca: {fileID: 476821059}
