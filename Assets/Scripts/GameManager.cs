@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
     public bool roundActive = false;
     public bool decisionMade = false;
     private const int InitialPoolNumber = 10;
+
+
+    public SoundManager soundsManager;
         
     void Start()
     {
@@ -79,6 +82,7 @@ public class GameManager : MonoBehaviour
     {
         saveLeverAnimator.SetBool("palancaDown", true);
         yield return new WaitForSeconds(0.5f);
+        soundsManager.PlayButton();
         poolControler.OnPlanetInteraction(roundPlanets[roundCounter], false);
         savedPlanets.Add(roundPlanets[roundCounter]);
         yield return new WaitForSeconds(0.5f);
@@ -103,7 +107,7 @@ public class GameManager : MonoBehaviour
 
         killPlanetButton.SetBool("buttonDown", true);
         yield return new WaitForSeconds(0.2f);
-
+        soundsManager.PlayButton();
         cameraShake.StartFlicker();
         yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
 
@@ -133,6 +137,7 @@ public class GameManager : MonoBehaviour
         cameraShake.StartShake(5f, 15, CameraShakeManager.ShakeType.decremental);
         WhiteFadeScreen.color = new Color(1,1,1,1);
         ExplosionObject.GetComponent<Animator>().SetTrigger("triggerExplosion");
+        soundsManager.PlayDestruction();
         viewInfo.PlanetGO.SetActive(false);
         yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
 

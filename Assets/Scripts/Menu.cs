@@ -30,6 +30,8 @@ public class Menu : MonoBehaviour
 
     bool menuActive = false;
 
+    
+
     void Start()
     {
         initGame();
@@ -41,10 +43,12 @@ public class Menu : MonoBehaviour
         if (Input.GetButtonDown("A"))
         {
             StartCoroutine(Select());
+            options_menu.GetComponent<Menu_Opcions>().soundManager.PlayButton();
         }
         if (Input.GetButtonDown("B"))
         {
             StartCoroutine(Move());
+            options_menu.GetComponent<Menu_Opcions>().soundManager.PlayButton();
         }
     }
 
