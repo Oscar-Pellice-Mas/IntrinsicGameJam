@@ -100,6 +100,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         if (roundCounter+1 >= numPlanets)
         {
+            LightSpeedAnimation.SetTrigger("goLightSpeed");
+            soundsManager.PlayTravel();
+            yield return new WaitForSeconds(3f);
             RoundDone();
             yield return null;
         }
