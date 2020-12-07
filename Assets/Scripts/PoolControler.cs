@@ -159,9 +159,8 @@ public class PoolControler : MonoBehaviour
                 attack = gameManager.factions[i].agresivitat * gameManager.factions[i].mitjaPerillositat / 100;
                 if (probabilitat < attack)
                 {
-                    long dany = (gameManager.factions[i].densitat * terra.Poblacio) / 100;
-                    terra.Poblacio -= dany;
-                    Debug.LogWarning("Atack - " + dany);
+                    long dany = -(gameManager.factions[i].densitat * terra.Poblacio) / 100;
+                    terra.Poblacio += dany;
                     //ens apuntem qui ens ha atacat
                     terra.danyAtac.Add(dany);
                     terra.atacants.Add(gameManager.factions[i]);
@@ -182,8 +181,6 @@ public class PoolControler : MonoBehaviour
             terra.Poblacio *= valorAugment;
         }
         if (terra.indexTipus >= 2) terra.consum[0] = (terra.Poblacio * (gameManager.round / 5 + 1) * 3);
-        Debug.LogWarning("Consum: " + terra.Poblacio + " * " + (gameManager.round / 5 + 1) + " * 3 = " + terra.consum[0]);
-        if (terra.indexTipus >= 3) terra.consum[1] = (terra.Poblacio * (gameManager.round / 5 + 1) * 2);
         if (terra.indexTipus >= 4) terra.consum[2] = (terra.Poblacio * (gameManager.round / 5 + 1) * 1);
 
         gameManager.terra = terra;

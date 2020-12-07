@@ -54,26 +54,31 @@ public class ViewInfoTerra : MonoBehaviour
 
     public void SetDataTerra(Terra terra, Terra terraAnterior)
     {
+        long variacio;
         Destroy(planetaHome);
         planetaHome = Instantiate(terra.planetPrefab, TerraPlaceholder.transform);
 
         ShowInfo(nomTerra, terra.Nom);
         ShowInfo(poblacioTerra, string.Format("{0:n0}", terra.Poblacio));
-        ShowInfo(poblacioTerraVariacio, TransformLong(terra.Poblacio-terraAnterior.Poblacio));
-        Debug.Log("Poblacio: " + terra.Poblacio + "  ->  " + terraAnterior.Poblacio);
+        variacio = terra.Poblacio - terraAnterior.Poblacio;
+        ColorOnValue(poblacioTerraVariacio, variacio);
+        ShowInfo(poblacioTerraVariacio, TransformLong(variacio));
 
         ShowInfo(recursosXTerra, TransformLong(terra.materials[0]));
-        long variacio = terra.materials[0] - terraAnterior.materials[0];
+        variacio = terra.materials[0] - terraAnterior.materials[0];
+        ColorOnValue(recursosCanviXTerra,variacio);
         ShowInfo(recursosCanviXTerra, TransformLong(variacio));
         //ShowInfo(consumXTerra, terra.consum[0].ToString());
 
         variacio = terra.materials[1] - terraAnterior.materials[1];
-        ShowInfo(recursosYTerra, TransformLong(terra.materials[1]));
+        ShowInfo(recursosYTerra, TransformLong(terra.materials[1])); 
+        ColorOnValue(recursosCanviYTerra, variacio);
         ShowInfo(recursosCanviYTerra, TransformLong(variacio));
         //ShowInfo(consumYTerra, terra.consum[1].ToString());
 
         variacio = terra.materials[2] - terraAnterior.materials[2];
         ShowInfo(recursosZTerra, TransformLong(terra.materials[2]));
+        ColorOnValue(recursosCanviZTerra, variacio);
         ShowInfo(recursosCanviZTerra, TransformLong(variacio));
         //ShowInfo(consumZTerra, terra.consum[2].ToString());
 
@@ -120,6 +125,12 @@ public class ViewInfoTerra : MonoBehaviour
 
     }
 
+    private void ColorOnValue(TextMeshProUGUI component, long value)
+    {
+        if (value == 0) component.color = Color.black;
+        else component.color = value < 0 ? Color.red : Color.green;
+    }
+
     private void ShowInfo(TextMeshProUGUI component, string data)
     {
         if (string.IsNullOrEmpty(data))
@@ -135,7 +146,11 @@ public class ViewInfoTerra : MonoBehaviour
     private string TransformInt(int data)
     {
         string retorn;
-        if (data / 1000 < 1)
+        if (data < 0)
+        {
+            retorn = string.Format("-{0}", TransformInt(-data));
+        }
+        else if (data / 1000 < 1)
         {
             retorn = string.Format("{0}", data);
         }
@@ -158,7 +173,12 @@ public class ViewInfoTerra : MonoBehaviour
     private string TransformLong(long data)
     {
         string retorn;
-        if (data / 1000 < 1)
+
+        if (data < 0)
+        {
+            retorn = string.Format("-{0}", TransformLong(-data));
+        }
+        else if (data / 1000 < 1)
         {
             retorn = string.Format("{0}", data);
         }

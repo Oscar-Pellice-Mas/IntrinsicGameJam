@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour
 
         planetGenerator = GetComponent<PlanetGenerator>();
         factions = planetGenerator.GenerateFactions();
-        Debug.Log(factions[0].agresivitat);
         terra = planetGenerator.GenerateTerra();
 
         //Guardem la terra del principi
