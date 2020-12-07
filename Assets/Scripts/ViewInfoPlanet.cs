@@ -26,14 +26,13 @@ public class ViewInfoPlanet : MonoBehaviour
     public TextMeshProUGUI tipus;
     public TextMeshProUGUI perillositat;
     public TextMeshProUGUI materialEnemic;
-    public TextMeshProUGUI outResources;
+    public TextMeshProUGUI ourResources;
 
     public TextMeshProUGUI raca;
     public TextMeshProUGUI strenght;
     public TextMeshProUGUI attitude;
     public TextMeshProUGUI edatEspecie;
     public TextMeshProUGUI agresivitat;
-    
 
     public TextMeshProUGUI day;
     public TextMeshProUGUI planetnumber;
@@ -86,11 +85,6 @@ public class ViewInfoPlanet : MonoBehaviour
 
             //PlanetGO.transform.localScale = planet.radi
         }
-        else
-        {
-
-
-        }
 
         planeta = planet;
 
@@ -105,18 +99,16 @@ public class ViewInfoPlanet : MonoBehaviour
             materialsString += TransformInt(planeta.materials[i]) + " - ";
         }
         
-        /*ShowInfo(material, materialsString);
-        ShowInfo(radi, TransformInt((int)planeta.radi));
-        ShowInfo(regim, planeta.Regim.ToString());
-        ShowInfo(llunes, planeta.Llunes.ToString());
+        ShowInfo(ourResources, materialsString); //Fix
+        ShowInfo(materialEnemic, materialsString);
         ShowInfo(tipus, planeta.tipusPlaneta.ToString());
-        ShowInfo(edatEspecie, TransformInt(planeta.EdatEspecie));
         ShowInfo(perillositat, planeta.perillositat.ToString());
-        ShowInfo(faction, planeta.faction.especie.ToString());
-        ShowInfo(regim, planeta.Regim.ToString());
+
         ShowInfo(raca, planeta.faction.especie.ToString());
-        ShowInfo(densitat, string.Format("{0}%", planeta.faction.densitat));
-        ShowInfo(agresivitat, planeta.faction.agresivitat.ToString());*/
+        ShowInfo(strenght, string.Format("{0}%", planeta.faction.densitat));
+        ShowInfo(attitude, planeta.faction.agresivitat.ToString());
+        ShowInfo(edatEspecie, TransformInt(planeta.EdatEspecie));
+        ShowInfo(agresivitat, planeta.faction.agresivitat.ToString());
 
         ShowInfo(day, string.Format("Day {0}", gameManager.round));
         ShowInfo(planetnumber, string.Format("Planet {0} of {1}", gameManager.roundCounter+1,gameManager.numPlanets));
