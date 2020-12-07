@@ -5,12 +5,20 @@ public class ScrollZ : MonoBehaviour
 {
 
 	public float scrollSpeed = 40;
-
+	public float showTime = 30;
+	public float currentTime = 0;
 	public bool activarScroll = false;
 
 	public Menu m;
 
-	void Update()
+    private void OnEnable()
+    {
+		Debug.Log("enabling...");
+		transform.localPosition = new Vector3(0, -370, 69);
+		currentTime = 0;
+	}
+
+    void Update()
 	{
 		if(activarScroll == true)
         {
@@ -22,11 +30,10 @@ public class ScrollZ : MonoBehaviour
 			transform.position = pos;
 
 		}
+		currentTime += Time.deltaTime;
+		
 
-		float top = this.gameObject.GetComponent<RectTransform>().offsetMax.y;
-		top = top * (-1);
-
-		if (top < -953.3248)
+		if (currentTime >= showTime)
         {
 			m.show_start();
         }

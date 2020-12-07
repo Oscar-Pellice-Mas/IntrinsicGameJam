@@ -40,12 +40,12 @@ public class Menu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("A"))
+        if (Input.GetButtonDown("B"))
         {
             StartCoroutine(Select());
             options_menu.GetComponent<Menu_Opcions>().soundManager.PlayButton();
         }
-        if (Input.GetButtonDown("B"))
+        if (Input.GetButtonDown("A"))
         {
             StartCoroutine(Move());
             options_menu.GetComponent<Menu_Opcions>().soundManager.PlayButton();
