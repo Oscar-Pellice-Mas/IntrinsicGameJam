@@ -9,12 +9,21 @@ public class Menu_Opcions : MonoBehaviour
 {
 
     public AudioMixer audioMixer;
+    public SoundManager soundManager;
 
     public int current_option;
 
     public GameObject[] options;
 
     public Menu m;
+
+    public Animator saveLeverAnimator;
+    public Animator killPlanetButton;
+
+
+
+    bool isLeverPress = false;
+    bool isButtonPress = false;
 
     void Start()
     {
@@ -25,25 +34,39 @@ public class Menu_Opcions : MonoBehaviour
     {
         if (Input.GetButtonDown("A"))
         {
-            Select();
+            StartCoroutine(Select());
         }
         if (Input.GetButtonDown("B"))
         {
-            Move();
+            StartCoroutine(Move());
         }
     }
 
-    public void Move()
+    public IEnumerator Move()
     {
-        if (current_option < 2)
+        if (isLeverPress)
         {
-            current_option++;
+
         }
         else
         {
-            current_option = 0;
+            if (current_option < 2)
+            {
+                saveLeverAnimator.SetBool("palancaDown", true);
+                current_option++;
+            }
+            else
+            {
+                saveLeverAnimator.SetBool("palancaDown", true);
+                current_option = 0;
+            }
+            activaFons();
+            yield return new WaitForSeconds(0.2f);
+            saveLeverAnimator.SetBool("palancaDown", false);
+            isLeverPress = false;
         }
-        activaFons();
+            
+        yield return null;
     }
 
     public void activaFons()
@@ -52,50 +75,79 @@ public class Menu_Opcions : MonoBehaviour
         {
             if (i == current_option)
             {
-                options[i].transform.GetChild(0).gameObject.SetActive(true);
+                options[i].transform.GetChild(1).gameObject.GetComponent<TMPro.TextMeshProUGUI>().color = new Color(23f / 255f, 110f / 255f, 50f / 255f);
+                options[i].transform.GetChild(0).gameObject.SetActive(false);
             }
             else
             {
+                options[i].transform.GetChild(1).gameObject.GetComponent<TMPro.TextMeshProUGUI>().color = new Color(1, 1, 1);
                 options[i].transform.GetChild(0).gameObject.SetActive(false);
             }
         }
     }
 
-    public void Select()
+    public IEnumerator Select()
     {
-
-        switch (current_option)
+        if (isButtonPress)
         {
-            case 0:
-                if (options[0].transform.GetChild(2).GetComponent<Toggle>().isOn)
-                {
-                    options[0].transform.GetChild(2).GetComponent<Toggle>().isOn = false;
-                    audioMixer.SetFloat("sounds", 0);
-                }
-                else
-                {
-                    options[0].transform.GetChild(2).GetComponent<Toggle>().isOn = true;
-                    audioMixer.SetFloat("sounds", 10);
-                }
-                break;
-            case 1:
-                if (options[1].transform.GetChild(2).GetComponent<Toggle>().isOn)
-                {
-                    options[1].transform.GetChild(2).GetComponent<Toggle>().isOn = false;
-                    audioMixer.SetFloat("music", 0);
-                }
-                else
-                {
-                    options[1].transform.GetChild(2).GetComponent<Toggle>().isOn = true;
-                    audioMixer.SetFloat("music", 10);
-                }
-                break;
-            case 2:
-                m.show_start();
-                break;
-            default:
-                break;
+
         }
+        else
+        {
+            isButtonPress = true;
+            switch (current_option)
+            {
+                case 0:
+                    killPlanetButton.SetBool("buttonDown", true);
+                    if (options[0].transform.GetChild(2).GetComponent<Toggle>().isOn)
+                    {
+                        killPlanetButton.SetBool("buttonDown", true);
+                        yield return new WaitForSeconds(0.2f);
+                        killPlanetButton.SetBool("buttonDown", false);
+                        isButtonPress = false;
+                        options[0].transform.GetChild(2).GetComponent<Toggle>().isOn = false;
+                        audioMixer.SetFloat("buttons", -80);
+                    }
+                    else
+                    {
+                        options[0].transform.GetChild(2).GetComponent<Toggle>().isOn = true;
+                        audioMixer.SetFloat("buttons", -10);
+                        soundManager.PlayButton();
+                    }
+                    yield return new WaitForSeconds(0.2f);
+                    killPlanetButton.SetBool("buttonDown", false);
+                    isButtonPress = false;
+                    break;
+                case 1:
+                    killPlanetButton.SetBool("buttonDown", true);
+                    if (options[1].transform.GetChild(2).GetComponent<Toggle>().isOn)
+                    {
+                        options[1].transform.GetChild(2).GetComponent<Toggle>().isOn = false;
+                        audioMixer.SetFloat("music", -80);
+                    }
+                    else
+                    {
+                        options[1].transform.GetChild(2).GetComponent<Toggle>().isOn = true;
+                        audioMixer.SetFloat("music", -10);
+                    }
+                    yield return new WaitForSeconds(0.2f);
+                    killPlanetButton.SetBool("buttonDown", false);
+                    isButtonPress = false;
+                    break;
+                case 2:
+                    killPlanetButton.SetBool("buttonDown", true);
+                    yield return new WaitForSeconds(0.2f);
+                    killPlanetButton.SetBool("buttonDown", false);
+                    isButtonPress = false;
+                    m.show_start();
+                    break;
+                default:
+                    break;
+            }
+        }
+           
+        yield return null;
     }
+    
 
 }

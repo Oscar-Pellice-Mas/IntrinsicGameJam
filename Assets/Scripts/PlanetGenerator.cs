@@ -20,7 +20,6 @@ public class PlanetGenerator : MonoBehaviour
     public long maxPopulation;
     //Edat espècie. Homo sapiens = 160000 anys.
     int EdatEspecieMin = 60000, EdatEspecieMax = 400000;
-
     // Terra creator values
     private const long PoblacioInicial = 1000;
     private const int MaterialsInicials = 10000000;
@@ -45,26 +44,35 @@ public class PlanetGenerator : MonoBehaviour
         switch (planet.tipusPlaneta)
         {
             case Planet.tipus.primitiu:
-                CreaPrimitiu(planet);
+                planet = creaPrimitiu(planet);
                 break;
             case Planet.tipus.basic:
-                CreaBasic(planet);
+                planet = creaBasic(planet);
                 break;
             case Planet.tipus.modern:
-                CreaModern(planet);
+                planet = creaModern(planet);
                 break;
             case Planet.tipus.avancat:
-                CreaAvançat(planet);
+                planet = creaAvançat(planet);
                 break;
             case Planet.tipus.futurista:
-                CreaFuturista(planet);
+                planet = creaFuturista(planet);
                 break;
             default:
                 break;
         }
 
+        planet.llunes = new GameObject[planet.Llunes];
+        for (int i = 0; i < planet.Llunes; i++)
+        {
+            planet.llunes[i] = (MoonPrefab[Random.Range(0, MoonPrefab.Length)]);
+            //planet.llunes[i].GetComponent<RectTransform>().sizeDelta *= Random.Range(0.5f, 0.8f);
+        }
+
         return planet;
     }
+
+
 
     //Aqui haurem de passar algun dels valors del enum de tipus de planeta
     public Planet GenerateSpecificPlanet(string tipus)
@@ -76,29 +84,29 @@ public class PlanetGenerator : MonoBehaviour
         switch (tipus)
         {
             case "primitiu":
-                CreaPrimitiu(planet);
+                planet = creaPrimitiu(planet);
                 break;
             case "basic":
-                CreaBasic(planet);
+                planet = creaBasic(planet);
                 break;
             case "modern":
-                CreaModern(planet);
+                planet = creaModern(planet);
                 break;
             case "avancat":
-                CreaAvançat(planet);
+                planet = creaAvançat(planet);
                 break;
             case "futurista":
-                CreaFuturista(planet);
+                planet = creaFuturista(planet);
                 break;
             default:
                 break;
         }
-
         return planet;
     }
 
+
     //Crear un planeta primitiu
-    void CreaPrimitiu(Planet planet)
+    Planet creaPrimitiu(Planet planet)
     {
         //TAMANY I POBLACIO
         planet.radi = Random.Range(RadiMin, RadiMin * 2);
@@ -117,15 +125,22 @@ public class PlanetGenerator : MonoBehaviour
         planet.Llunes = 0;
         planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
 
+        for (int i =0; i < planet.Llunes; i++)
+        {
+            planet.llunes[i] = Instantiate(MoonPrefab[Random.Range(0, MoonPrefab.Length)]);
+            planet.llunes[i].GetComponent<RectTransform>().sizeDelta *= Random.Range(0.9f, 1.2f);
+        }
         //Materials avançats (els materials primitius no tenen avançat)
 
 
         //Perillositat
         //planet.perillositat = Random.Range(0, 20);
         planet.perillositat = 100;
+        return planet;
     }
-    //Crear un planeta basic
-    void CreaBasic(Planet planet)
+
+
+    Planet creaBasic(Planet planet)
     {
         //TAMANY I POBLACIO
         planet.radi = Random.Range(RadiMin, RadiMin * 3);
@@ -147,9 +162,11 @@ public class PlanetGenerator : MonoBehaviour
 
         //Perillositat
         planet.perillositat = Random.Range(0, 40);
+        return planet;
     }
+    
     //Crear un planeta modern
-    void CreaModern(Planet planet)
+    Planet creaModern(Planet planet)
     {
         planet.radi = Random.Range(RadiMin, RadiMin * 4);
         float area = 4 * Mathf.PI * planet.radi * planet.radi;
@@ -169,9 +186,11 @@ public class PlanetGenerator : MonoBehaviour
 
         //Perillositat
         planet.perillositat = Random.Range(0, 60);
+        return planet;
     }
+    
     //Crear un planeta avançat
-    void CreaAvançat(Planet planet)
+    Planet creaAvançat(Planet planet)
     {
         planet.radi = Random.Range(RadiMin, RadiMin * 5);
         float area = 4 * Mathf.PI * planet.radi * planet.radi;
@@ -194,9 +213,10 @@ public class PlanetGenerator : MonoBehaviour
         planet.materials[2] = (int)(area * 0.02f);
         //Perillositat
         planet.perillositat = Random.Range(0, 80);
+        return planet;
     }
     //Crear un planeta futurista
-    void CreaFuturista(Planet planet)
+    Planet creaFuturista(Planet planet)
     {
         planet.radi = Random.Range(RadiMin, RadiMax);
         float area = 4 * Mathf.PI * planet.radi * planet.radi;
@@ -219,6 +239,7 @@ public class PlanetGenerator : MonoBehaviour
 
         //Perillositat
         planet.perillositat = Random.Range(0, 100);
+        return planet;
     }
 
     public List<Faction> GenerateFactions()

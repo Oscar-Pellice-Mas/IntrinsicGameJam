@@ -1,0 +1,1679 @@
+fileFormatVersion: 2
+guid: 2418a46304c8f4f408bd5e4e75c70554
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1568676584383085522
+    second: Explosio_spriteSheet_v7_0
+  - first:
+      213: -6280505898757577537
+    second: Explosio_spriteSheet_v7_1
+  - first:
+      213: -6160788514206833563
+    second: Explosio_spriteSheet_v7_2
+  - first:
+      213: 2855404006098496201
+    second: Explosio_spriteSheet_v7_3
+  - first:
+      213: -1928883054139258465
+    second: Explosio_spriteSheet_v7_4
+  - first:
+      213: 1240397708018794065
+    second: Explosio_spriteSheet_v7_5
+  - first:
+      213: -541887286844587140
+    second: Explosio_spriteSheet_v7_6
+  - first:
+      213: -8281521215610346678
+    second: Explosio_spriteSheet_v7_7
+  - first:
+      213: 1161903121519819807
+    second: Explosio_spriteSheet_v7_8
+  - first:
+      213: 1089574672628015852
+    second: Explosio_spriteSheet_v7_9
+  - first:
+      213: -2661363258122785107
+    second: Explosio_spriteSheet_v7_10
+  - first:
+      213: 1729118446138418192
+    second: Explosio_spriteSheet_v7_11
+  - first:
+      213: -9034191348920521399
+    second: Explosio_spriteSheet_v7_12
+  - first:
+      213: -1758743309926491398
+    second: Explosio_spriteSheet_v7_13
+  - first:
+      213: 321294005414095782
+    second: Explosio_spriteSheet_v7_14
+  - first:
+      213: 516359303992120859
+    second: Explosio_spriteSheet_v7_15
+  - first:
+      213: 2553719880004688924
+    second: Explosio_spriteSheet_v7_16
+  - first:
+      213: -8680606174487848761
+    second: Explosio_spriteSheet_v7_17
+  - first:
+      213: -8033588286978072273
+    second: Explosio_spriteSheet_v7_18
+  - first:
+      213: -357233774588631156
+    second: Explosio_spriteSheet_v7_19
+  - first:
+      213: 1463348056602743817
+    second: Explosio_spriteSheet_v7_20
+  - first:
+      213: -5278633678315790069
+    second: Explosio_spriteSheet_v7_21
+  - first:
+      213: -4212819936991144542
+    second: Explosio_spriteSheet_v7_22
+  - first:
+      213: -1363936985604520003
+    second: Explosio_spriteSheet_v7_23
+  - first:
+      213: -6852855087013922716
+    second: Explosio_spriteSheet_v7_24
+  - first:
+      213: -1502166055438089887
+    second: Explosio_spriteSheet_v7_25
+  - first:
+      213: 8412730722127780409
+    second: Explosio_spriteSheet_v7_26
+  - first:
+      213: -6322754311450356254
+    second: Explosio_spriteSheet_v7_27
+  - first:
+      213: 7856662728086298149
+    second: Explosio_spriteSheet_v7_28
+  - first:
+      213: -8333440011135324489
+    second: Explosio_spriteSheet_v7_29
+  - first:
+      213: 5821059900031087453
+    second: Explosio_spriteSheet_v7_30
+  - first:
+      213: 7346286223450477185
+    second: Explosio_spriteSheet_v7_31
+  - first:
+      213: 1729902528881699563
+    second: Explosio_spriteSheet_v7_32
+  - first:
+      213: -4485800484361231460
+    second: Explosio_spriteSheet_v7_33
+  - first:
+      213: 3503159921224200998
+    second: Explosio_spriteSheet_v7_34
+  - first:
+      213: 1844447469418644211
+    second: Explosio_spriteSheet_v7_35
+  - first:
+      213: 7189430248713816146
+    second: Explosio_spriteSheet_v7_36
+  - first:
+      213: 328996613935261257
+    second: Explosio_spriteSheet_v7_37
+  - first:
+      213: -5471803051133296323
+    second: Explosio_spriteSheet_v7_38
+  - first:
+      213: 6701306532397172420
+    second: Explosio_spriteSheet_v7_39
+  - first:
+      213: 5907657547849404120
+    second: Explosio_spriteSheet_v7_40
+  - first:
+      213: -9040073441401624970
+    second: Explosio_spriteSheet_v7_41
+  - first:
+      213: 8394874766395424332
+    second: Explosio_spriteSheet_v7_42
+  - first:
+      213: -8277667555706635131
+    second: Explosio_spriteSheet_v7_43
+  - first:
+      213: 5792397379005157378
+    second: Explosio_spriteSheet_v7_44
+  - first:
+      213: -7303403840580872048
+    second: Explosio_spriteSheet_v7_45
+  - first:
+      213: 1261135677330213544
+    second: Explosio_spriteSheet_v7_46
+  - first:
+      213: 2256559260263399891
+    second: Explosio_spriteSheet_v7_47
+  - first:
+      213: 6126504227492639348
+    second: Explosio_spriteSheet_v7_48
+  - first:
+      213: -6152099842405544066
+    second: Explosio_spriteSheet_v7_49
+  - first:
+      213: 528888595964930444
+    second: Explosio_spriteSheet_v7_50
+  - first:
+      213: 1488627732083555575
+    second: Explosio_spriteSheet_v7_51
+  - first:
+      213: 5240866130993523183
+    second: Explosio_spriteSheet_v7_52
+  - first:
+      213: 1971769496423469796
+    second: Explosio_spriteSheet_v7_53
+  - first:
+      213: -8515719286448403494
+    second: Explosio_spriteSheet_v7_54
+  - first:
+      213: 1428852312008524528
+    second: Explosio_spriteSheet_v7_55
+  - first:
+      213: -7004409275875716997
+    second: Explosio_spriteSheet_v7_56
+  - first:
+      213: -896171061496917881
+    second: Explosio_spriteSheet_v7_57
+  - first:
+      213: 1394531325996548372
+    second: Explosio_spriteSheet_v7_58
+  - first:
+      213: -8066410855697425512
+    second: Explosio_spriteSheet_v7_59
+  - first:
+      213: 6000117458890366699
+    second: Explosio_spriteSheet_v7_60
+  - first:
+      213: 2657701670208611300
+    second: Explosio_spriteSheet_v7_61
+  - first:
+      213: 16635637513196888
+    second: Explosio_spriteSheet_v7_62
+  - first:
+      213: -210789467976172119
+    second: Explosio_spriteSheet_v7_63
+  - first:
+      213: 2983710730383503135
+    second: Explosio_spriteSheet_v7_64
+  - first:
+      213: -5208570217726085700
+    second: Explosio_spriteSheet_v7_65
+  - first:
+      213: 5153692595683737043
+    second: Explosio_spriteSheet_v7_66
+  - first:
+      213: -2069736673732813774
+    second: Explosio_spriteSheet_v7_67
+  - first:
+      213: 872026345317790849
+    second: Explosio_spriteSheet_v7_68
+  - first:
+      213: 2538620905560455055
+    second: Explosio_spriteSheet_v7_69
+  - first:
+      213: 5553952294108376981
+    second: Explosio_spriteSheet_v7_70
+  - first:
+      213: 6170560564758864299
+    second: Explosio_spriteSheet_v7_71
+  - first:
+      213: 4212503757832428741
+    second: Explosio_spriteSheet_v7_72
+  - first:
+      213: -4161803091869638167
+    second: Explosio_spriteSheet_v7_73
+  - first:
+      213: 6710267242812570925
+    second: Explosio_spriteSheet_v7_74
+  - first:
+      213: 2811690630497233120
+    second: Explosio_spriteSheet_v7_75
+  - first:
+      213: -6830794321375879752
+    second: Explosio_spriteSheet_v7_76
+  - first:
+      213: -2700679125068512832
+    second: Explosio_spriteSheet_v7_77
+  - first:
+      213: -2975788497958604353
+    second: Explosio_spriteSheet_v7_78
+  - first:
+      213: -7291066701435257639
+    second: Explosio_spriteSheet_v7_79
+  - first:
+      213: -1018037406035452750
+    second: Explosio_spriteSheet_v7_80
+  - first:
+      213: 4625617231923468898
+    second: Explosio_spriteSheet_v7_81
+  - first:
+      213: -5339202186575167598
+    second: Explosio_spriteSheet_v7_82
+  - first:
+      213: -3051611564562970046
+    second: Explosio_spriteSheet_v7_83
+  - first:
+      213: -5199585980286233361
+    second: Explosio_spriteSheet_v7_84
+  - first:
+      213: -1705132452887076825
+    second: Explosio_spriteSheet_v7_85
+  - first:
+      213: -5605522960588501893
+    second: Explosio_spriteSheet_v7_86
+  - first:
+      213: 6852897993824013301
+    second: Explosio_spriteSheet_v7_87
+  - first:
+      213: -9120810662417303437
+    second: Explosio_spriteSheet_v7_88
+  - first:
+      213: -6061083285346167149
+    second: Explosio_spriteSheet_v7_89
+  - first:
+      213: 6855601130158252161
+    second: Explosio_spriteSheet_v7_90
+  - first:
+      213: -5000182287962854783
+    second: Explosio_spriteSheet_v7_91
+  - first:
+      213: -2961241907004721239
+    second: Explosio_spriteSheet_v7_92
+  - first:
+      213: 4510461167576018186
+    second: Explosio_spriteSheet_v7_93
+  - first:
+      213: -3944952184241936442
+    second: Explosio_spriteSheet_v7_94
+  - first:
+      213: -2283645761566598104
+    second: Explosio_spriteSheet_v7_95
+  - first:
+      213: 4493155069031049395
+    second: Explosio_spriteSheet_v7_96
+  - first:
+      213: -7570583759658831233
+    second: Explosio_spriteSheet_v7_97
+  - first:
+      213: 3423338682105461294
+    second: Explosio_spriteSheet_v7_98
+  - first:
+      213: 5679184727792765502
+    second: Explosio_spriteSheet_v7_99
+  - first:
+      213: -3239073776216767855
+    second: Explosio_spriteSheet_v7_100
+  - first:
+      213: -2297364942264807187
+    second: Explosio_spriteSheet_v7_101
+  - first:
+      213: -3031984677232800430
+    second: Explosio_spriteSheet_v7_102
+  - first:
+      213: -9022104616856044389
+    second: Explosio_spriteSheet_v7_103
+  - first:
+      213: 8347582486052492307
+    second: Explosio_spriteSheet_v7_104
+  - first:
+      213: -8949680019304458759
+    second: Explosio_spriteSheet_v7_105
+  - first:
+      213: 2476200250576662924
+    second: Explosio_spriteSheet_v7_106
+  - first:
+      213: 1762158827934453740
+    second: Explosio_spriteSheet_v7_107
+  - first:
+      213: -6530063336929532624
+    second: Explosio_spriteSheet_v7_108
+  - first:
+      213: -3457821403385771700
+    second: Explosio_spriteSheet_v7_109
+  - first:
+      213: -4838636223469315556
+    second: Explosio_spriteSheet_v7_110
+  - first:
+      213: -3553428692256348901
+    second: Explosio_spriteSheet_v7_111
+  - first:
+      213: 928080508489742168
+    second: Explosio_spriteSheet_v7_112
+  - first:
+      213: -3167309763058933954
+    second: Explosio_spriteSheet_v7_113
+  - first:
+      213: -931580364481306868
+    second: Explosio_spriteSheet_v7_114
+  - first:
+      213: 3835356688890680997
+    second: Explosio_spriteSheet_v7_115
+  - first:
+      213: 5670643105675366821
+    second: Explosio_spriteSheet_v7_116
+  - first:
+      213: 2394078522144486780
+    second: Explosio_spriteSheet_v7_117
+  - first:
+      213: -3963335583261584800
+    second: Explosio_spriteSheet_v7_118
+  - first:
+      213: 3546961019182922767
+    second: Explosio_spriteSheet_v7_119
+  - first:
+      213: -4321884699195531313
+    second: Explosio_spriteSheet_v7_120
+  - first:
+      213: 219014557777563783
+    second: Explosio_spriteSheet_v7_121
+  - first:
+      213: -49624506881293574
+    second: Explosio_spriteSheet_v7_122
+  - first:
+      213: -1785350867699266590
+    second: Explosio_spriteSheet_v7_123
+  - first:
+      213: 7546182000513736699
+    second: Explosio_spriteSheet_v7_124
+  - first:
+      213: -3321332992461207391
+    second: Explosio_spriteSheet_v7_125
+  - first:
+      213: -6532906214920508243
+    second: Explosio_spriteSheet_v7_126
+  - first:
+      213: 6468800569905151494
+    second: Explosio_spriteSheet_v7_127
+  - first:
+      213: 6806631896555119260
+    second: Explosio_spriteSheet_v7_128
+  - first:
+      213: 8825843481835771609
+    second: Explosio_spriteSheet_v7_129
+  - first:
+      213: 4598844890188740025
+    second: Explosio_spriteSheet_v7_130
+  - first:
+      213: 7558171204257142734
+    second: Explosio_spriteSheet_v7_131
+  - first:
+      213: -3531524729860722844
+    second: Explosio_spriteSheet_v7_132
+  - first:
+      213: -3605188426566666693
+    second: Explosio_spriteSheet_v7_133
+  - first:
+      213: -5118703582908525304
+    second: Explosio_spriteSheet_v7_134
+  - first:
+      213: 705497187507875944
+    second: Explosio_spriteSheet_v7_135
+  - first:
+      213: -6805716385979470982
+    second: Explosio_spriteSheet_v7_136
+  - first:
+      213: 5288139117953904749
+    second: Explosio_spriteSheet_v7_137
+  - first:
+      213: 4779131321015930155
+    second: Explosio_spriteSheet_v7_138
+  - first:
+      213: -1305314411219840752
+    second: Explosio_spriteSheet_v7_139
+  - first:
+      213: -3860848651647621329
+    second: Explosio_spriteSheet_v7_140
+  - first:
+      213: 7921106579446249783
+    second: Explosio_spriteSheet_v7_141
+  - first:
+      213: 8661105994458961261
+    second: Explosio_spriteSheet_v7_142
+  - first:
+      213: -6080823318654113158
+    second: Explosio_spriteSheet_v7_143
+  - first:
+      213: 3575521424603660852
+    second: Explosio_spriteSheet_v7_144
+  - first:
+      213: -4857729168782085462
+    second: Explosio_spriteSheet_v7_145
+  - first:
+      213: 4961711407717709619
+    second: Explosio_spriteSheet_v7_146
+  - first:
+      213: 429210179341445792
+    second: Explosio_spriteSheet_v7_147
+  - first:
+      213: 9039645612533515767
+    second: Explosio_spriteSheet_v7_148
+  - first:
+      213: 670386904162407957
+    second: Explosio_spriteSheet_v7_149
+  - first:
+      213: 7475404444913259771
+    second: Explosio_spriteSheet_v7_150
+  - first:
+      213: -875379455258635661
+    second: Explosio_spriteSheet_v7_151
+  - first:
+      213: -5600069679262138301
+    second: Explosio_spriteSheet_v7_152
+  - first:
+      213: 7806435287040473066
+    second: Explosio_spriteSheet_v7_153
+  - first:
+      213: -1592740264081872447
+    second: Explosio_spriteSheet_v7_154
+  - first:
+      213: -7698308556452899345
+    second: Explosio_spriteSheet_v7_155
+  - first:
+      213: -2664128339769554
+    second: Explosio_spriteSheet_v7_156
+  - first:
+      213: 7122624111342144580
+    second: Explosio_spriteSheet_v7_157
+  - first:
+      213: 8502944110266403124
+    second: Explosio_spriteSheet_v7_158
+  - first:
+      213: 5796020205843770419
+    second: Explosio_spriteSheet_v7_159
+  - first:
+      213: 4651852539659625843
+    second: Explosio_spriteSheet_v7_160
+  - first:
+      213: 5683955125679202739
+    second: Explosio_spriteSheet_v7_161
+  - first:
+      213: 6382986351505336331
+    second: Explosio_spriteSheet_v7_162
+  - first:
+      213: 2719448046671074708
+    second: Explosio_spriteSheet_v7_163
+  - first:
+      213: -2384032878566727636
+    second: Explosio_spriteSheet_v7_164
+  - first:
+      213: 5296078439417421052
+    second: Explosio_spriteSheet_v7_165
+  - first:
+      213: -6461061178808953972
+    second: Explosio_spriteSheet_v7_166
+  - first:
+      213: -5669788045581913695
+    second: Explosio_spriteSheet_v7_167
+  - first:
+      213: -1123409085629178145
+    second: Explosio_spriteSheet_v7_168
+  - first:
+      213: 156032857127777621
+    second: Explosio_spriteSheet_v7_169
+  - first:
+      213: 8729822362967398459
+    second: Explosio_spriteSheet_v7_170
+  - first:
+      213: 6651979901175228022
+    second: Explosio_spriteSheet_v7_171
+  - first:
+      213: -1380104030056425836
+    second: Explosio_spriteSheet_v7_172
+  - first:
+      213: 464547979390770063
+    second: Explosio_spriteSheet_v7_173
+  - first:
+      213: 6111261404809271424
+    second: Explosio_spriteSheet_v7_174
+  - first:
+      213: -224949957299799375
+    second: Explosio_spriteSheet_v7_175
+  - first:
+      213: -6025853229933695194
+    second: Explosio_spriteSheet_v7_176
+  - first:
+      213: -8569491230428220466
+    second: Explosio_spriteSheet_v7_177
+  - first:
+      213: 1504457190220765739
+    second: Explosio_spriteSheet_v7_178
+  - first:
+      213: -6354181808554823676
+    second: Explosio_spriteSheet_v7_179
+  - first:
+      213: 6904165310928255781
+    second: Explosio_spriteSheet_v7_180
+  - first:
+      213: 5039641829216970580
+    second: Explosio_spriteSheet_v7_181
+  - first:
+      213: -1048301939368894441
+    second: Explosio_spriteSheet_v7_182
+  - first:
+      213: -4132132286456461670
+    second: Explosio_spriteSheet_v7_183
+  - first:
+      213: 3802366777259493283
+    second: Explosio_spriteSheet_v7_184
+  - first:
+      213: 6243074304694476974
+    second: Explosio_spriteSheet_v7_185
+  - first:
+      213: -3815472461929031302
+    second: Explosio_spriteSheet_v7_186
+  - first:
+      213: -3667291142597218826
+    second: Explosio_spriteSheet_v7_187
+  - first:
+      213: -754291593868710642
+    second: Explosio_spriteSheet_v7_188
+  - first:
+      213: -598234314431616223
+    second: Explosio_spriteSheet_v7_189
+  - first:
+      213: -9040525493174255666
+    second: Explosio_spriteSheet_v7_190
+  - first:
+      213: -2647229667605812490
+    second: Explosio_spriteSheet_v7_191
+  - first:
+      213: -2665805080742833350
+    second: Explosio_spriteSheet_v7_192
+  - first:
+      213: 932623569638396256
+    second: Explosio_spriteSheet_v7_193
+  - first:
+      213: 1538750962338844465
+    second: Explosio_spriteSheet_v7_194
+  - first:
+      213: -1178082585471913503
+    second: Explosio_spriteSheet_v7_195
+  - first:
+      213: -4043571442052578421
+    second: Explosio_spriteSheet_v7_196
+  - first:
+      213: 6464904152857887954
+    second: Explosio_spriteSheet_v7_197
+  - first:
+      213: 3456339731052920402
+    second: Explosio_spriteSheet_v7_198
+  - first:
+      213: -6568027438661180833
+    second: Explosio_spriteSheet_v7_199
+  - first:
+      213: -4134162009328621904
+    second: Explosio_spriteSheet_v7_200
+  - first:
+      213: -5438173765969225345
+    second: Explosio_spriteSheet_v7_201
+  - first:
+      213: 787267056650773015
+    second: Explosio_spriteSheet_v7_202
+  - first:
+      213: -6915635478839971777
+    second: Explosio_spriteSheet_v7_203
+  - first:
+      213: -8052779743279603669
+    second: Explosio_spriteSheet_v7_204
+  - first:
+      213: -1268894668417020472
+    second: Explosio_spriteSheet_v7_205
+  - first:
+      213: 1759618925196690573
+    second: Explosio_spriteSheet_v7_206
+  - first:
+      213: -9163940228293624751
+    second: Explosio_spriteSheet_v7_207
+  - first:
+      213: -5562220327948603276
+    second: Explosio_spriteSheet_v7_208
+  - first:
+      213: -6091825233351878596
+    second: Explosio_spriteSheet_v7_209
+  - first:
+      213: -1224597343916676102
+    second: Explosio_spriteSheet_v7_210
+  - first:
+      213: -6883013231455020078
+    second: Explosio_spriteSheet_v7_211
+  - first:
+      213: 3194175518112173046
+    second: Explosio_spriteSheet_v7_212
+  - first:
+      213: -3440571409103706646
+    second: Explosio_spriteSheet_v7_213
+  - first:
+      213: -9185423987136187340
+    second: Explosio_spriteSheet_v7_214
+  - first:
+      213: -962768387791741985
+    second: Explosio_spriteSheet_v7_215
+  - first:
+      213: -4875547366133977141
+    second: Explosio_spriteSheet_v7_216
+  - first:
+      213: -7568455102094858839
+    second: Explosio_spriteSheet_v7_217
+  - first:
+      213: -7656175680588660499
+    second: Explosio_spriteSheet_v7_218
+  - first:
+      213: 7730634545939806394
+    second: Explosio_spriteSheet_v7_219
+  - first:
+      213: 8511146619249639044
+    second: Explosio_spriteSheet_v7_220
+  - first:
+      213: -8374350839642411322
+    second: Explosio_spriteSheet_v7_221
+  - first:
+      213: -1875258400830697422
+    second: Explosio_spriteSheet_v7_222
+  - first:
+      213: -9157716056266781943
+    second: Explosio_spriteSheet_v7_223
+  - first:
+      213: 5800113629767804403
+    second: Explosio_spriteSheet_v7_224
+  - first:
+      213: -4140327921836811392
+    second: Explosio_spriteSheet_v7_225
+  - first:
+      213: -7432328895166128934
+    second: Explosio_spriteSheet_v7_226
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e248f5c25f0fa3ae0800000000000000
+      internalID: -1568676584383085522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb42fce192927d8a0800000000000000
+      internalID: -6280505898757577537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5642562dc7b708aa0800000000000000
+      internalID: -6160788514206833563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ca6ab1a0de60a720800000000000000
+      internalID: 2855404006098496201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9942c8f41b3b35e0800000000000000
+      internalID: -1928883054139258465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15e3baeb427c63110800000000000000
+      internalID: 1240397708018794065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7304573264da78f0800000000000000
+      internalID: -541887286844587140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a432fafe450221d80800000000000000
+      internalID: -8281521215610346678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1c3b95abb8ef1010800000000000000
+      internalID: 1161903121519819807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce261465462fe1f00800000000000000
+      internalID: 1089574672628015852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daea05d9730f01bd0800000000000000
+      internalID: -2661363258122785107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_11
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 014e7a4c0101ff710800000000000000
+      internalID: 1729118446138418192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d6fa655da10a280800000000000000
+      internalID: -9034191348920521399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_13
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa9cb02740b797e0800000000000000
+      internalID: -1758743309926491398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_14
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ab6b251237757400800000000000000
+      internalID: 321294005414095782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_15
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b161bea1d0a7a2700800000000000000
+      internalID: 516359303992120859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1c588f53b2a07320800000000000000
+      internalID: 2553719880004688924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c8d6961daa488780800000000000000
+      internalID: -8680606174487848761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_18
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f21eeea4406f28090800000000000000
+      internalID: -8033588286978072273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_19
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c876fd356c9da0bf0800000000000000
+      internalID: -357233774588631156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_20
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9049098ed4bde4410800000000000000
+      internalID: 1463348056602743817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_21
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b01e29013a68eb6b0800000000000000
+      internalID: -5278633678315790069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_22
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a595f8769e0985c0800000000000000
+      internalID: -4212819936991144542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_23
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db7860db982521de0800000000000000
+      internalID: -1363936985604520003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4687e493b94c5e0a0800000000000000
+      internalID: -6852855087013922716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_25
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16186ff6eeb372be0800000000000000
+      internalID: -1502166055438089887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_26
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a117be40600c470800000000000000
+      internalID: 8412730722127780409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_27
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e59eeff3701148a0800000000000000
+      internalID: -6322754311450356254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_28
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52e92a3ff19780d60800000000000000
+      internalID: 7856662728086298149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_29
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7be604b567ca95c80800000000000000
+      internalID: -8333440011135324489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_30
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d53bf95432f88c050800000000000000
+      internalID: 5821059900031087453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_31
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1829c1fd56043f560800000000000000
+      internalID: 7346286223450477185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bea2b024f29d10810800000000000000
+      internalID: 1729902528881699563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_33
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c93af5ce93c3fb1c0800000000000000
+      internalID: -4485800484361231460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_34
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62334f74369bd9030800000000000000
+      internalID: 3503159921224200998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_35
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f2019d733bc89910800000000000000
+      internalID: 1844447469418644211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_36
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 258090058bcf5c360800000000000000
+      internalID: 7189430248713816146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_37
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 946eae16da4d09400800000000000000
+      internalID: 328996613935261257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_38
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d312d48ad104014b0800000000000000
+      internalID: -5471803051133296323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_39
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c6c98249c2dffc50800000000000000
+      internalID: 6701306532397172420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de083a5d373cf150800000000000000
+      internalID: 5907657547849404120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosio_spriteSheet_v7_41
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67620d5f9153b8280800000000000000
+      internalID: -9040073441401624970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c29a7012cbe83124090bd81d6aa21417
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -7,7 +7,7 @@ using UnityEngine;
 public class Planet : ScriptableObject
 {
     public GameObject planetPrefab;
-
+    public GameObject[] llunes;
     public string Nom;
     public float radi;
     public long Poblacio;

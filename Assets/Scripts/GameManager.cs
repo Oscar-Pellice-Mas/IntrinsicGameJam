@@ -39,8 +39,11 @@ public class GameManager : MonoBehaviour
     public int round = 0;
 
     public bool roundActive = false;
-
+    public bool decisionMade = false;
     private const int InitialPoolNumber = 10;
+
+
+    public SoundManager soundsManager;
         
     void Start()
     {
@@ -89,6 +92,7 @@ public class GameManager : MonoBehaviour
     {
         saveLeverAnimator.SetBool("palancaDown", true);
         yield return new WaitForSeconds(0.5f);
+        soundsManager.PlayButton();
         poolControler.OnPlanetInteraction(roundPlanets[roundCounter], false);
         savedPlanets.Add(roundPlanets[roundCounter]);
         yield return new WaitForSeconds(0.5f);
@@ -102,6 +106,7 @@ public class GameManager : MonoBehaviour
         else
         {
             LightSpeedAnimation.SetTrigger("goLightSpeed");
+            soundsManager.PlayTravel();
             yield return new WaitForSeconds(3f);
             roundCounter++;
             viewInfo.SetData(roundPlanets[roundCounter]);
@@ -113,7 +118,8 @@ public class GameManager : MonoBehaviour
 
         killPlanetButton.SetBool("buttonDown", true);
         yield return new WaitForSeconds(0.2f);
-
+        soundsManager.PlayButton();
+        soundsManager.PlayAlarma();
         cameraShake.StartFlicker();
         yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
 
@@ -133,15 +139,19 @@ public class GameManager : MonoBehaviour
 
         laser1.SetActive(true);
         laser2.SetActive(true);
+        soundsManager.PlayLaser();
 
         cameraShake.StartShake(cameraShake.GetTintDuration() / 4, 7, CameraShakeManager.ShakeType.constant);
 
         yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
         poolControler.OnPlanetInteraction(roundPlanets[roundCounter], true);
 
-        cameraShake.StartShake(6f, 15, CameraShakeManager.ShakeType.decremental);
+        Debug.Log(roundCounter + " Destroyed");
+        cameraShake.StartShake(5f, 15, CameraShakeManager.ShakeType.decremental);
+
         WhiteFadeScreen.color = new Color(1,1,1,1);
         ExplosionObject.GetComponent<Animator>().SetTrigger("triggerExplosion");
+        soundsManager.PlayDestruction();
         viewInfo.PlanetGO.SetActive(false);
         yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
 
@@ -150,7 +160,7 @@ public class GameManager : MonoBehaviour
 
         killPlanetButton.SetBool("buttonDown", false);
 
-        yield return new WaitForSeconds(9f);
+        yield return new WaitForSeconds(2.5f);
         //Destroy planet
         if (roundCounter+1 >= numPlanets) {
             RoundDone();
@@ -159,6 +169,7 @@ public class GameManager : MonoBehaviour
         {
 
             LightSpeedAnimation.SetTrigger("goLightSpeed");
+            soundsManager.PlayTravel();
             yield return new WaitForSeconds(3f);
             roundCounter++;
             viewInfo.SetData(roundPlanets[roundCounter]);
