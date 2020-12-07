@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class ViewInfoPlanet : MonoBehaviour
 {
     public GameManager gameManager;
-
+    public Animator Background;
     public GameObject PlanetGO;
     public GameObject[] moons;
+    public float[] moonPhase;
     public GameObject PlanetPlaceholderA;
     public GameObject PlanetPlaceholderB;
 
@@ -52,9 +53,10 @@ public class ViewInfoPlanet : MonoBehaviour
     public void SetData(Planet planet, bool startRound = true)
     {
         gameManager.decisionMade = false;
-
+        Background.SetTrigger("changeBG");
         if (startRound)
         {
+
             currentTime = 0;
             RoundActive = true;
             Transform parent = PlanetGO.transform.parent;
@@ -72,13 +74,20 @@ public class ViewInfoPlanet : MonoBehaviour
                 }
             }
             moons = new GameObject[planet.llunes.Length];
+            moonPhase = new float[planet.llunes.Length];
             for (int i = 0; i < moons.Length; i++)
             {
                 moons[i] = Instantiate(planet.llunes[i], parent);
                 moons[i].transform.SetSiblingIndex(siblingIndex+1);
+                moonPhase[i] = Random.Range(0,360);
             }
 
             //PlanetGO.transform.localScale = planet.radi
+        }
+        else
+        {
+
+
         }
 
         planeta = planet;
@@ -184,13 +193,14 @@ public class ViewInfoPlanet : MonoBehaviour
                 else
                     Debug.LogError("Game manager is null.");
             }
-            float orbit = 200;
+            float orbit = 200f;
             for (int i = 0; i < moons.Length; i++)
             {
-                float angle = 360 * ((float)i / (float)moons.Length);
+                float angle = 360f * ((float)i / (float)moons.Length);
                 angle += currentTime *  Mathf.Lerp( 0.3f, 0.05f, ((float)i / (float)moons.Length));
+                angle += moonPhase[i];//semi-randomnessssss
                 moons[i].transform.position = PlanetGO.transform.position + new Vector3(orbit * Mathf.Sin(angle ), orbit * Mathf.Cos(angle), 0);
-                orbit += 55;
+                orbit += 55f;
             }
         }
         if (showData)

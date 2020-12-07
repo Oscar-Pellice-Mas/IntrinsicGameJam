@@ -4250,11 +4250,11 @@ MonoBehaviour:
   - {fileID: 5054299803597108288, guid: a47a94ff14ed99e46a1dab60b8e778ba, type: 3}
   - {fileID: 5054299803597108288, guid: b7ba2f5b13763994f9860c923c4b66fc, type: 3}
   Sprites:
-  - {fileID: 21300000, guid: 784aa6bc73a9a3545aede40bc1454234, type: 3}
-  - {fileID: 21300000, guid: a3beb30829057424aafb4f4fa7b0c421, type: 3}
   - {fileID: 21300000, guid: 7ea5bf8fa5944ce4ebb855c0d6bba6ff, type: 3}
-  - {fileID: 21300000, guid: 292c9dd3fdb93934f8b09308f4b71b65, type: 3}
+  - {fileID: 21300000, guid: a3beb30829057424aafb4f4fa7b0c421, type: 3}
+  - {fileID: 21300000, guid: 784aa6bc73a9a3545aede40bc1454234, type: 3}
   - {fileID: 21300000, guid: 065f54ea5d95b624c8e03823425ae55c, type: 3}
+  - {fileID: 21300000, guid: 292c9dd3fdb93934f8b09308f4b71b65, type: 3}
   maxPopulation: 0
 --- !u!1 &2083531260
 GameObject:
@@ -4930,8 +4930,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  Background: {fileID: 1055707320}
   PlanetGO: {fileID: 231172833}
   moons: []
+  moonPhase: []
   PlanetPlaceholderA: {fileID: 1650971038}
   PlanetPlaceholderB: {fileID: 397176398}
   TimePerRound: 60
