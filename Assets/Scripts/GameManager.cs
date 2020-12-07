@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
         
         viewInfo.SetData(roundPlanets[roundCounter]);
         roundActive = true;
+        viewInfo.RoundActive = true;
     }
 
     public IEnumerator NextPlanet()
@@ -184,6 +185,7 @@ public class GameManager : MonoBehaviour
     public void RoundDone()
     {
         roundActive = false;
+        viewInfo.RoundActive = false;
 
         poolControler.ActualitzaTerra();
         viewInfoTerra.SetDataTerra(terra, terraAnterior);
