@@ -5916,6 +5916,7 @@ MonoBehaviour:
   - {fileID: 2042513388}
   - {fileID: 701649972}
   - {fileID: 528967251}
+  initialPos: []
   menu_panel: {fileID: 528205599}
   menu_controls: {fileID: 1104898573}
   palanca: {fileID: 476821059}

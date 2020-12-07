@@ -14,7 +14,8 @@ public class Menu : MonoBehaviour
 
     public int selected_Option;
     public GameObject[] textos;
-
+    public Vector3[] initialPos;
+    public Color selectedColor;
     public GameObject menu_panel;
     public GameObject menu_controls;
     public GameObject palanca;
@@ -35,7 +36,11 @@ public class Menu : MonoBehaviour
     void Start()
     {
         initGame();
-
+        initialPos = new Vector3[textos.Length];
+        for (int i = 0; i < initialPos.Length; i++)
+        {
+            initialPos[i] = textos[i].GetComponent<RectTransform>().position;
+        }
     }
 
     private void Update()
@@ -50,6 +55,12 @@ public class Menu : MonoBehaviour
             StartCoroutine(Move());
             options_menu.GetComponent<Menu_Opcions>().soundManager.PlayButton();
         }
+
+        for (int i = 0; i < textos.Length; i++)
+        {
+            textos[i].GetComponent<RectTransform>().position = Vector3.Lerp(textos[i].GetComponent<RectTransform>().position, initialPos[i], 0.03f);
+        }
+
     }
 
     public void initGame()
@@ -73,13 +84,19 @@ public class Menu : MonoBehaviour
         {
             if (i == selected_Option)
             {
-                textos[i].GetComponent<TMPro.TextMeshProUGUI>().color = new Color(23f/255f, 110f/255f, 50f/255f);
+                Debug.Log("aaaa");
+                textos[i].GetComponent<RectTransform>().position += Vector3.down * 7;
+                //textos[i].GetComponent<TMPro.TextMeshProUGUI>().color = new Color(23f / 255f, 110f / 255f, 50f / 255f);
+                textos[i].GetComponent<TMPro.TextMeshProUGUI>().color = selectedColor;
+                Debug.Log("ei");
+
             }
             else
             {
                 textos[i].GetComponent<TMPro.TextMeshProUGUI>().color = new Color(10, 10, 10);
             }
         }
+
     }
 
     public void show_start()
@@ -165,11 +182,16 @@ public class Menu : MonoBehaviour
             {
                 if (i == selected_Option)
                 {
-                    textos[i].GetComponent<TMPro.TextMeshProUGUI>().color = new Color(23f / 255f, 110f / 255f, 50f / 255f);
+                    Debug.Log("aaaa");
+                    textos[i].GetComponent<RectTransform>().position += Vector3.down * 7;
+                    //textos[i].GetComponent<TMPro.TextMeshProUGUI>().color = new Color(23f / 255f, 110f / 255f, 50f / 255f);
+                    textos[i].GetComponent<TMPro.TextMeshProUGUI>().color = selectedColor;
+                    Debug.Log("ei");
+
                 }
                 else
                 {
-                    textos[i].GetComponent<TMPro.TextMeshProUGUI>().color = new Color(1, 1, 1);
+                    textos[i].GetComponent<TMPro.TextMeshProUGUI>().color = new Color(10, 10, 10);
                 }
             }
             yield return new WaitForSeconds(0.2f);
@@ -180,6 +202,7 @@ public class Menu : MonoBehaviour
         yield return null;
     }
 
+   
 
     public IEnumerator Select()
     {
