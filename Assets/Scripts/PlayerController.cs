@@ -31,7 +31,12 @@ public class PlayerController : MonoBehaviour
 
                 gameManager.decisionMade = true;
             }
+        } else
+        {
+            if (Input.GetButtonDown("A"))
+            {
+                gameManager.StartRound();
+            }
         }
-        
     }
 }

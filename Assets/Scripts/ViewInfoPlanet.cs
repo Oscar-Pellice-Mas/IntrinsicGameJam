@@ -19,6 +19,7 @@ public class ViewInfoPlanet : MonoBehaviour
     bool RoundActive = false;
     public Planet planeta;
 
+    // UI PLANETA
     public Image imatge;
     public TextMeshProUGUI nom;
     public TextMeshProUGUI poblacio;
@@ -49,6 +50,7 @@ public class ViewInfoPlanet : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
     }
+
 
     public void SetData(Planet planet, bool startRound = true)
     {
@@ -110,7 +112,7 @@ public class ViewInfoPlanet : MonoBehaviour
         ShowInfo(tipus, planeta.tipusPlaneta.ToString());
         ShowInfo(edatEspecie, TransformInt(planeta.EdatEspecie));
         ShowInfo(perillositat, planeta.perillositat.ToString());
-        ShowInfo(faction,planeta.faction.especie.ToString());
+        ShowInfo(faction, planeta.faction.especie.ToString());
         ShowInfo(regim, planeta.Regim.ToString());
         ShowInfo(raca, planeta.faction.especie.ToString());
         ShowInfo(densitat, string.Format("{0}%", planeta.faction.densitat));
@@ -136,8 +138,7 @@ public class ViewInfoPlanet : MonoBehaviour
 
     private string TransformInt(int data)
     {
-        string retorn = "";
-
+        string retorn;
         if (data / 1000 < 1)
         {
             retorn = string.Format("{0}", data);

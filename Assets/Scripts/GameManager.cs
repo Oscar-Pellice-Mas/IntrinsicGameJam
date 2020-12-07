@@ -6,10 +6,14 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject homeUI;
+    public GameObject planetUI;
+
     private PoolControler poolControler;
-    private PlanetGenerator planetGenerator;
+    public PlanetGenerator planetGenerator;
     public CameraShakeManager cameraShake;
     public ViewInfoPlanet viewInfo;
+    public ViewInfoTerra viewInfoTerra;
     public Animator saveLeverAnimator;
     public Animator killPlanetButton;
     public Animator LightSpeedAnimation;
@@ -31,9 +35,8 @@ public class GameManager : MonoBehaviour
     public Terra terraAnterior;
 
     public List<Faction> factions;
-
-    public RoundInfo roundInfo;
-    public int round = 1;
+    
+    public int round = 0;
 
     public bool roundActive = false;
     public bool decisionMade = false;
@@ -44,12 +47,15 @@ public class GameManager : MonoBehaviour
         
     void Start()
     {
+        planetUI.SetActive(true);
+        homeUI.SetActive(false);
+
         planetGenerator = GetComponent<PlanetGenerator>();
         factions = planetGenerator.GenerateFactions();
         terra = planetGenerator.GenerateTerra();
 
         //Guardem la terra del principi
-        terraAnterior = terra;
+        terraAnterior = terra.Copy();
 
         poolControler = GetComponent<PoolControler>();
         poolControler.CreatePool(InitialPoolNumber);
@@ -59,19 +65,23 @@ public class GameManager : MonoBehaviour
         laser1.SetActive(false);
         laser2.SetActive(false);
 
-        roundInfo = gameObject.AddComponent<RoundInfo>();
-
         StartRound();
     }
 
-    private void StartRound()
+    public void StartRound()
     {
+        round++;
+
+        planetUI.SetActive(true);
+        homeUI.SetActive(false);
+
         roundCounter = 0;
         savedPlanets = new List<Planet>();
+        terraAnterior = terra.Copy();
         viewInfo.SetDificulty(round);
 
         poolControler.RefreshFactions();
-        roundPlanets = poolControler.GetRoundPool(5);
+        roundPlanets = poolControler.GetRoundPool(2);
         numPlanets = roundPlanets.Count;
         
         viewInfo.SetData(roundPlanets[roundCounter]);
@@ -134,10 +144,11 @@ public class GameManager : MonoBehaviour
         cameraShake.StartShake(cameraShake.GetTintDuration() / 4, 7, CameraShakeManager.ShakeType.constant);
 
         yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
-        poolControler.OnPlanetInteraction(roundPlanets[roundCounter],true);
+        poolControler.OnPlanetInteraction(roundPlanets[roundCounter], true);
 
         Debug.Log(roundCounter + " Destroyed");
         cameraShake.StartShake(5f, 15, CameraShakeManager.ShakeType.decremental);
+
         WhiteFadeScreen.color = new Color(1,1,1,1);
         ExplosionObject.GetComponent<Animator>().SetTrigger("triggerExplosion");
         soundsManager.PlayDestruction();
@@ -171,18 +182,14 @@ public class GameManager : MonoBehaviour
     public void RoundDone()
     {
         roundActive = false;
+
+        poolControler.ActualitzaTerra();
+        viewInfoTerra.SetDataTerra(terra, terraAnterior);
+
+        planetUI.SetActive(false);
+        homeUI.SetActive(true);
+
         poolControler.AddPlanets(savedPlanets);
-        round++;
-
-        //Creem un script amb tota la informacio que necessitem de la terra al final i al començar la ronda
-        generaInfoRonda();
-        //Mostrem la info
-
-        //Canviar la terra anterior per guardar els canvis
-        terraAnterior = terra;
-        StartRound();
-
-
     }
 
     private void Update()
@@ -206,25 +213,6 @@ public class GameManager : MonoBehaviour
         }
 
 
-    }
-    public RoundInfo generaInfoRonda()
-    {
-        
-        //Agafar els valors de poblacio la terra nova i antiga
-        roundInfo.poblacio[0] = terraAnterior.Poblacio;
-        roundInfo.poblacio[1] = terra.Poblacio;
-
-        //Agafar els materials
-        roundInfo.materials_abans = terraAnterior.materials;
-        roundInfo.materials_ara = terra.materials;
-
-        //Agafar els materials
-        roundInfo.consum_abans = terraAnterior.consum;
-        roundInfo.consum_ara = terra.consum;
-
-        roundInfo.atacants = terra.atacants;
-
-        return roundInfo;
     }
 
 }

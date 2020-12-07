@@ -139,8 +139,8 @@ public class Menu : MonoBehaviour
     {
         menuActive = false;
         Debug.Log("Start Game");
-        SceneManager.LoadScene("mainGame");
 
+        SceneManager.LoadScene("mainGame");
     }
 
     public IEnumerator Move()

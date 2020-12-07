@@ -11,6 +11,7 @@ public class PoolControler : MonoBehaviour
     public Planet objectToPool;
 
     private Terra terra;
+
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -29,6 +30,7 @@ public class PoolControler : MonoBehaviour
     public void RefreshFactions()
     {
         int[] count = new int[5];
+        foreach(Faction f in gameManager.factions) f.mitjaPerillositat = 0;
 
         foreach (Planet p in planetPool)
         {
@@ -36,14 +38,17 @@ public class PoolControler : MonoBehaviour
             {
                 if (p.faction.especie == gameManager.factions[i].especie)
                 {
+                    gameManager.factions[i].mitjaPerillositat += p.perillositat;
                     count[i]++;
                     break;
                 }
             }
         }
+
         for (int i = 0; i < gameManager.factions.Count; i++)
         {
             gameManager.factions[i].densitat = count[i] * 100 / planetPool.Count;
+            //gameManager.factions[i].mitjaPerillositat = gameManager.factions[i].mitjaPerillositat / count[i];
         }
     }
 
@@ -128,26 +133,37 @@ public class PoolControler : MonoBehaviour
         return false;
     }
 
-    public void actualitzaTerra()
+    public void ActualitzaTerra()
     {
-        float materialsRestants = 0;
-        float materialsConsumits = 0;
-        int valorAugment = 1;
+        terra = gameManager.terra;
 
+        long materialsRestants = 0;
+        long materialsConsumits = 0;
+
+        int probabilitat;
+        int attack;
+
+        terra.atacants = new List<Faction>();
+        terra.danyAtac = new List<long>();
 
         //Primer mirerm si al tornar
         for (int i = 0; i < gameManager.factions.Count; i++)
         {
-            int probabilitat = Random.Range(0, 100);
+            if (gameManager.factions[i].densitat == 0) continue;
+
+            probabilitat = Random.Range(0, 100);
             //Son enemics
             if (gameManager.factions[i].agresivitat > 30)
             {
                 //t'ataquen
-                if (probabilitat < gameManager.factions[i].agresivitat)
+                attack = gameManager.factions[i].agresivitat * gameManager.factions[i].mitjaPerillositat / 100;
+                if (probabilitat < attack)
                 {
-                    terra.Poblacio -= (gameManager.factions[i].densitat / 100) * terra.Poblacio;
+                    long dany = -(gameManager.factions[i].densitat * terra.Poblacio) / 100;
+                    terra.Poblacio += dany;
                     //ens apuntem qui ens ha atacat
-                    terra.atacants.Add(gameManager.factions[i].especie.ToString());
+                    terra.danyAtac.Add(dany);
+                    terra.atacants.Add(gameManager.factions[i]);
                 }
             }
         }
@@ -156,19 +172,18 @@ public class PoolControler : MonoBehaviour
         for (int i = 0; i < terra.consum.Length; i++)
         {
             terra.materials[i] -= terra.consum[i];
-            materialsRestants += terra.materials[i] * (i+1);
+            materialsRestants += terra.materials[i] * (i + 1);
             materialsConsumits += terra.consum[i] * (i + 1);
         }
-        if(materialsRestants > 2*materialsConsumits)
+        if(materialsRestants > 2 * materialsConsumits)
         {
-            valorAugment = (int)(materialsRestants / materialsConsumits);
+            long valorAugment = materialsRestants / materialsConsumits;
             terra.Poblacio *= valorAugment;
         }
+        if (terra.indexTipus >= 2) terra.consum[0] = (terra.Poblacio * (gameManager.round / 5 + 1) * 3);
+        if (terra.indexTipus >= 4) terra.consum[2] = (terra.Poblacio * (gameManager.round / 5 + 1) * 1);
 
-        terra.consum[0] = (int)(terra.Poblacio * gameManager.round/5 * terra.indexTipus * 3);
-        terra.consum[1] = (int)(terra.Poblacio * gameManager.round / 5 * terra.indexTipus * 2);
-        terra.consum[2] = (int)(terra.Poblacio * gameManager.round / 5 * terra.indexTipus * 1);
-
+        gameManager.terra = terra;
     }
 }
 

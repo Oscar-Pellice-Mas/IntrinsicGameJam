@@ -13,18 +13,16 @@ public class PlanetGenerator : MonoBehaviour
     public GameObject[] MoonPrefab;
     public Sprite[] Sprites;
     //Tamany i població
-    private float RadiMin = 2439, RadiMax = 69911;
+    private float RadiMin = 2439, RadiMax = 6911;
     //static float RadiTerra = 6371;
     private float MinRatio = 0.4f, MaxRatio = 3f;
-    private float PoblacioPerKmTerra = 14.2885f;
+    private float PoblacioPerKmTerra = 14.7f;
     public long maxPopulation;
     //Edat espècie. Homo sapiens = 160000 anys.
     int EdatEspecieMin = 60000, EdatEspecieMax = 400000;
-
-
     // Terra creator values
     private const long PoblacioInicial = 1000;
-    private const int MaterialsInicials = 1000;
+    private const int MaterialsInicials = 10000000;
 
     private void Awake()
     {
@@ -71,8 +69,6 @@ public class PlanetGenerator : MonoBehaviour
             //planet.llunes[i].GetComponent<RectTransform>().sizeDelta *= Random.Range(0.5f, 0.8f);
         }
 
-        
-
         return planet;
     }
 
@@ -105,16 +101,9 @@ public class PlanetGenerator : MonoBehaviour
             default:
                 break;
         }
-
-        for (int i =0; i < planet.Llunes; i++)
-        {
-            planet.llunes[i] = Instantiate(MoonPrefab[Random.Range(0, MoonPrefab.Length)]);
-            planet.llunes[i].GetComponent<RectTransform>().sizeDelta *= Random.Range(0.9f, 1.2f);
-        }
-
-
         return planet;
     }
+
 
     //Crear un planeta primitiu
     Planet creaPrimitiu(Planet planet)
@@ -136,14 +125,21 @@ public class PlanetGenerator : MonoBehaviour
         planet.Llunes = 0;
         planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
 
+        for (int i =0; i < planet.Llunes; i++)
+        {
+            planet.llunes[i] = Instantiate(MoonPrefab[Random.Range(0, MoonPrefab.Length)]);
+            planet.llunes[i].GetComponent<RectTransform>().sizeDelta *= Random.Range(0.9f, 1.2f);
+        }
         //Materials avançats (els materials primitius no tenen avançat)
 
 
         //Perillositat
-        planet.perillositat = Random.Range(0, 20);
+        //planet.perillositat = Random.Range(0, 20);
+        planet.perillositat = 100;
         return planet;
     }
-    //Crear un planeta basic
+
+
     Planet creaBasic(Planet planet)
     {
         //TAMANY I POBLACIO
@@ -168,6 +164,7 @@ public class PlanetGenerator : MonoBehaviour
         planet.perillositat = Random.Range(0, 40);
         return planet;
     }
+    
     //Crear un planeta modern
     Planet creaModern(Planet planet)
     {
@@ -191,6 +188,7 @@ public class PlanetGenerator : MonoBehaviour
         planet.perillositat = Random.Range(0, 60);
         return planet;
     }
+    
     //Crear un planeta avançat
     Planet creaAvançat(Planet planet)
     {
@@ -241,7 +239,6 @@ public class PlanetGenerator : MonoBehaviour
 
         //Perillositat
         planet.perillositat = Random.Range(0, 100);
-
         return planet;
     }
 
@@ -251,7 +248,7 @@ public class PlanetGenerator : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             Faction f = ScriptableObject.CreateInstance<Faction>();
-            f.agresivitat = 0;
+            f.agresivitat = Random.Range(-100, 100);
             f.densitat = 0; //Setejar un cop es creein planetes nous
             f.especie = (Faction.raca)i;
             f.imatge = Sprites[i];
@@ -265,10 +262,10 @@ public class PlanetGenerator : MonoBehaviour
         Terra terra = ScriptableObject.CreateInstance<Terra>();
 
         //Sprite
-        //terra.planetPrefab = [Treure de la carpeta]
+        terra.planetPrefab = PlanetPrefab[10];
 
         //Nom
-        terra.name = "HOME";
+        terra.Nom = "Terra";
 
         //Poblacio
         terra.Poblacio = PoblacioInicial;
@@ -279,22 +276,23 @@ public class PlanetGenerator : MonoBehaviour
         terra.materials[2] = 0;
 
         //Consum
-        terra.consum[0] = 1 * (int)PoblacioInicial;
+        terra.consum[0] = 1 * PoblacioInicial;
         terra.consum[1] = 0;
         terra.consum[2] = 0;
 
         //Tipus
         terra.tipusPlaneta = Terra.tipus.modern;
+        terra.indexTipus = 2;
 
         //Faction
-        GameManager manager = FindObjectOfType<GameManager>();
-        terra.faction = manager.factions[Random.Range(0, manager.factions.Count)];
+        terra.idFaction = Random.Range(0, gameManager.factions.Count);
+        terra.faction = gameManager.factions[terra.idFaction];
 
         //Regim
         terra.Regim = (Terra.regim)Random.Range(0, 2);
 
         //Creo la llista d'atacants
-        terra.atacants = new List<string>();
+        terra.atacants = new List<Faction>();
 
         return terra;
     }
