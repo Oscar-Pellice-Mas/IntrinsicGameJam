@@ -87,6 +87,7 @@ public class PoolControler : MonoBehaviour
             {
                 terra.materials[i] += planet.materials[i];
             }
+
             //Agressivitat de la faccio
             for (int i = 0; i < gameManager.factions.Count; i++)
             {
@@ -110,7 +111,7 @@ public class PoolControler : MonoBehaviour
                 {
 
                     //Calculem la agresivitat que generem en una faccio al matar un dels seus planetes
-                    gameManager.factions[i].agresivitat += (int)(planet.Poblacio / planetGenerator.maxPopulation) * terra.indexTipus;
+                    gameManager.factions[i].agresivitat -= (int)(planet.Poblacio / planetGenerator.maxPopulation) * terra.indexTipus;
                     break;
                 }
 
@@ -175,6 +176,7 @@ public class PoolControler : MonoBehaviour
             materialsRestants += terra.materials[i] * (i + 1);
             materialsConsumits += terra.consum[i] * (i + 1);
         }
+
         if(materialsRestants > 2 * materialsConsumits)
         {
             long valorAugment = materialsRestants / materialsConsumits;

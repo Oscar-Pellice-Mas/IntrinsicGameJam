@@ -16,7 +16,6 @@ public class Terra : ScriptableObject
     public tipus tipusPlaneta;
     public Faction faction;
     public int idFaction;
-
     public List<Faction> atacants;
     public List<long> danyAtac;
    

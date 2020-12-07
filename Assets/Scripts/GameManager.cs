@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
 
         poolControler.RefreshFactions();
         roundPlanets = poolControler.GetRoundPool(10);
+        roundPlanets = poolControler.GetRoundPool(5);
         numPlanets = roundPlanets.Count;
         
         viewInfo.SetData(roundPlanets[roundCounter]);
