@@ -19,12 +19,15 @@ public class ViewInfoTerra : MonoBehaviour
 
     public TextMeshProUGUI recursosXTerra;
     public TextMeshProUGUI recursosCanviXTerra;
+    public Image signeRecursosCanviXTerra;
     //public TextMeshProUGUI consumXTerra;
     public TextMeshProUGUI recursosYTerra;
     public TextMeshProUGUI recursosCanviYTerra;
+    public Image signeRecursosCanviYTerra;
     //public TextMeshProUGUI consumYTerra;
     public TextMeshProUGUI recursosZTerra;
     public TextMeshProUGUI recursosCanviZTerra;
+    public Image signeRecursosCanviZTerra;
     //public TextMeshProUGUI consumZTerra;
 
     //public TextMeshProUGUI FaccioTerra;
@@ -61,24 +64,24 @@ public class ViewInfoTerra : MonoBehaviour
         ShowInfo(nomTerra, terra.Nom);
         ShowInfo(poblacioTerra, string.Format("{0:n0}", terra.Poblacio));
         variacio = terra.Poblacio - terraAnterior.Poblacio;
-        ColorOnValue(poblacioTerraVariacio, variacio);
+        ColorOnValue(poblacioTerraVariacio, null, variacio);
         ShowInfo(poblacioTerraVariacio, TransformLong(variacio));
 
         ShowInfo(recursosXTerra, TransformLong(terra.materials[0]));
         variacio = terra.materials[0] - terraAnterior.materials[0];
-        ColorOnValue(recursosCanviXTerra,variacio);
+        ColorOnValue(recursosCanviXTerra, signeRecursosCanviXTerra, variacio);
         ShowInfo(recursosCanviXTerra, TransformLong(variacio));
         //ShowInfo(consumXTerra, terra.consum[0].ToString());
 
         variacio = terra.materials[1] - terraAnterior.materials[1];
         ShowInfo(recursosYTerra, TransformLong(terra.materials[1])); 
-        ColorOnValue(recursosCanviYTerra, variacio);
+        ColorOnValue(recursosCanviYTerra, signeRecursosCanviYTerra, variacio);
         ShowInfo(recursosCanviYTerra, TransformLong(variacio));
         //ShowInfo(consumYTerra, terra.consum[1].ToString());
 
         variacio = terra.materials[2] - terraAnterior.materials[2];
         ShowInfo(recursosZTerra, TransformLong(terra.materials[2]));
-        ColorOnValue(recursosCanviZTerra, variacio);
+        ColorOnValue(recursosCanviZTerra, signeRecursosCanviZTerra, variacio);
         ShowInfo(recursosCanviZTerra, TransformLong(variacio));
         //ShowInfo(consumZTerra, terra.consum[2].ToString());
 
@@ -125,10 +128,35 @@ public class ViewInfoTerra : MonoBehaviour
 
     }
 
-    private void ColorOnValue(TextMeshProUGUI component, long value)
+    private void ColorOnValue(TextMeshProUGUI component, Image image, long value)
     {
-        if (value == 0) component.color = Color.black;
-        else component.color = value < 0 ? Color.red : Color.green;
+        if (value == 0)
+        {
+            component.color = Color.black;
+            if(image != null)
+            {
+                image.color = Color.black;
+                image.transform.localScale.Set(1, 1, 1);
+            }
+            
+        }
+        else if (value < 0)
+        {
+            component.color = Color.red;
+            if (image != null)
+            {
+                image.color = Color.red;
+                image.transform.localScale.Set(1,-1,1);
+            }
+        } else
+        {
+            component.color = Color.green;
+            if (image != null)
+            {
+                image.color = Color.green;
+                image.transform.localScale.Set(1, 1, 1);
+            }
+        }
     }
 
     private void ShowInfo(TextMeshProUGUI component, string data)
