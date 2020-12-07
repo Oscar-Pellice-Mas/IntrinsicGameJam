@@ -151,7 +151,7 @@ public class PoolControler : MonoBehaviour
         for (int i = 0; i < gameManager.factions.Count; i++)
         {
             if (gameManager.factions[i].densitat == 0) continue;
-
+            if (gameManager.factions[i].especie == Faction.raca.humans) continue;
             probabilitat = Random.Range(0, 100);
             //Son enemics
             if (gameManager.factions[i].agresivitat > 30)

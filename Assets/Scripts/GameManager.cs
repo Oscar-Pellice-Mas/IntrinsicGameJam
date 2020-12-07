@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
         
         viewInfo.SetData(roundPlanets[roundCounter]);
         roundActive = true;
+        viewInfo.RoundActive = true;
     }
 
     public IEnumerator NextPlanet()
@@ -149,7 +150,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
         poolControler.OnPlanetInteraction(roundPlanets[roundCounter], true);
 
-        Debug.Log(roundCounter + " Destroyed");
         cameraShake.StartShake(5f, 15, CameraShakeManager.ShakeType.decremental);
 
         WhiteFadeScreen.color = new Color(1,1,1,1);
@@ -185,6 +185,7 @@ public class GameManager : MonoBehaviour
     public void RoundDone()
     {
         roundActive = false;
+        viewInfo.RoundActive = false;
 
         poolControler.ActualitzaTerra();
         viewInfoTerra.SetDataTerra(terra, terraAnterior);

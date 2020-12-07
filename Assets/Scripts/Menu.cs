@@ -84,12 +84,9 @@ public class Menu : MonoBehaviour
         {
             if (i == selected_Option)
             {
-                Debug.Log("aaaa");
                 textos[i].GetComponent<RectTransform>().position += Vector3.down * 7;
                 //textos[i].GetComponent<TMPro.TextMeshProUGUI>().color = new Color(23f / 255f, 110f / 255f, 50f / 255f);
                 textos[i].GetComponent<TMPro.TextMeshProUGUI>().color = selectedColor;
-                Debug.Log("ei");
-
             }
             else
             {
@@ -155,7 +152,6 @@ public class Menu : MonoBehaviour
     public void startGame()
     {
         menuActive = false;
-        Debug.Log("Start Game");
 
         SceneManager.LoadScene("mainGame");
     }

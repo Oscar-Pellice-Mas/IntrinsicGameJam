@@ -16,10 +16,14 @@ public class ViewInfoPlanet : MonoBehaviour
 
     public float TimePerRound;
     float currentTime = 0;
-    bool RoundActive = false;
+    public bool RoundActive = false;
     public Planet planeta;
 
     // UI PLANETA
+    public Image boleta;
+    public Image boletaPlaceholderStart;
+    public Image boletaPlaceholderEnd;
+
     public Image imatge;
     public TextMeshProUGUI nom;
     public TextMeshProUGUI poblacio;
@@ -57,9 +61,8 @@ public class ViewInfoPlanet : MonoBehaviour
         Background.SetTrigger("changeBG");
         if (startRound)
         {
-
+            boleta.transform.position = boletaPlaceholderStart.transform.position;
             currentTime = 0;
-            RoundActive = true;
             Transform parent = PlanetGO.transform.parent;
             int siblingIndex = PlanetGO.transform.GetSiblingIndex();
             DestroyImmediate(PlanetGO);
@@ -82,8 +85,6 @@ public class ViewInfoPlanet : MonoBehaviour
                 moons[i].transform.SetSiblingIndex(siblingIndex+1);
                 moonPhase[i] = Random.Range(0,360);
             }
-
-            //PlanetGO.transform.localScale = planet.radi
         }
 
         planeta = planet;
@@ -265,6 +266,9 @@ public class ViewInfoPlanet : MonoBehaviour
     {
         if (RoundActive)
         {
+            boleta.transform.position = Vector3.Lerp(boletaPlaceholderStart.transform.position, boletaPlaceholderEnd.transform.position, currentTime / TimePerRound);
+            boleta.color = new Color(boleta.color.r, boleta.color.g, boleta.color.b, currentTime % 1);
+
             PlanetGO.transform.position = Vector3.Lerp(PlanetPlaceholderA.transform.position, PlanetPlaceholderB.transform.position, currentTime / TimePerRound);
             currentTime += Time.deltaTime;
             if (currentTime > TimePerRound)
@@ -284,7 +288,7 @@ public class ViewInfoPlanet : MonoBehaviour
                 orbit += 55f;
             }
         }
-        if (showData)
+        /*if (showData)
         {
             showData = false;
             //Debug.Log("Nom: " + planet.Nom);
@@ -334,6 +338,6 @@ public class ViewInfoPlanet : MonoBehaviour
                 //especie.enabled = true;
                 //Debug.Log("Nom: " + planet.Nom);
             }
-        }
+        }*/
     }
 }
