@@ -152,7 +152,7 @@ public class PlanetGenerator : MonoBehaviour
         planet.radi = Random.Range(RadiMin*2, RadiMin * 3);
         float area = 4 * Mathf.PI * planet.radi * planet.radi;
         long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
-        planet.Poblacio = poblacioCalculada;
+        planet.Poblacio = (long)(poblacioCalculada * 0.1);
 
         //MATERIALS I CONSUM
         //Materila basic que tenen tots el planetes (10% del planeta esta fet d'aquest material)
@@ -177,7 +177,7 @@ public class PlanetGenerator : MonoBehaviour
         planet.radi = Random.Range(RadiMin*3, RadiMin * 4);
         float area = 4 * Mathf.PI * planet.radi * planet.radi;
         long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
-        planet.Poblacio = poblacioCalculada;
+        planet.Poblacio = (long)(poblacioCalculada * 0.1);
 
         //MATERIALS I CONSUM
         //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
@@ -201,7 +201,7 @@ public class PlanetGenerator : MonoBehaviour
         planet.radi = Random.Range(RadiMin*4, RadiMin * 5);
         float area = 4 * Mathf.PI * planet.radi * planet.radi;
         long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
-        planet.Poblacio = poblacioCalculada;
+        planet.Poblacio = (long)(poblacioCalculada * 0.1);
 
         //MATERIALS I CONSUM
         //Materila basic que tenen tots el planetes (10% del planeta esta fet d'aquest material)
@@ -227,7 +227,7 @@ public class PlanetGenerator : MonoBehaviour
         planet.radi = Random.Range(RadiMin*5, RadiMax);
         float area = 4 * Mathf.PI * planet.radi * planet.radi;
         long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
-        planet.Poblacio = poblacioCalculada ;
+        planet.Poblacio = (long)(poblacioCalculada * 0.1);
 
         //MATERIALS I CONSUM
         //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
