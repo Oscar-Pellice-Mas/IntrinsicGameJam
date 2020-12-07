@@ -7297,7 +7297,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ATtACKS
+  m_text: Human Deaths
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 53973e0f17fe53f44b70300168577e26, type: 2}
   m_sharedMaterial: {fileID: -4225306811291168030, guid: 53973e0f17fe53f44b70300168577e26,
@@ -7325,8 +7325,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.13
-  m_fontSizeBase: 23.13
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7361,7 +7361,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -0.1854248, z: 0.6413269, w: 0.15142822}
+  m_margin: {x: -46.827484, y: -0.1854248, z: 16.374481, w: 0.15142822}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7383,7 +7383,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 141, y: -0.3999939}
+  m_AnchoredPosition: {x: 174, y: 11}
   m_SizeDelta: {x: 200, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3607298022877318991
@@ -8197,7 +8197,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 6.718292, z: -175.06549, w: -21.64981}
+  m_margin: {x: 46.61142, y: 6.718292, z: -147.09882, w: -21.64981}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

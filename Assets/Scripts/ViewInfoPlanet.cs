@@ -20,6 +20,10 @@ public class ViewInfoPlanet : MonoBehaviour
     public Planet planeta;
 
     // UI PLANETA
+    public Image boleta;
+    public Image boletaPlaceholderStart;
+    public Image boletaPlaceholderEnd;
+
     public Image imatge;
     public TextMeshProUGUI nom;
     public TextMeshProUGUI poblacio;
@@ -57,6 +61,7 @@ public class ViewInfoPlanet : MonoBehaviour
         Background.SetTrigger("changeBG");
         if (startRound)
         {
+            boleta.transform.position = boletaPlaceholderStart.transform.position;
 
             currentTime = 0;
             RoundActive = true;
@@ -265,6 +270,9 @@ public class ViewInfoPlanet : MonoBehaviour
     {
         if (RoundActive)
         {
+            boleta.transform.position = Vector3.Lerp(boletaPlaceholderStart.transform.position, boletaPlaceholderEnd.transform.position, currentTime / TimePerRound);
+            boleta.color = new Color(boleta.color.r, boleta.color.g, boleta.color.b, currentTime % 1);
+
             PlanetGO.transform.position = Vector3.Lerp(PlanetPlaceholderA.transform.position, PlanetPlaceholderB.transform.position, currentTime / TimePerRound);
             currentTime += Time.deltaTime;
             if (currentTime > TimePerRound)
