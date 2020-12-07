@@ -4526,14 +4526,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectsToShake:
   - {fileID: 1109804740}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 1900642722}
   - {fileID: 1344811824}
   - {fileID: 263849386}
   - {fileID: 766737081}
   - {fileID: 205841422}
   - {fileID: 799796327}
+  - {fileID: 659739053}
+  - {fileID: 1509201963}
+  - {fileID: 129069952}
+  - {fileID: 2105884649}
+  - {fileID: 711946760}
+  - {fileID: 890269391}
+  - {fileID: 1017815847}
+  - {fileID: 1247655102}
+  - {fileID: 1176248710}
+  - {fileID: 956016256}
+  - {fileID: 590012400}
+  - {fileID: 2079958279}
+  - {fileID: 232718710}
+  - {fileID: 1244955781}
+  - {fileID: 1420819801}
   ObjectsToTint:
   - {fileID: 1344811825}
   - {fileID: 263849388}
