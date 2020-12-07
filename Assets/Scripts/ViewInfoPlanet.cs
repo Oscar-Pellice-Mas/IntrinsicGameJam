@@ -96,7 +96,7 @@ public class ViewInfoPlanet : MonoBehaviour
         string materialsString = "";
         for (int i = 0; i < planeta.materials.Length; i++)
         {
-            materialsString += TransformInt(planeta.materials[i]) + " - ";
+            materialsString += TransformInt(planeta.materials[i]) + " / ";
         }
         
         ShowInfo(ourResources, materialsString); //Fix
