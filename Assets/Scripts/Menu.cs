@@ -58,9 +58,18 @@ public class Menu : MonoBehaviour
         start_menu.gameObject.SetActive(true);
         options_menu.gameObject.SetActive(false);
         credits_menu.gameObject.SetActive(false);
+        howtoplay_menu.gameObject.SetActive(false);
+        isLeverPress = false;
+        isButtonPress = false;
+
+        menu_controls.gameObject.SetActive(true);
+        menu_panel.gameObject.SetActive(true);
+        palanca.gameObject.SetActive(true);
+        boto.gameObject.SetActive(true);
+
         selected_Option = 0;
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             if (i == selected_Option)
             {
@@ -71,6 +80,12 @@ public class Menu : MonoBehaviour
                 textos[i].GetComponent<TMPro.TextMeshProUGUI>().color = new Color(10, 10, 10);
             }
         }
+    }
+
+    public void show_start()
+    {
+        initGame();
+
     }
 
     public void show_credits()
@@ -118,22 +133,7 @@ public class Menu : MonoBehaviour
         credits_menu.gameObject.SetActive(false);
     }
 
-    public void show_start()
-    {
-        Debug.Log("Show Start");
-        menuActive = true;
-        isLeverPress = false;
-        isButtonPress = false;
-        start_menu.gameObject.SetActive(true);
-        options_menu.gameObject.SetActive(false);
-        howtoplay_menu.gameObject.SetActive(false);
-        credits_menu.gameObject.SetActive(false);
-
-        menu_controls.gameObject.SetActive(true);
-        menu_panel.gameObject.SetActive(true);
-        palanca.gameObject.SetActive(true);
-        boto.gameObject.SetActive(true);
-    }
+   
 
     public void startGame()
     {
