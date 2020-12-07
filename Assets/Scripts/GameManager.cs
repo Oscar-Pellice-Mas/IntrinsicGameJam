@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
         else
         {
             LightSpeedAnimation.SetTrigger("goLightSpeed");
+            soundsManager.PlayTravel();
             yield return new WaitForSeconds(3f);
             roundCounter++;
             viewInfo.SetData(roundPlanets[roundCounter]);
@@ -108,6 +109,7 @@ public class GameManager : MonoBehaviour
         killPlanetButton.SetBool("buttonDown", true);
         yield return new WaitForSeconds(0.2f);
         soundsManager.PlayButton();
+        soundsManager.PlayAlarma();
         cameraShake.StartFlicker();
         yield return new WaitForSeconds(cameraShake.GetTintDuration() / 4);
 
@@ -127,6 +129,7 @@ public class GameManager : MonoBehaviour
 
         laser1.SetActive(true);
         laser2.SetActive(true);
+        soundsManager.PlayLaser();
 
         cameraShake.StartShake(cameraShake.GetTintDuration() / 4, 7, CameraShakeManager.ShakeType.constant);
 
@@ -155,6 +158,7 @@ public class GameManager : MonoBehaviour
         {
 
             LightSpeedAnimation.SetTrigger("goLightSpeed");
+            soundsManager.PlayTravel();
             yield return new WaitForSeconds(3f);
             roundCounter++;
             viewInfo.SetData(roundPlanets[roundCounter]);
