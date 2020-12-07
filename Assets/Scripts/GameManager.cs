@@ -81,8 +81,7 @@ public class GameManager : MonoBehaviour
         viewInfo.SetDificulty(round);
 
         poolControler.RefreshFactions();
-        roundPlanets = poolControler.GetRoundPool(10);
-        roundPlanets = poolControler.GetRoundPool(5);
+        roundPlanets = poolControler.GetRoundPool(2);
         numPlanets = roundPlanets.Count;
         
         viewInfo.SetData(roundPlanets[roundCounter]);
