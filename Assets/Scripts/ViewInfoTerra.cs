@@ -20,15 +20,15 @@ public class ViewInfoTerra : MonoBehaviour
     public TextMeshProUGUI recursosXTerra;
     public TextMeshProUGUI recursosCanviXTerra;
     public Image signeRecursosCanviXTerra;
-    //public TextMeshProUGUI consumXTerra;
+    public TextMeshProUGUI consumXTerra;
     public TextMeshProUGUI recursosYTerra;
     public TextMeshProUGUI recursosCanviYTerra;
     public Image signeRecursosCanviYTerra;
-    //public TextMeshProUGUI consumYTerra;
+    public TextMeshProUGUI consumYTerra;
     public TextMeshProUGUI recursosZTerra;
     public TextMeshProUGUI recursosCanviZTerra;
     public Image signeRecursosCanviZTerra;
-    //public TextMeshProUGUI consumZTerra;
+    public TextMeshProUGUI consumZTerra;
 
     //public TextMeshProUGUI FaccioTerra;
     //public Image imatgeFaccioTerra;
@@ -71,19 +71,19 @@ public class ViewInfoTerra : MonoBehaviour
         variacio = terra.materials[0] - terraAnterior.materials[0];
         ColorOnValue(recursosCanviXTerra, signeRecursosCanviXTerra, variacio);
         ShowInfo(recursosCanviXTerra, TransformLong(variacio));
-        //ShowInfo(consumXTerra, terra.consum[0].ToString());
+        ShowInfo(consumXTerra, terra.consum[0].ToString());
 
         variacio = terra.materials[1] - terraAnterior.materials[1];
         ShowInfo(recursosYTerra, TransformLong(terra.materials[1])); 
         ColorOnValue(recursosCanviYTerra, signeRecursosCanviYTerra, variacio);
         ShowInfo(recursosCanviYTerra, TransformLong(variacio));
-        //ShowInfo(consumYTerra, terra.consum[1].ToString());
+        ShowInfo(consumYTerra, terra.consum[1].ToString());
 
         variacio = terra.materials[2] - terraAnterior.materials[2];
         ShowInfo(recursosZTerra, TransformLong(terra.materials[2]));
         ColorOnValue(recursosCanviZTerra, signeRecursosCanviZTerra, variacio);
         ShowInfo(recursosCanviZTerra, TransformLong(variacio));
-        //ShowInfo(consumZTerra, terra.consum[2].ToString());
+        ShowInfo(consumZTerra, terra.consum[2].ToString());
 
         //ShowInfo(FaccioTerra, terra.faction.especie.ToString());
         //imatgeFaccioTerra = gameManager.factions[terra.idFaction].imatge;

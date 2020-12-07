@@ -6561,12 +6561,15 @@ MonoBehaviour:
   recursosXTerra: {fileID: 828480812172978636}
   recursosCanviXTerra: {fileID: 3862205714327866963}
   signeRecursosCanviXTerra: {fileID: 8573148884785928285}
+  consumXTerra: {fileID: 634628011}
   recursosYTerra: {fileID: 8573148884580746579}
   recursosCanviYTerra: {fileID: 8573148883931789982}
   signeRecursosCanviYTerra: {fileID: 8573148884071488983}
+  consumYTerra: {fileID: 8573148883677853001}
   recursosZTerra: {fileID: 8573148884239626340}
   recursosCanviZTerra: {fileID: 8573148883164065070}
   signeRecursosCanviZTerra: {fileID: 8573148883903915635}
+  consumZTerra: {fileID: 1971463763}
   Targeta1: {fileID: 3607298023563741313}
   Faccio1: {fileID: 3607298024353604326}
   dany1: {fileID: 3607298022977717294}
