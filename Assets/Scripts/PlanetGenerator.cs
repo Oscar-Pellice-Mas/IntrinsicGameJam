@@ -13,17 +13,18 @@ public class PlanetGenerator : MonoBehaviour
     public GameObject[] MoonPrefab;
     public Sprite[] Sprites;
     //Tamany i població
-    private float RadiMin = 3439, RadiMax = 5911;
+    private float RadiMin = 3439, RadiMax = 29111;
     //static float RadiTerra = 6371;
-    private float MinRatio = 0.4f, MaxRatio = 3f;
+    private float MinRatio = 0.4f, MaxRatio = 2f;
     private float PoblacioPerKmTerra = 14.7f;
     public long maxPopulation;
     //Edat espècie. Homo sapiens = 160000 anys.
     int EdatEspecieMin = 60000, EdatEspecieMax = 400000;
     // Terra creator values
-    private const long PoblacioInicial = 1000;
-    private const int MaterialsInicials = 10000000;
+    private const long PoblacioInicial = 10000;
+    private const int MaterialsInicials = 1000000;
 
+    private const float coeficient_reduccio = 0.1f;
     private void Awake()
     {
         maxPopulation = (long)((4 * Mathf.PI * RadiMax * RadiMax)* PoblacioPerKmTerra * MaxRatio);
@@ -112,18 +113,18 @@ public class PlanetGenerator : MonoBehaviour
         planet.radi = Random.Range(RadiMin, RadiMin * 2);
         float area = 4 * Mathf.PI * planet.radi * planet.radi;
         long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
-        planet.Poblacio = poblacioCalculada;
+        planet.Poblacio = (long)(poblacioCalculada*0.1);
 
         //MATERIALS I CONSUM
         //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
         //Surten numeros molt alts s'haura de normalitzar
-        planet.materials[0] = (int)(area * 0.2f);
+        planet.materials[0] = (int)((area * 0.2f)*coeficient_reduccio);
 
         //Material mig prove de les llunes (en el cas dels primitius no tenen llunes)
         //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
         float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
         planet.Llunes = 0;
-        planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
+        planet.materials[1] = (int)((planet.Llunes * area_lluna * 0.2f) * coeficient_reduccio);
 
         for (int i =0; i < planet.Llunes; i++)
         {
@@ -149,15 +150,15 @@ public class PlanetGenerator : MonoBehaviour
         planet.Poblacio = poblacioCalculada;
 
         //MATERIALS I CONSUM
-        //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
+        //Materila basic que tenen tots el planetes (10% del planeta esta fet d'aquest material)
         //Surten numeros molt alts s'haura de normalitzar
-        planet.materials[0] = (int)(area * 0.2f);
+        planet.materials[0] = (int)((area * 0.1f)*coeficient_reduccio);
 
         //Material mig prove de les llunes (en el cas dels basics tenen entre 1 i 3 llunes)
-        //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
+        //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 10% de material de l'area de la lluna
         float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
         planet.Llunes = Random.Range(1, 3);
-        planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
+        planet.materials[1] = (int)((planet.Llunes * area_lluna * 0.1f) * coeficient_reduccio);
         //Materials avançats (els materials primitius no tenen avançat)
 
         //Perillositat
@@ -176,13 +177,13 @@ public class PlanetGenerator : MonoBehaviour
         //MATERIALS I CONSUM
         //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
         //Surten numeros molt alts s'haura de normalitzar
-        planet.materials[0] = (int)(area * 0.2f);
+        planet.materials[0] = (int)((area * 0.1f) * coeficient_reduccio);
 
         //Material mig prove de les llunes (en el cas dels basics tenen entre 3 i 10 llunes)
         //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
         float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
         planet.Llunes = Random.Range(1, 10);
-        planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
+        planet.materials[1] = (int)((planet.Llunes * area_lluna * 0.1f) * coeficient_reduccio);
 
         //Perillositat
         planet.perillositat = Random.Range(0, 60);
@@ -198,19 +199,19 @@ public class PlanetGenerator : MonoBehaviour
         planet.Poblacio = poblacioCalculada;
 
         //MATERIALS I CONSUM
-        //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
+        //Materila basic que tenen tots el planetes (10% del planeta esta fet d'aquest material)
         //Surten numeros molt alts s'haura de normalitzar
-        planet.materials[0] = (int)(area * 0.2f);
+        planet.materials[0] = (int)((area * 0.1f) * coeficient_reduccio);
 
         //Material mig prove de les llunes (en el cas dels basics tenen entre 10 i 20 llunes)
         //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
         float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
         planet.Llunes = Random.Range(10, 20);
-        planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
+        planet.materials[1] = (int)((planet.Llunes * area_lluna * 0.1f) * coeficient_reduccio);
 
 
         //Materila Especial (2% de l'area del planeta)
-        planet.materials[2] = (int)(area * 0.02f);
+        planet.materials[2] = (int)((area * 0.02f)*coeficient_reduccio);
         //Perillositat
         planet.perillositat = Random.Range(0, 80);
         return planet;
@@ -221,21 +222,21 @@ public class PlanetGenerator : MonoBehaviour
         planet.radi = Random.Range(RadiMin*5, RadiMax);
         float area = 4 * Mathf.PI * planet.radi * planet.radi;
         long poblacioCalculada = (long)(area * PoblacioPerKmTerra * Random.Range(MinRatio, MaxRatio));
-        planet.Poblacio = poblacioCalculada;
+        planet.Poblacio = poblacioCalculada ;
 
         //MATERIALS I CONSUM
         //Materila basic que tenen tots el planetes (20% del planeta esta fet d'aquest material)
         //Surten numeros molt alts s'haura de normalitzar
-        planet.materials[0] = (int)(area * 0.2f);
+        planet.materials[0] = (int)((area * 0.1f) * coeficient_reduccio);
 
         //Material mig prove de les llunes (en el cas dels basics tenen entre 20 i 30 llunes)
         //Les llunes tenen un radi de 1/5 del planeta, i extreiem el 20% de material de l'area de la lluna
         float area_lluna = 4 * Mathf.PI * planet.radi / 5 * planet.radi / 5;
         planet.Llunes = Random.Range(20, 30);
-        planet.materials[1] = (int)(planet.Llunes * area_lluna * 0.2f);
+        planet.materials[1] = (int)((planet.Llunes * area_lluna * 0.1f) * coeficient_reduccio);
 
-        //Materila Especial (4% de l'area del planeta)
-        planet.materials[2] = (int)(area * 0.04f);
+        //Materila Especial (2% de l'area del planeta)
+        planet.materials[2] = (int)((area * 0.02f)*coeficient_reduccio);
 
         //Perillositat
         planet.perillositat = Random.Range(0, 100);
