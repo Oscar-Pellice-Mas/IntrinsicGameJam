@@ -24,7 +24,12 @@ public class PlayerController : MonoBehaviour
             {
                 StartCoroutine(gameManager.DestroyPlanet());
             }
+        } else
+        {
+            if (Input.GetButtonDown("A"))
+            {
+                gameManager.StartRound();
+            }
         }
-        
     }
 }

@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     public List<Faction> factions;
     
-    public int round = 1;
+    public int round = 0;
 
     public bool roundActive = false;
 
@@ -45,7 +45,8 @@ public class GameManager : MonoBehaviour
         
     void Start()
     {
-        
+        planetUI.SetActive(false);
+        homeUI.SetActive(false);
 
         planetGenerator = GetComponent<PlanetGenerator>();
         factions = planetGenerator.GenerateFactions();
@@ -71,8 +72,13 @@ public class GameManager : MonoBehaviour
         StartRound();
     }
 
-    private void StartRound()
+    public void StartRound()
     {
+        round++;
+
+        planetUI.SetActive(true);
+        homeUI.SetActive(false);
+
         roundCounter = 0;
         savedPlanets = new List<Planet>();
         viewInfo.SetDificulty(round);
@@ -175,19 +181,14 @@ public class GameManager : MonoBehaviour
     public void RoundDone()
     {
         roundActive = false;
+
+        poolControler.ActualitzaTerra();
+        viewInfoTerra.SetDataTerra(terra, terraAnterior);
+
+        planetUI.SetActive(false);
+        homeUI.SetActive(true);
+
         poolControler.AddPlanets(savedPlanets);
-        round++;
-
-        //Creem un script amb tota la informacio que necessitem de la terra al final i al començar la ronda
-        //generaInfoRonda();
-        viewInfoTerra.SetDataTerra(terra,terraAnterior);
-        //Mostrem la info
-
-        //Canviar la terra anterior per guardar els canvis
-        //terraAnterior = terra;
-        StartRound();
-
-
     }
 
     private void Update()
@@ -212,7 +213,8 @@ public class GameManager : MonoBehaviour
 
 
     }
-    public RoundInfo generaInfoRonda()
+
+    /*public RoundInfo generaInfoRonda()
     {
         
         //Agafar els valors de poblacio la terra nova i antiga
@@ -231,6 +233,6 @@ public class GameManager : MonoBehaviour
         roundInfo.danyRebut = terra.danyAtac;
 
         return roundInfo;
-    }
+    }*/
 
 }
