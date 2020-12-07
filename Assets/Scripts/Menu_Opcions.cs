@@ -32,11 +32,11 @@ public class Menu_Opcions : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("A"))
+        if (Input.GetButtonDown("B"))
         {
             StartCoroutine(Select());
         }
-        if (Input.GetButtonDown("B"))
+        if (Input.GetButtonDown("A"))
         {
             StartCoroutine(Move());
         }
@@ -101,10 +101,10 @@ public class Menu_Opcions : MonoBehaviour
                     killPlanetButton.SetBool("buttonDown", true);
                     if (options[0].transform.GetChild(2).GetComponent<Toggle>().isOn)
                     {
-                        killPlanetButton.SetBool("buttonDown", true);
-                        yield return new WaitForSeconds(0.2f);
-                        killPlanetButton.SetBool("buttonDown", false);
-                        isButtonPress = false;
+                        //killPlanetButton.SetBool("buttonDown", true);
+                        //yield return new WaitForSeconds(0.2f);
+                        //killPlanetButton.SetBool("buttonDown", false);
+                        //isButtonPress = false;
                         options[0].transform.GetChild(2).GetComponent<Toggle>().isOn = false;
                         audioMixer.SetFloat("buttons", -80);
                     }
