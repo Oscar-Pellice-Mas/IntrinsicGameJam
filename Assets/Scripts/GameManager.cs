@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject homeUI;
+    public GameObject planetUI;
+
     private PoolControler poolControler;
     public PlanetGenerator planetGenerator;
     public RoundInfo roundInfo;
