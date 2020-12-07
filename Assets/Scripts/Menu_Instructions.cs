@@ -22,11 +22,11 @@ public class Menu_Instructions : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("A"))
+        if (Input.GetButtonDown("B"))
         {
             StartCoroutine(Select());
         }
-        if (Input.GetButtonDown("B"))
+        if (Input.GetButtonDown("A"))
         {
             
         }
