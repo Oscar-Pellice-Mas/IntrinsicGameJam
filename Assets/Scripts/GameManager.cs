@@ -62,8 +62,6 @@ public class GameManager : MonoBehaviour
         poolControler = GetComponent<PoolControler>();
         poolControler.CreatePool(InitialPoolNumber);
 
-        poolControler.RefreshFactions();
-
         laser1.SetActive(false);
         laser2.SetActive(false);
 
@@ -107,8 +105,8 @@ public class GameManager : MonoBehaviour
             terraAnterior = terra.Copy();
             viewInfo.SetDificulty(round);
 
-            poolControler.RefreshFactions();
-            roundPlanets = poolControler.GetRoundPool(round + 2);
+            //poolControler.RefreshFactions();
+            roundPlanets = poolControler.GetRoundPool(round/3 + 3);
             numPlanets = roundPlanets.Count;
         
             viewInfo.SetData(roundPlanets[roundCounter]);
