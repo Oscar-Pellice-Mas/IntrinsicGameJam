@@ -171,6 +171,7 @@ public class PoolControler : MonoBehaviour
         for (int i = 0; i < terra.consum.Length; i++)
         {
             terra.materials[i] -= terra.consum[i];
+            if (terra.materials[i] < 0) terra.materials[i] = 0;
             materialsRestants += terra.materials[i] * (i + 1);
             materialsConsumits += terra.consum[i] * (i + 1);
         }
@@ -186,6 +187,7 @@ public class PoolControler : MonoBehaviour
         {
             long valorAugment = materialsRestants / (2 * materialsConsumits);
             terra.Poblacio -= (long)(terra.Poblacio * valorAugment * 0.01);
+            if (terra.Poblacio < 0) terra.Poblacio = 0;
         }
         // Depenent de la ronda, recalculem diferents consums
         switch (terra.indexTipus){
@@ -239,6 +241,7 @@ public class PoolControler : MonoBehaviour
         for (int i = 0; i < terra.danyAtac.Count; i++)
         {
             terra.Poblacio += terra.danyAtac[i];
+            if (terra.Poblacio < 0) terra.Poblacio = 0;
         }
         
 
