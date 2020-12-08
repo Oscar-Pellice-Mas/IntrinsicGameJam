@@ -64,6 +64,7 @@ public class ViewInfoPlanet : MonoBehaviour
 
     public void SetData(Planet planet, bool startRound = true)
     {
+        gameManager.decisionMade = true;
         StartCoroutine(enableDecision());
         Background.SetTrigger("changeBG");
         if (startRound)
