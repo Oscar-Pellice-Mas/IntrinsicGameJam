@@ -221,7 +221,7 @@ public class PoolControler : MonoBehaviour
                 if (probabilitat < attack) //Si supera el atac
                 {
                     //Calculem el dany que rebrem: densitat [0/100] * poblacio / 100; Resulta un valor entre 0 i el maxim de la teva poblacio 
-                    long dany = -((gameManager.factions[i].densitat+10) * terra.Poblacio) / 100 + 10000;
+                    long dany = -((gameManager.factions[i].densitat+10) * terra.Poblacio / 100 + 100000);
                     
                     //ens apuntem qui ens ha atacat
                     terra.danyAtac.Add(dany);

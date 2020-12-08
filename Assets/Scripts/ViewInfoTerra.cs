@@ -65,22 +65,50 @@ public class ViewInfoTerra : MonoBehaviour
         ShowInfo(poblacioTerra, string.Format("{0:n0}", terra.Poblacio));
         variacio = terra.Poblacio - terraAnterior.Poblacio;
         ColorOnValue(poblacioTerraVariacio, null, variacio);
-        ShowInfo(poblacioTerraVariacio, TransformLong(variacio));
+        if (terra.Poblacio <= 0)
+        {
+            ShowInfo(poblacioTerraVariacio, "0");
+        } else
+        {
+            ShowInfo(poblacioTerraVariacio, TransformLong(variacio));
+        }
 
-        ShowInfo(recursosXTerra, TransformLong(terra.materials[0]));
+
+        if (terra.materials[0] <= 0)
+        {
+            ShowInfo(recursosXTerra, "0");
+        }
+        else
+        {
+            ShowInfo(recursosXTerra, TransformLong(terra.materials[0]));
+        }
         variacio = terra.materials[0] - terraAnterior.materials[0];
         ColorOnValue(recursosCanviXTerra, signeRecursosCanviXTerra, variacio);
         ShowInfo(recursosCanviXTerra, TransformLong(variacio));
         ShowInfo(consumXTerra, string.Format("{0} / DAY", TransformLong(terra.consum[0])));
 
         variacio = terra.materials[1] - terraAnterior.materials[1];
-        ShowInfo(recursosYTerra, TransformLong(terra.materials[1])); 
+        if (terra.materials[1] <= 0)
+        {
+            ShowInfo(recursosYTerra, "0");
+        }
+        else
+        {
+            ShowInfo(recursosYTerra, TransformLong(terra.materials[1]));
+        }
         ColorOnValue(recursosCanviYTerra, signeRecursosCanviYTerra, variacio);
         ShowInfo(recursosCanviYTerra, TransformLong(variacio));
         ShowInfo(consumYTerra, string.Format("{0} / DAY", TransformLong(terra.consum[1])));
 
         variacio = terra.materials[2] - terraAnterior.materials[2];
-        ShowInfo(recursosZTerra, TransformLong(terra.materials[2]));
+        if (terra.materials[2] <= 0)
+        {
+            ShowInfo(recursosZTerra, "0");
+        }
+        else
+        {
+            ShowInfo(recursosZTerra, TransformLong(terra.materials[2]));
+        }
         ColorOnValue(recursosCanviZTerra, signeRecursosCanviZTerra, variacio);
         ShowInfo(recursosCanviZTerra, TransformLong(variacio));
         ShowInfo(consumZTerra, string.Format("{0} / DAY", TransformLong(terra.consum[2])));

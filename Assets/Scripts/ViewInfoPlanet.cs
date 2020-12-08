@@ -105,8 +105,14 @@ public class ViewInfoPlanet : MonoBehaviour
         string materialsString = "";
         for (int i = 0; i < gameManager.terra.materials.Length; i++)
         {
-            if (i != 0) materialsString += " / "; 
-            materialsString += TransformLong(gameManager.terra.materials[i]) ;
+            if (i != 0) materialsString += " / ";
+            if (gameManager.terra.materials[i] > 0)
+            {
+                materialsString += TransformLong(gameManager.terra.materials[i]);
+            } else
+            {
+                materialsString += "0";
+            }
         }
         ShowInfo(ourResources, materialsString); 
 
