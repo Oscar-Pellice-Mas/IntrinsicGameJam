@@ -55,7 +55,7 @@ public class gameOverController : MonoBehaviour
         yield return new WaitForSeconds(2);
         completed = false;
     }
-
+    bool returned = false;
     // Update is called once per frame
     void Update()
     {
@@ -63,10 +63,11 @@ public class gameOverController : MonoBehaviour
         terraGO.GetComponent<RectTransform>().Rotate(new Vector3(0, 0, 1), Time.deltaTime * 5f);
 
 
-        if (phaseTime > 15)
+        if (phaseTime > 15 && !returned)
         {
-
-            SceneManager.LoadScene("mainMenu");
+            returned = true;
+            StartCoroutine(BackToMenu());
+            
         }
 
         if (completed)
@@ -82,6 +83,15 @@ public class gameOverController : MonoBehaviour
         }
 
 
+    }
+
+    IEnumerator BackToMenu()
+    {
+        FindObjectOfType<CameraShakeManager>().ShowBlackScreen();
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("mainMenu");
+
+        yield return null;
     }
 
     void addLetter() { 
