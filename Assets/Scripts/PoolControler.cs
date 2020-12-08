@@ -64,7 +64,7 @@ public class PoolControler : MonoBehaviour
 
         foreach (Faction f in gameManager.factions)
         {
-            Debug.Log(f.especie + ": agressivitat" + f.agresivitat + " , actitut " + f.mitjaPerillositat);
+            //Debug.Log(f.especie + ": agressivitat" + f.agresivitat + " , actitut " + f.mitjaPerillositat);
         }
     }
 
@@ -171,6 +171,15 @@ public class PoolControler : MonoBehaviour
         for (int i = 0; i < terra.consum.Length; i++)
         {
             terra.materials[i] -= terra.consum[i];
+            if (terra.materials[i] <= 0)
+            {
+                long init = terra.Poblacio;
+                terra.Poblacio -= terra.materials[i] * (long)0.1;
+                terra.Poblacio -= 75000;
+                long final = terra.Poblacio;
+                Debug.Log("Poblacio restada x manca de recursos("+i+"): "+(init - final));
+                terra.materials[i] = 0;
+            }
             materialsRestants += terra.materials[i] * (i + 1);
             materialsConsumits += terra.consum[i] * (i + 1);
         }
@@ -184,30 +193,33 @@ public class PoolControler : MonoBehaviour
         }
         else
         {
+            /*
             long valorAugment = materialsRestants / (2 * materialsConsumits);
             terra.Poblacio -= (long)(terra.Poblacio * valorAugment * 0.01);
+            if (terra.Poblacio < 0) terra.Poblacio = 0;
+            */
         }
         // Depenent de la ronda, recalculem diferents consums
         switch (terra.indexTipus){
             case 1:
-                terra.consum[0] = terra.Poblacio * 50;
-                terra.consum[1] = terra.Poblacio * 30;
-                terra.consum[2] = terra.Poblacio * 10;
+                terra.consum[0] = terra.Poblacio * 5;
+                terra.consum[1] = terra.Poblacio * 2;
+                terra.consum[2] = terra.Poblacio * 1;
                 break;
             case 2:
-                terra.consum[0] = terra.Poblacio * 60;
-                terra.consum[1] = terra.Poblacio * 40;
-                terra.consum[2] = terra.Poblacio * 20;
+                terra.consum[0] = terra.Poblacio * 5;
+                terra.consum[1] = terra.Poblacio * 2;
+                terra.consum[2] = terra.Poblacio * 1;
                 break;
             case 3:
-                terra.consum[0] = terra.Poblacio * 70;
-                terra.consum[1] = terra.Poblacio * 50;
-                terra.consum[2] = terra.Poblacio * 30;
+                terra.consum[0] = terra.Poblacio * 10;
+                terra.consum[1] = terra.Poblacio * 4;
+                terra.consum[2] = terra.Poblacio * 2;
                 break;
             case 4:
-                terra.consum[0] = terra.Poblacio * 80;
-                terra.consum[1] = terra.Poblacio * 60;
-                terra.consum[2] = terra.Poblacio * 40;
+                terra.consum[0] = terra.Poblacio * 15;
+                terra.consum[1] = terra.Poblacio * 8;
+                terra.consum[2] = terra.Poblacio * 4;
                 break;
         }
 
@@ -239,6 +251,7 @@ public class PoolControler : MonoBehaviour
         for (int i = 0; i < terra.danyAtac.Count; i++)
         {
             terra.Poblacio += terra.danyAtac[i];
+            if (terra.Poblacio < 0) terra.Poblacio = 0;
         }
         
 
