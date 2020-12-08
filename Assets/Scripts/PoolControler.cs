@@ -178,6 +178,7 @@ public class PoolControler : MonoBehaviour
             terra.Poblacio += (long)(terra.Poblacio * valorAugment * 0.01);
         }
 
+
         // Depenent del tipus recalculem diferents consums (Falta canviar el tipus de la terra quan millora)
         if (terra.indexTipus >= 2)
         {
