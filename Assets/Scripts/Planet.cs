@@ -13,6 +13,7 @@ public class Planet : ScriptableObject
     public long Poblacio;
     public long[] materials = new long[3];
     public tipus tipusPlaneta;
+    public int indexTipus;
     public Faction faction;
     public int idFaction;
     public int Llunes;
