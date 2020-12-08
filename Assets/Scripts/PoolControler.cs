@@ -182,6 +182,11 @@ public class PoolControler : MonoBehaviour
             long valorAugment = materialsRestants / (2 * materialsConsumits);
             terra.Poblacio += (long)(terra.Poblacio * valorAugment * 0.01);
         }
+        else
+        {
+            long valorAugment = materialsRestants / (2 * materialsConsumits);
+            terra.Poblacio -= (long)(terra.Poblacio * valorAugment * 0.01);
+        }
         // Depenent de la ronda, recalculem diferents consums
         switch (terra.indexTipus){
             case 1:
