@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject homeUI;
     public GameObject planetUI;
+    public GameObject GameOverUI;
 
     private PoolControler poolControler;
     public PlanetGenerator planetGenerator;
@@ -42,6 +43,7 @@ public class GameManager : MonoBehaviour
     public bool decisionMade = false;
     private const int InitialPoolNumber = 100;
 
+    public bool GameOver = false;
 
     public SoundManager soundsManager;
         
@@ -68,29 +70,56 @@ public class GameManager : MonoBehaviour
         StartCoroutine(StartRound());
     }
 
+    IEnumerator showGameOverScreen()
+    {
+        cameraShake.ShowBlackScreen();
+        yield return new WaitForSeconds(1.5f);
+
+        homeUI.SetActive(false);
+        planetUI.SetActive(false);
+        GameOverUI.SetActive(true);
+
+        yield return new WaitForSeconds(0.1f);
+        cameraShake.HideBlackScreen();
+        Debug.Log("GAME OVER!");
+
+        yield return null;
+    }
+
     public IEnumerator StartRound()
     {
-        round++;
-        cameraShake.ShowBlackScreen();
-        yield return new WaitForSeconds(cameraShake.BlackscreenAnimationDuration);
-        planetUI.SetActive(true);
-        homeUI.SetActive(false);
+
+        if (GameOver)
+        {
+            StartCoroutine(showGameOverScreen());
+            yield return null;
+        }
+        else
+        {
+            round++;
+            cameraShake.ShowBlackScreen();
+            yield return new WaitForSeconds(cameraShake.BlackscreenAnimationDuration);
+            planetUI.SetActive(true);
+            homeUI.SetActive(false);
         
 
-        roundCounter = 0;
-        savedPlanets = new List<Planet>();
-        terraAnterior = terra.Copy();
-        viewInfo.SetDificulty(round);
+            roundCounter = 0;
+            savedPlanets = new List<Planet>();
+            terraAnterior = terra.Copy();
+            viewInfo.SetDificulty(round);
 
-        poolControler.RefreshFactions();
-        roundPlanets = poolControler.GetRoundPool(round + 2);
-        numPlanets = roundPlanets.Count;
+            poolControler.RefreshFactions();
+            roundPlanets = poolControler.GetRoundPool(round + 2);
+            numPlanets = roundPlanets.Count;
         
-        viewInfo.SetData(roundPlanets[roundCounter]);
-        roundActive = true;
-        viewInfo.RoundActive = true;
-        cameraShake.HideBlackScreen();
-        yield return new WaitForSeconds(cameraShake.BlackscreenAnimationDuration);
+            viewInfo.SetData(roundPlanets[roundCounter]);
+            roundActive = true;
+            viewInfo.RoundActive = true;
+            cameraShake.HideBlackScreen();
+            yield return new WaitForSeconds(cameraShake.BlackscreenAnimationDuration);
+    
+        }
+
     }
 
     public IEnumerator NextPlanet()

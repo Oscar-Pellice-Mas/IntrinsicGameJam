@@ -252,7 +252,11 @@ MonoBehaviour:
   texts:
   - {fileID: 1992214818371088923}
   - {fileID: 1992214816624815819}
+  rawTexts:
+  - YOU HAVE BEEN EXTERMINATED.
+  - GAME OVER
   timePerChar: 0.1
+  terraGO: {fileID: 1992214818255562562}
 --- !u!1 &1992214818255562562
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +284,7 @@ RectTransform:
   m_GameObject: {fileID: 1992214818255562562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8993, y: 1.8993, z: 1.8993}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 1992214816857266069}
   m_RootOrder: 1
@@ -317,8 +321,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1463348056602743817, guid: 2418a46304c8f4f408bd5e4e75c70554,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d4f10b344adccc478f0caf216c4493f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

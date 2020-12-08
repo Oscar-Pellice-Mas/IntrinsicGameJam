@@ -6,21 +6,25 @@ using UnityEngine;
 public class gameOverController : MonoBehaviour
 {
     public TextMeshProUGUI[] texts;
-    string[] rawTexts;
+    public string[] rawTexts;
     public float timePerChar = 0.1f;
     float currentTime = 0;
+    float phaseTime = 0;
     int currentText = 0;
     int currentLeterIndex = 0;
     bool completed = true;
+
+    public GameObject terraGO;
+
     // Start is called before the first frame update
     void Start()
     {
         StopAllCoroutines();
 
-        rawTexts = new string[texts.Length];
+        //rawTexts = new string[texts.Length];
         for (int i = 0; i < texts.Length; i++)
         {
-            rawTexts[i] = texts[i].text;
+            //rawTexts[i] = texts[i].text;
             texts[i].text = "";
         }
         currentTime = 0;
@@ -34,13 +38,15 @@ public class gameOverController : MonoBehaviour
         StopAllCoroutines();
         for (int i = 0; i < texts.Length; i++)
         {
-            rawTexts[i] = texts[i].text;
+            //rawTexts[i] = texts[i].text;
             texts[i].text = "";
         }
         currentTime = 0;
         currentText = 0;
         currentLeterIndex = 0;
         StartCoroutine(StartPrint());
+
+
     }
 
     IEnumerator StartPrint()
@@ -52,6 +58,8 @@ public class gameOverController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        phaseTime += Time.deltaTime;
+        terraGO.GetComponent<RectTransform>().Rotate(new Vector3(0, 0, 1), Time.deltaTime * 5f);
         if (completed)
         {
             return;
