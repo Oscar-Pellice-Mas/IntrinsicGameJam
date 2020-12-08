@@ -99,6 +99,8 @@ public class GameManager : MonoBehaviour
         saveLeverAnimator.SetBool("palancaDown", true);
         yield return new WaitForSeconds(0.5f);
         soundsManager.PlayButton();
+        
+        
         poolControler.OnPlanetInteraction(roundPlanets[roundCounter], false);
         savedPlanets.Add(roundPlanets[roundCounter]);
         yield return new WaitForSeconds(0.5f);

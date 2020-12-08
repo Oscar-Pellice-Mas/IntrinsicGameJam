@@ -107,12 +107,14 @@ public class Menu_Opcions : MonoBehaviour
                         //isButtonPress = false;
                         options[0].transform.GetChild(2).GetComponent<Toggle>().isOn = false;
                         audioMixer.SetFloat("buttons", -80);
+                        PlayerPrefs.SetInt("buttons", 0);
                     }
                     else
                     {
                         options[0].transform.GetChild(2).GetComponent<Toggle>().isOn = true;
-                        audioMixer.SetFloat("buttons", -10);
+                        audioMixer.SetFloat("buttons", -5);
                         soundManager.PlayButton();
+                        PlayerPrefs.SetInt("buttons", 1);
                     }
                     yield return new WaitForSeconds(0.2f);
                     killPlanetButton.SetBool("buttonDown", false);
@@ -128,7 +130,7 @@ public class Menu_Opcions : MonoBehaviour
                     else
                     {
                         options[1].transform.GetChild(2).GetComponent<Toggle>().isOn = true;
-                        audioMixer.SetFloat("music", -10);
+                        audioMixer.SetFloat("music", -5);
                     }
                     yield return new WaitForSeconds(0.2f);
                     killPlanetButton.SetBool("buttonDown", false);
