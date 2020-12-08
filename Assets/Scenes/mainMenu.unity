@@ -1070,7 +1070,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &280928709
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1746,7 +1746,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22, y: 48}
+  m_AnchoredPosition: {x: 22, y: 63}
   m_SizeDelta: {x: 152.5, y: 32.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &484828841
@@ -5497,7 +5497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1516089573
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6173,7 +6173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1889622214
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6192,7 +6192,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 49, y: -32}
+  m_AnchoredPosition: {x: 27, y: -32}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1924253447
@@ -6347,10 +6347,9 @@ MonoBehaviour:
   soundManager: {fileID: 1972538277}
   current_option: 0
   options:
-  - {fileID: 574170414}
-  - {fileID: 221697182}
-  - {fileID: 568461639}
-  - {fileID: 1486663278}
+  - {fileID: 544289733}
+  - {fileID: 1465927143}
+  - {fileID: 1403582666}
   m: {fileID: 1663693852}
   saveLeverAnimator: {fileID: 476821061}
   killPlanetButton: {fileID: 580801025}
@@ -6439,7 +6438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27.999998, y: -31}
+  m_AnchoredPosition: {x: -27.999998, y: -27}
   m_SizeDelta: {x: 142.7, y: 42.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2042513390
