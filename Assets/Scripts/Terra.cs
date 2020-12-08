@@ -14,8 +14,6 @@ public class Terra : ScriptableObject
     public long[] consum = new long[3];
     public int indexTipus;
     public tipus tipusPlaneta;
-    public Faction faction;
-    public int idFaction;
     public List<Faction> atacants;
     public List<long> danyAtac;
    
@@ -39,8 +37,6 @@ public class Terra : ScriptableObject
         terra.consum = consum;
         terra.indexTipus = indexTipus;
         terra.tipusPlaneta = tipusPlaneta;
-        terra.faction = faction;
-        terra.idFaction = idFaction;
         terra.atacants = atacants;
         terra.danyAtac = danyAtac;
 

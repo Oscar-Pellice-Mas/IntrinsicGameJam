@@ -94,7 +94,6 @@ public class PoolControler : MonoBehaviour
             //Agressivitat de la faccio augmenta
             for (int i = 0; i < gameManager.factions.Count; i++)
             {
-                if (planet.faction.especie == Faction.raca.humans) continue; // La agresivitat dels humans no canvia
                 if (planet.faction.especie == gameManager.factions[i].especie)
                 {
                     //Calculem la agresivitat que generem en una faccio al matar un dels seus planetes
@@ -109,7 +108,6 @@ public class PoolControler : MonoBehaviour
         {
             for (int i = 0; i < gameManager.factions.Count; i++)
             {
-                if (planet.faction.especie == Faction.raca.humans) continue;
                 if (planet.faction.especie == gameManager.factions[i].especie)
                 {
                     //Calculem la agresivitat que generem en una faccio al matar un dels seus planetes
@@ -141,15 +139,15 @@ public class PoolControler : MonoBehaviour
         for (int i = 0; i < gameManager.factions.Count; i++)
         {
             if (gameManager.factions[i].densitat == 0) continue; //Si no tenen ningu no ataquen
-            if (gameManager.factions[i].especie == Faction.raca.humans) continue; //La teva faccio no ataca
-
+            if (terra.atacants.Count == 4) break;
             probabilitat = Random.Range(0, 100); //Calculem l'atack
             //Mirem si son enemics
             if (gameManager.factions[i].agresivitat > 30) //Si no es agresiu no atacara
             {
                 // Calculem el rang del atac
                 // Atac = agresivitat [-100/100] * perillositat [0/100] / 100;  Queda sempre un valor entre 0 i 100
-                attack = gameManager.factions[i].agresivitat * gameManager.factions[i].mitjaPerillositat / 100; //Revisar valors
+                attack = gameManager.factions[i].agresivitat + gameManager.factions[i].mitjaPerillositat / 2; //Revisar valors
+                Debug.Log("attack:" + attack + " > " + probabilitat);
                 if (probabilitat < attack) //Si supera el atac
                 {
                     //Calculem el dany que rebrem: densitat [0/100] * poblacio / 100; Resulta un valor entre 0 i el maxim de la teva poblacio 
