@@ -4714,7 +4714,7 @@ MonoBehaviour:
   terra: {fileID: 0}
   terraAnterior: {fileID: 0}
   factions: []
-  round: 1
+  round: 0
   roundActive: 0
   decisionMade: 0
   soundsManager: {fileID: 96371876}
