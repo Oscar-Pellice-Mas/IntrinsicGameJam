@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class gameOverController : MonoBehaviour
 {
@@ -60,6 +61,14 @@ public class gameOverController : MonoBehaviour
     {
         phaseTime += Time.deltaTime;
         terraGO.GetComponent<RectTransform>().Rotate(new Vector3(0, 0, 1), Time.deltaTime * 5f);
+
+
+        if (phaseTime > 15)
+        {
+
+            SceneManager.LoadScene("mainMenu");
+        }
+
         if (completed)
         {
             return;
@@ -69,10 +78,10 @@ public class gameOverController : MonoBehaviour
         if (currentTime > timePerChar)
         {
             currentTime %= timePerChar;
-            addLetter();
-
-            
+            addLetter();  
         }
+
+
     }
 
     void addLetter() { 
