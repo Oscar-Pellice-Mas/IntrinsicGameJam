@@ -11,39 +11,51 @@ public class PlanetGenerator : MonoBehaviour
     private string[] Nom;
     private List<string> nomList = new List<string>();
     public GameObject[] PlanetPrefab;
+    private List<GameObject> planetPrefabList = new List<GameObject>();
     public GameObject[] MoonPrefab;
     public Sprite[] Sprites;
     //Tamany i població
-    private float RadiMin = 3439, RadiMax = 29111;
+    private float RadiMin = 3439, RadiMax = 20634;
     //static float RadiTerra = 6371;
     private float MinRatio = 0.4f, MaxRatio = 2f;
     private float PoblacioPerKmTerra = 14.7f;
     public long maxPopulation;
     //Edat espècie. Homo sapiens = 160000 anys.
     int EdatEspecieMin = 60000, EdatEspecieMax = 400000;
+
     // Terra creator values
     private const long PoblacioInicial = 10000;
     private const int MaterialsInicials = 1000000;
 
     private const float coeficient_reduccio = 0.1f;
+
     private void Awake()
     {
         maxPopulation = (long)((4 * Mathf.PI * RadiMax * RadiMax)* PoblacioPerKmTerra * MaxRatio);
+        Debug.LogWarning(maxPopulation);
         gameManager = FindObjectOfType<GameManager>();
         Nom = nameFile.text.Split('\n');
         nomList.AddRange(Nom);
+        planetPrefabList.AddRange(PlanetPrefab);
     }
 
     public Planet GeneratePlanet()
     {
         Planet planet = ScriptableObject.CreateInstance<Planet>();
-        planet.tipusPlaneta = (Planet.tipus)Random.Range(0, 4);
+        planet.indexTipus = Random.Range(0, 4);
+        planet.tipusPlaneta = (Planet.tipus)planet.indexTipus;
         planet.idFaction = Random.Range(0, gameManager.factions.Count);
         planet.faction = gameManager.factions[planet.idFaction];
-        planet.planetPrefab = PlanetPrefab[Random.Range(0, PlanetPrefab.Length)];
+
+        if (planetPrefabList.Count == 0) planetPrefabList.AddRange(PlanetPrefab);
+        int index = Random.Range(0, planetPrefabList.Count-1);
+        planet.planetPrefab = planetPrefabList[index];
+        planetPrefabList.RemoveAt(index);
+
         planet.EdatEspecie = Random.Range(EdatEspecieMin, EdatEspecieMax);
+
         if (nomList.Count == 0) nomList.AddRange(Nom);
-        int index = Random.Range(0, nomList.Count);
+        index = Random.Range(0, nomList.Count-1);
         planet.Nom = nomList[index];
         nomList.RemoveAt(index);
 

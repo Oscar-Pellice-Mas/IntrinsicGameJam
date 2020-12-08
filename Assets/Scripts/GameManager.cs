@@ -84,7 +84,6 @@ public class GameManager : MonoBehaviour
         viewInfo.SetDificulty(round);
 
         poolControler.RefreshFactions();
-        Debug.LogError("Define planets per round!");
         roundPlanets = poolControler.GetRoundPool(round + 2);
         numPlanets = roundPlanets.Count;
         
@@ -198,6 +197,7 @@ public class GameManager : MonoBehaviour
         viewInfo.RoundActive = false;
 
         poolControler.AddPlanets(savedPlanets);
+        poolControler.RefreshFactions();
 
         cameraShake.ShowBlackScreen();
         yield return new WaitForSeconds(cameraShake.BlackscreenAnimationDuration);
