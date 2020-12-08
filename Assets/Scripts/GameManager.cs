@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -62,8 +63,6 @@ public class GameManager : MonoBehaviour
         poolControler = GetComponent<PoolControler>();
         poolControler.CreatePool(InitialPoolNumber);
 
-        poolControler.RefreshFactions();
-
         laser1.SetActive(false);
         laser2.SetActive(false);
 
@@ -88,10 +87,19 @@ public class GameManager : MonoBehaviour
     public IEnumerator StartRound()
     {
 
-        if (GameOver)
-        {
-            StartCoroutine(showGameOverScreen());
-            yield return null;
+        if (GameOver) { 
+
+            if (!GameOverUI.activeSelf)
+            {
+                StartCoroutine(showGameOverScreen());
+                yield return null;
+            }
+            else
+            {
+                SceneManager.LoadScene("mainMenu");
+            }
+
+
         }
         else
         {
@@ -107,8 +115,8 @@ public class GameManager : MonoBehaviour
             terraAnterior = terra.Copy();
             viewInfo.SetDificulty(round);
 
-            poolControler.RefreshFactions();
-            roundPlanets = poolControler.GetRoundPool(round + 2);
+            //poolControler.RefreshFactions();
+            roundPlanets = poolControler.GetRoundPool(round/3 + 3);
             numPlanets = roundPlanets.Count;
         
             viewInfo.SetData(roundPlanets[roundCounter]);
