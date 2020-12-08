@@ -44,6 +44,7 @@ public class Menu_Instructions : MonoBehaviour
     public void activaFons()
     {
         options[3].transform.GetChild(1).gameObject.GetComponent<TMPro.TextMeshProUGUI>().color = new Color(23f / 255f, 110f / 255f, 50f / 255f);
+        options[3].gameObject.SetActive(true);
         options[3].transform.GetChild(0).gameObject.SetActive(false);
         options[4].gameObject.SetActive(false);
         options[4].transform.GetChild(0).gameObject.SetActive(false);
@@ -61,9 +62,10 @@ public class Menu_Instructions : MonoBehaviour
             isButtonPress = true;
             switch (current_page)
             {
+                // Cas 0 
                 case 0:
                     killPlanetButton.SetBool("buttonDown", true);
-                    //Activar pantalla 2 i desctivar pantalla 1
+
                     options[0].gameObject.SetActive(false);
                     options[1].gameObject.SetActive(true);
                     yield return new WaitForSeconds(0.2f);
@@ -88,8 +90,12 @@ public class Menu_Instructions : MonoBehaviour
                     yield return new WaitForSeconds(0.2f);
                     killPlanetButton.SetBool("buttonDown", false);
                     isButtonPress = false;
-                    m.show_start();
                     current_page = 0;
+                    options[2].gameObject.SetActive(false);
+                    options[3].gameObject.SetActive(true);
+                    options[4].gameObject.SetActive(false);
+                    m.show_start();
+                    options[0].gameObject.SetActive(true);
                     break;
                 default:
                     break;
