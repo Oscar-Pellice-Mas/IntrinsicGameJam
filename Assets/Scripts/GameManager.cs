@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject homeUI;
     public GameObject planetUI;
+    public GameObject GameOverUI;
 
     private PoolControler poolControler;
     public PlanetGenerator planetGenerator;
