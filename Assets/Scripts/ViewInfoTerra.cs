@@ -49,7 +49,7 @@ public class ViewInfoTerra : MonoBehaviour
     public TextMeshProUGUI dany4;
     public Image imatgeFaccio4;
 
-
+    public bool GameOver = false;
     void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -126,6 +126,20 @@ public class ViewInfoTerra : MonoBehaviour
             }
         }
 
+        if (terra.Poblacio <= 0)
+        {
+            gameManager.GameOver = true;
+
+
+        }
+    }
+
+    IEnumerator showGameOverScreen()
+    {
+
+        Debug.Log("GAME OVER!");
+
+        yield return null;
     }
 
     private void ColorOnValue(TextMeshProUGUI component, Image image, long value)
