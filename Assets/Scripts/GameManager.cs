@@ -133,33 +133,37 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator NextPlanet()
     {
-        saveLeverAnimator.SetBool("palancaDown", true);
-        yield return new WaitForSeconds(0.5f);
-        soundsManager.PlayButton();
-        
-        
-        poolControler.OnPlanetInteraction(roundPlanets[roundCounter], false);
-        savedPlanets.Add(roundPlanets[roundCounter]);
-        yield return new WaitForSeconds(0.5f);
-        saveLeverAnimator.SetBool("palancaDown", false);
-        yield return new WaitForSeconds(0.2f);
-        if (roundCounter+1 >= numPlanets)
+        if (!decisionMade)
         {
+            saveLeverAnimator.SetBool("palancaDown", true);
+            decisionMade = true;
+            yield return new WaitForSeconds(0.5f);
+            soundsManager.PlayButton();
 
-            //LightSpeedAnimation.SetTrigger("goLightSpeed");
-            //soundsManager.PlayTravel();
-            //yield return new WaitForSeconds(3f);
-            yield return new WaitForSeconds(1f);
-            StartCoroutine(RoundDone());
-            yield return null;
-        }
-        else
-        {
-            LightSpeedAnimation.SetTrigger("goLightSpeed");
-            soundsManager.PlayTravel();
-            yield return new WaitForSeconds(3f);
-            roundCounter++;
-            viewInfo.SetData(roundPlanets[roundCounter]);
+
+            poolControler.OnPlanetInteraction(roundPlanets[roundCounter], false);
+            savedPlanets.Add(roundPlanets[roundCounter]);
+            yield return new WaitForSeconds(0.5f);
+            saveLeverAnimator.SetBool("palancaDown", false);
+            yield return new WaitForSeconds(0.2f);
+            if (roundCounter + 1 >= numPlanets)
+            {
+
+                //LightSpeedAnimation.SetTrigger("goLightSpeed");
+                //soundsManager.PlayTravel();
+                //yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(1f);
+                StartCoroutine(RoundDone());
+                yield return null;
+            }
+            else
+            {
+                LightSpeedAnimation.SetTrigger("goLightSpeed");
+                soundsManager.PlayTravel();
+                yield return new WaitForSeconds(3f);
+                roundCounter++;
+                viewInfo.SetData(roundPlanets[roundCounter]);
+            }
         }
     }
 
@@ -232,7 +236,7 @@ public class GameManager : MonoBehaviour
     {
         roundActive = false;
         viewInfo.RoundActive = false;
-
+        decisionMade = true;
         poolControler.AddPlanets(savedPlanets);
         poolControler.RefreshFactions();
 
@@ -247,6 +251,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(cameraShake.BlackscreenAnimationDuration);
         cameraShake.HideBlackScreen();
+        decisionMade = false;
     }
 
     private void Update()
