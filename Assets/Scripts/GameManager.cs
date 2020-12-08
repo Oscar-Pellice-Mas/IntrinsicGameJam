@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -86,10 +87,19 @@ public class GameManager : MonoBehaviour
     public IEnumerator StartRound()
     {
 
-        if (GameOver)
-        {
-            StartCoroutine(showGameOverScreen());
-            yield return null;
+        if (GameOver) { 
+
+            if (!GameOverUI.activeSelf)
+            {
+                StartCoroutine(showGameOverScreen());
+                yield return null;
+            }
+            else
+            {
+                SceneManager.LoadScene("mainMenu");
+            }
+
+
         }
         else
         {
