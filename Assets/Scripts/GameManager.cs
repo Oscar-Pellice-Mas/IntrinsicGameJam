@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
 
         poolControler.RefreshFactions();
         Debug.LogError("Define planets per round!");
-        roundPlanets = poolControler.GetRoundPool(1);
+        roundPlanets = poolControler.GetRoundPool(round + 2);
         numPlanets = roundPlanets.Count;
         
         viewInfo.SetData(roundPlanets[roundCounter]);
