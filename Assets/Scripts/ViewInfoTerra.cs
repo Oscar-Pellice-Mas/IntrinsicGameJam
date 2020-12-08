@@ -146,7 +146,7 @@ public class ViewInfoTerra : MonoBehaviour
             if (image != null)
             {
                 image.color = Color.red;
-                image.transform.localScale.Set(1,-1,1);
+                image.transform.localScale = new Vector3(1, -1, 1);
             }
         } else
         {

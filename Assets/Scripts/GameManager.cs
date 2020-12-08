@@ -187,13 +187,13 @@ public class GameManager : MonoBehaviour
         roundActive = false;
         viewInfo.RoundActive = false;
 
+        poolControler.AddPlanets(savedPlanets);
+
         poolControler.ActualitzaTerra();
         viewInfoTerra.SetDataTerra(terra, terraAnterior);
 
         planetUI.SetActive(false);
         homeUI.SetActive(true);
-
-        poolControler.AddPlanets(savedPlanets);
     }
 
     private void Update()

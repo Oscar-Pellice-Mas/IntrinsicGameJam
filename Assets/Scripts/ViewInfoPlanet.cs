@@ -137,7 +137,7 @@ public class ViewInfoPlanet : MonoBehaviour
         }
         else if (agresivitat < 25)
         {
-            return "Neural";
+            return "Neutral";
         }
         else if (agresivitat < 60)
         {

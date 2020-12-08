@@ -44,7 +44,7 @@ public class PlanetGenerator : MonoBehaviour
         planet.EdatEspecie = Random.Range(EdatEspecieMin, EdatEspecieMax);
         if (nomList.Count == 0) nomList.AddRange(Nom);
         int index = Random.Range(0, nomList.Count);
-        planet.Nom = Nom[index];
+        planet.Nom = nomList[index];
         nomList.RemoveAt(index);
 
         switch (planet.tipusPlaneta)
