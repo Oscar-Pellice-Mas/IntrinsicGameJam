@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("A"))
             {
-                gameManager.StartRound();
+                StartCoroutine(gameManager.StartRound());
             }
         }
     }

@@ -65,15 +65,17 @@ public class GameManager : MonoBehaviour
         laser1.SetActive(false);
         laser2.SetActive(false);
 
-        StartRound();
+        StartCoroutine(StartRound());
     }
 
-    public void StartRound()
+    public IEnumerator StartRound()
     {
         round++;
-
+        cameraShake.ShowBlackScreen();
+        yield return new WaitForSeconds(cameraShake.BlackscreenAnimationDuration);
         planetUI.SetActive(true);
         homeUI.SetActive(false);
+        
 
         roundCounter = 0;
         savedPlanets = new List<Planet>();
@@ -81,12 +83,15 @@ public class GameManager : MonoBehaviour
         viewInfo.SetDificulty(round);
 
         poolControler.RefreshFactions();
-        roundPlanets = poolControler.GetRoundPool(5);
+        Debug.LogError("Define planets per round!");
+        roundPlanets = poolControler.GetRoundPool(1);
         numPlanets = roundPlanets.Count;
         
         viewInfo.SetData(roundPlanets[roundCounter]);
         roundActive = true;
         viewInfo.RoundActive = true;
+        cameraShake.HideBlackScreen();
+        yield return new WaitForSeconds(cameraShake.BlackscreenAnimationDuration);
     }
 
     public IEnumerator NextPlanet()
@@ -101,10 +106,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         if (roundCounter+1 >= numPlanets)
         {
-            LightSpeedAnimation.SetTrigger("goLightSpeed");
-            soundsManager.PlayTravel();
-            yield return new WaitForSeconds(3f);
-            RoundDone();
+
+            //LightSpeedAnimation.SetTrigger("goLightSpeed");
+            //soundsManager.PlayTravel();
+            //yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(1f);
+            StartCoroutine(RoundDone());
             yield return null;
         }
         else
@@ -166,7 +173,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         //Destroy planet
         if (roundCounter+1 >= numPlanets) {
-            RoundDone();
+            StartCoroutine(RoundDone());
             yield return null;
         } else
         {
@@ -182,18 +189,23 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void RoundDone()
+    public IEnumerator RoundDone()
     {
         roundActive = false;
         viewInfo.RoundActive = false;
+
+        cameraShake.ShowBlackScreen();
+        yield return new WaitForSeconds(cameraShake.BlackscreenAnimationDuration);
 
         poolControler.ActualitzaTerra();
         viewInfoTerra.SetDataTerra(terra, terraAnterior);
 
         planetUI.SetActive(false);
         homeUI.SetActive(true);
-
         poolControler.AddPlanets(savedPlanets);
+        yield return new WaitForSeconds(cameraShake.BlackscreenAnimationDuration);
+        cameraShake.HideBlackScreen();
+        
     }
 
     private void Update()

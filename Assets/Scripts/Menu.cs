@@ -22,8 +22,6 @@ public class Menu : MonoBehaviour
     public GameObject palanca;
     public GameObject boto;
 
-    public Image BlackScreenCanvas;
-    public float BlackScreenProgress = 0;
 
     public Animator saveLeverAnimator;
     public Animator killPlanetButton;
@@ -36,7 +34,6 @@ public class Menu : MonoBehaviour
     bool menuActive = false;
 
     
-
     void Start()
     {
         initGame();
@@ -67,15 +64,6 @@ public class Menu : MonoBehaviour
 
     }
     
-    public void ShowBlackScreen()
-    {
-        BlackScreenCanvas.color = new Color(0, 0, 0, 1);
-    }
-
-    public void HideBlackScreen()
-    {
-        BlackScreenCanvas.color = new Color(0, 0, 0, 0);
-    }
 
     public void initGame()
     {
