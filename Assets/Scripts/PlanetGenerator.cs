@@ -32,7 +32,6 @@ public class PlanetGenerator : MonoBehaviour
     private void Awake()
     {
         maxPopulation = (long)((4 * Mathf.PI * RadiMax * RadiMax)* PoblacioPerKmTerra * MaxRatio);
-        Debug.LogWarning(maxPopulation);
         gameManager = FindObjectOfType<GameManager>();
         Nom = nameFile.text.Split('\n');
         nomList.AddRange(Nom);
@@ -266,18 +265,18 @@ public class PlanetGenerator : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             Faction f = ScriptableObject.CreateInstance<Faction>();
-            if (i == 1)
+            /*if (i == 1)
             {
                 f.agresivitat = Random.Range(-50, -25);
             }
             else if (i == 2)
-            {
+            {*/
                 f.agresivitat = Random.Range(25, 50);
-            }
+            /*}
             else
             {
                 f.agresivitat = Random.Range(-25, 25);
-            }
+            }*/
             
             f.densitat = 0; //Setejar un cop es creein planetes nous
             f.especie = (Faction.raca)i;
@@ -313,10 +312,6 @@ public class PlanetGenerator : MonoBehaviour
         //Tipus
         terra.tipusPlaneta = Terra.tipus.modern;
         terra.indexTipus = 2;
-
-        //Faction
-        terra.idFaction = Random.Range(0, gameManager.factions.Count);
-        terra.faction = gameManager.factions[terra.idFaction];
 
         //Regim
         terra.Regim = (Terra.regim)Random.Range(0, 2);
