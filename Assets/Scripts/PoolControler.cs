@@ -61,6 +61,11 @@ public class PoolControler : MonoBehaviour
                 p.perillositat -= 1;
             }
         }
+
+        foreach (Faction f in gameManager.factions)
+        {
+            Debug.Log(f.especie + ": agressivitat" + f.agresivitat + " , actitut " + f.mitjaPerillositat);
+        }
     }
 
     public List<Planet> GetRoundPool(int num)
@@ -99,7 +104,7 @@ public class PoolControler : MonoBehaviour
             {
                 if (p.faction == planet.faction)
                 {
-                    p.perillositat += 1;
+                    p.perillositat += 5;
                 }
             }
 
@@ -127,7 +132,7 @@ public class PoolControler : MonoBehaviour
             {
                 if (p.faction == planet.faction)
                 {
-                    p.perillositat += -1;
+                    p.perillositat += -5;
                 }
             }
             for (int i = 0; i < gameManager.factions.Count; i++)
@@ -207,7 +212,7 @@ public class PoolControler : MonoBehaviour
                 if (probabilitat < attack) //Si supera el atac
                 {
                     //Calculem el dany que rebrem: densitat [0/100] * poblacio / 100; Resulta un valor entre 0 i el maxim de la teva poblacio 
-                    long dany = -((gameManager.factions[i].densitat+25) * terra.Poblacio) / 100;
+                    long dany = -((gameManager.factions[i].densitat+10) * terra.Poblacio) / 100 + 10000;
                     
                     //ens apuntem qui ens ha atacat
                     terra.danyAtac.Add(dany);
