@@ -64,7 +64,7 @@ public class PoolControler : MonoBehaviour
 
         foreach (Faction f in gameManager.factions)
         {
-            Debug.Log(f.especie + ": agressivitat" + f.agresivitat + " , actitut " + f.mitjaPerillositat);
+            //Debug.Log(f.especie + ": agressivitat" + f.agresivitat + " , actitut " + f.mitjaPerillositat);
         }
     }
 
@@ -171,7 +171,15 @@ public class PoolControler : MonoBehaviour
         for (int i = 0; i < terra.consum.Length; i++)
         {
             terra.materials[i] -= terra.consum[i];
-            if (terra.materials[i] < 0) terra.materials[i] = 0;
+            if (terra.materials[i] <= 0)
+            {
+                long init = terra.Poblacio;
+                terra.Poblacio -= terra.materials[i] * (long)0.1;
+                terra.Poblacio -= 75000;
+                long final = terra.Poblacio;
+                Debug.Log("Poblacio restada x manca de recursos("+i+"): "+(init - final));
+                terra.materials[i] = 0;
+            }
             materialsRestants += terra.materials[i] * (i + 1);
             materialsConsumits += terra.consum[i] * (i + 1);
         }
@@ -185,9 +193,11 @@ public class PoolControler : MonoBehaviour
         }
         else
         {
+            /*
             long valorAugment = materialsRestants / (2 * materialsConsumits);
             terra.Poblacio -= (long)(terra.Poblacio * valorAugment * 0.01);
             if (terra.Poblacio < 0) terra.Poblacio = 0;
+            */
         }
         // Depenent de la ronda, recalculem diferents consums
         switch (terra.indexTipus){
