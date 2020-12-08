@@ -87,7 +87,6 @@ public class Menu : MonoBehaviour
             if (i == selected_Option)
             {
                 textos[i].GetComponent<RectTransform>().position += Vector3.down * 7;
-                //textos[i].GetComponent<TMPro.TextMeshProUGUI>().color = new Color(23f / 255f, 110f / 255f, 50f / 255f);
                 textos[i].GetComponent<TMPro.TextMeshProUGUI>().color = selectedColor;
             }
             else
@@ -106,7 +105,6 @@ public class Menu : MonoBehaviour
 
     public void show_credits()
     {
-        Debug.Log("Show Credits");
         menuActive = false;
         isLeverPress = false;
         isButtonPress = false;
@@ -126,7 +124,6 @@ public class Menu : MonoBehaviour
 
     public void show_howtoplay()
     {
-        Debug.Log("Show How To Play");
         menuActive = false;
         isLeverPress = false;
         isButtonPress = false;
@@ -139,7 +136,6 @@ public class Menu : MonoBehaviour
 
     public void show_options()
     {
-        Debug.Log("Show Options");
         menuActive = false;
         isLeverPress = false;
         isButtonPress = false;
@@ -180,12 +176,8 @@ public class Menu : MonoBehaviour
             {
                 if (i == selected_Option)
                 {
-                    //Debug.Log("aaaa");
                     textos[i].GetComponent<RectTransform>().position += Vector3.down * 7;
-                    //textos[i].GetComponent<TMPro.TextMeshProUGUI>().color = new Color(23f / 255f, 110f / 255f, 50f / 255f);
                     textos[i].GetComponent<TMPro.TextMeshProUGUI>().color = selectedColor;
-                    //Debug.Log("ei");
-
                 }
                 else
                 {

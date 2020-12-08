@@ -144,7 +144,6 @@ public class PoolControler : MonoBehaviour
                 // Calculem el rang del atac
                 // Atac = agresivitat [-100/100] * perillositat [0/100] / 100;  Queda sempre un valor entre 0 i 100
                 attack = gameManager.factions[i].agresivitat + gameManager.factions[i].mitjaPerillositat / 2; //Revisar valors
-                Debug.Log("attack:" + attack + " > " + probabilitat);
                 if (probabilitat < attack) //Si supera el atac
                 {
                     //Calculem el dany que rebrem: densitat [0/100] * poblacio / 100; Resulta un valor entre 0 i el maxim de la teva poblacio 

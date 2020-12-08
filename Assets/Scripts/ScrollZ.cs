@@ -13,7 +13,6 @@ public class ScrollZ : MonoBehaviour
 
     private void OnEnable()
     {
-		Debug.Log("enabling...");
 		transform.localPosition = new Vector3(0, -370, 69);
 		currentTime = 0;
 	}

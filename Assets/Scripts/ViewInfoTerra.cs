@@ -137,7 +137,7 @@ public class ViewInfoTerra : MonoBehaviour
     IEnumerator showGameOverScreen()
     {
 
-        Debug.Log("GAME OVER!");
+        //Debug.Log("GAME OVER!");
 
         yield return null;
     }

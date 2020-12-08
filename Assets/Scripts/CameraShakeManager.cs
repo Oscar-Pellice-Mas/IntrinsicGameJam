@@ -35,7 +35,6 @@ public class CameraShakeManager : MonoBehaviour
 
     //blackscreen
     public Image BlackScreenCanvas;
-    float BlackScreenProgress = 0;
     bool ShouldBeBlack = false;
     float currentBlackScreenProgress = 0;
     public float BlackscreenAnimationDuration = 1;

@@ -81,7 +81,6 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f);
         cameraShake.HideBlackScreen();
-        Debug.Log("GAME OVER!");
 
         yield return null;
     }
