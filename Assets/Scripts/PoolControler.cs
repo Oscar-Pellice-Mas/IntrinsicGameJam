@@ -45,12 +45,10 @@ public class PoolControler : MonoBehaviour
             }
         }
 
-        Debug.Log("Planetes:" + planetPool.Count);
         for (int i = 0; i < gameManager.factions.Count; i++)
         {
             gameManager.factions[i].densitat = count[i] * 100 / planetPool.Count;
             gameManager.factions[i].mitjaPerillositat = gameManager.factions[i].mitjaPerillositat / count[i];
-            Debug.Log("Facció " + i + ": Perill: " + gameManager.factions[i].mitjaPerillositat + " - Attitude: " + gameManager.factions[i].agresivitat);
         }
     }
 
@@ -99,7 +97,6 @@ public class PoolControler : MonoBehaviour
                     //Calculem la agresivitat que generem en una faccio al matar un dels seus planetes
                     // agresivitat = (poblacio / (poblacioMax/5) ) 
                     gameManager.factions[i].agresivitat += (int)(planet.Poblacio / (planetGenerator.maxPopulation / 100) + 1) * (planet.indexTipus+1);
-                    Debug.LogWarning("Atacat: " + (int)(planet.Poblacio / (planetGenerator.maxPopulation / 100)+1));
                     break;
                 }
             }

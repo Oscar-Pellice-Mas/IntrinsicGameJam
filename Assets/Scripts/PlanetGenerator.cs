@@ -32,7 +32,6 @@ public class PlanetGenerator : MonoBehaviour
     private void Awake()
     {
         maxPopulation = (long)((4 * Mathf.PI * RadiMax * RadiMax)* PoblacioPerKmTerra * MaxRatio);
-        Debug.LogWarning(maxPopulation);
         gameManager = FindObjectOfType<GameManager>();
         Nom = nameFile.text.Split('\n');
         nomList.AddRange(Nom);
