@@ -99,7 +99,8 @@ public class PoolControler : MonoBehaviour
                 {
                     //Calculem la agresivitat que generem en una faccio al matar un dels seus planetes
                     // agresivitat = (poblacio / (poblacioMax/5) ) 
-                    gameManager.factions[i].agresivitat += (int)(planet.Poblacio / (planetGenerator.maxPopulation / 10)) * planet.indexTipus;
+                    gameManager.factions[i].agresivitat += (int)(planet.Poblacio / (planetGenerator.maxPopulation / 100) + 1) * (planet.indexTipus+1);
+                    Debug.LogWarning("Atacat: " + (int)(planet.Poblacio / (planetGenerator.maxPopulation / 100)+1));
                     break;
                 }
             }
