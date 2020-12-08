@@ -177,20 +177,28 @@ public class PoolControler : MonoBehaviour
             long valorAugment = materialsRestants / (2 * materialsConsumits);
             terra.Poblacio += (long)(terra.Poblacio * valorAugment * 0.01);
         }
-
-
-        // Depenent del tipus recalculem diferents consums (Falta canviar el tipus de la terra quan millora)
-        if (terra.indexTipus >= 2)
-        {
-            terra.consum[0] = terra.Poblacio * 50;
-            terra.consum[1] = terra.Poblacio * 30;
-            terra.consum[2] = terra.Poblacio * 10;
-        }
-        if (terra.indexTipus >= 4)
-        {
-            terra.consum[0] = terra.Poblacio * 10;
-            terra.consum[1] = terra.Poblacio * 30;
-            terra.consum[2] = terra.Poblacio * 50;
+        // Depenent de la ronda, recalculem diferents consums
+        switch (terra.indexTipus){
+            case 1:
+                terra.consum[0] = terra.Poblacio * 50;
+                terra.consum[1] = terra.Poblacio * 30;
+                terra.consum[2] = terra.Poblacio * 10;
+                break;
+            case 2:
+                terra.consum[0] = terra.Poblacio * 60;
+                terra.consum[1] = terra.Poblacio * 40;
+                terra.consum[2] = terra.Poblacio * 20;
+                break;
+            case 3:
+                terra.consum[0] = terra.Poblacio * 70;
+                terra.consum[1] = terra.Poblacio * 50;
+                terra.consum[2] = terra.Poblacio * 30;
+                break;
+            case 4:
+                terra.consum[0] = terra.Poblacio * 80;
+                terra.consum[1] = terra.Poblacio * 60;
+                terra.consum[2] = terra.Poblacio * 40;
+                break;
         }
 
         //Primer mirerm les faccions
