@@ -132,6 +132,36 @@ public class PoolControler : MonoBehaviour
         terra.atacants = new List<Faction>();
         terra.danyAtac = new List<long>();
 
+        // Restem els conusums als recursos que tenim
+        for (int i = 0; i < terra.consum.Length; i++)
+        {
+            terra.materials[i] -= terra.consum[i];
+            materialsRestants += terra.materials[i] * (i + 1);
+            materialsConsumits += terra.consum[i] * (i + 1);
+        }
+
+        // Si hi ha materials suficients per fer creixer el planeta
+        if (materialsRestants > 2 * materialsConsumits)
+        {
+            // Augmentem la poblacio
+            long valorAugment = materialsRestants / (2 * materialsConsumits);
+            terra.Poblacio += (long)(terra.Poblacio * valorAugment * 0.01);
+        }
+
+        // Depenent del tipus recalculem diferents consums (Falta canviar el tipus de la terra quan millora)
+        if (terra.indexTipus >= 2)
+        {
+            terra.consum[0] = terra.Poblacio * 50;
+            terra.consum[1] = terra.Poblacio * 30;
+            terra.consum[2] = terra.Poblacio * 10;
+        }
+        if (terra.indexTipus >= 4)
+        {
+            terra.consum[0] = terra.Poblacio * 10;
+            terra.consum[1] = (long)(terra.Poblacio * 30);
+            terra.consum[2] = terra.Poblacio * 50;
+        }
+
         //Primer mirerm les faccions
         for (int i = 0; i < gameManager.factions.Count; i++)
         {
@@ -155,36 +185,6 @@ public class PoolControler : MonoBehaviour
                     terra.atacants.Add(gameManager.factions[i]);
                 }
             }
-        }
-
-        // Restem els conusums als recursos que tenim
-        for (int i = 0; i < terra.consum.Length; i++)
-        {
-            terra.materials[i] -= terra.consum[i];
-            materialsRestants += terra.materials[i] * (i + 1);
-            materialsConsumits += terra.consum[i] * (i + 1);
-        }
-
-        // Si hi ha materials suficients per fer creixer el planeta
-        if (materialsRestants > 2 * materialsConsumits)
-        {
-            // Augmentem la poblacio
-            long valorAugment = materialsRestants / (2 * materialsConsumits);
-            terra.Poblacio += (long)(terra.Poblacio*valorAugment*0.01);
-        }
-        
-        // Depenent del tipus recalculem diferents consums (Falta canviar el tipus de la terra quan millora)
-        if (terra.indexTipus >= 2)
-        {
-            terra.consum[0] = terra.Poblacio*50;
-            terra.consum[1] = terra.Poblacio * 30;
-            terra.consum[2] = terra.Poblacio * 10;
-        }
-        if (terra.indexTipus >= 4)
-        {
-            terra.consum[0] = terra.Poblacio * 10;
-            terra.consum[1] = (long)(terra.Poblacio * 30);
-            terra.consum[2] = terra.Poblacio * 50;
         }
 
         gameManager.terra = terra;

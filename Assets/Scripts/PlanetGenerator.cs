@@ -265,19 +265,7 @@ public class PlanetGenerator : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             Faction f = ScriptableObject.CreateInstance<Faction>();
-            /*if (i == 1)
-            {
-                f.agresivitat = Random.Range(-50, -25);
-            }
-            else if (i == 2)
-            {*/
-                f.agresivitat = Random.Range(25, 50);
-            /*}
-            else
-            {
-                f.agresivitat = Random.Range(-25, 25);
-            }*/
-            
+            f.agresivitat = Random.Range(-25, 25);
             f.densitat = 0; //Setejar un cop es creein planetes nous
             f.especie = (Faction.raca)i;
             f.imatge = Sprites[i];
