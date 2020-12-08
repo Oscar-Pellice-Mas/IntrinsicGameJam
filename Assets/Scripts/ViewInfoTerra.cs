@@ -146,7 +146,8 @@ public class ViewInfoTerra : MonoBehaviour
             if (image != null)
             {
                 image.color = Color.red;
-                image.transform.localScale = new Vector3(1, -1, 1);
+                //image.transform.localScale = new Vector3(1, -1, 1);
+                image.transform.rotation = Quaternion.Euler(0, 0, -180);
             }
         } else
         {
@@ -154,7 +155,8 @@ public class ViewInfoTerra : MonoBehaviour
             if (image != null)
             {
                 image.color = Color.green;
-                image.transform.localScale.Set(1, 1, 1);
+                image.transform.rotation = Quaternion.Euler(0, 0, 0);
+                //image.transform.localScale.Set(1, 1, 1);
             }
         }
     }
