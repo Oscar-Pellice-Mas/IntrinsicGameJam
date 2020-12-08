@@ -266,11 +266,7 @@ public class ViewInfoPlanet : MonoBehaviour
     {
         if (RoundActive)
         {
-            boleta.transform.position = Vector3.Lerp(boletaPlaceholderStart.transform.position, boletaPlaceholderEnd.transform.position, currentTime / TimePerRound);
-            boleta.color = new Color(boleta.color.r, boleta.color.g, boleta.color.b, currentTime % 1);
 
-            PlanetGO.transform.position = Vector3.Lerp(PlanetPlaceholderA.transform.position, PlanetPlaceholderB.transform.position, currentTime / TimePerRound);
-            currentTime += Time.deltaTime;
             if (currentTime > TimePerRound)
             {
                 if (gameManager != null)
@@ -278,16 +274,24 @@ public class ViewInfoPlanet : MonoBehaviour
                 else
                     Debug.LogError("Game manager is null.");
             }
-            float orbit = 200f;
-            for (int i = 0; i < moons.Length; i++)
-            {
-                float angle = 360f * ((float)i / (float)moons.Length);
-                angle += currentTime *  Mathf.Lerp( 0.3f, 0.05f, ((float)i / (float)moons.Length));
-                angle += moonPhase[i];//semi-randomnessssss
-                moons[i].transform.position = PlanetGO.transform.position + new Vector3(orbit * Mathf.Sin(angle ), orbit * Mathf.Cos(angle), 0);
-                orbit += 55f;
-            }
+
         }
-        
+        currentTime += Time.deltaTime;
+
+        boleta.transform.position = Vector3.Lerp(boletaPlaceholderStart.transform.position, boletaPlaceholderEnd.transform.position, currentTime / TimePerRound);
+        boleta.color = new Color(boleta.color.r, boleta.color.g, boleta.color.b, currentTime % 1);
+
+        PlanetGO.transform.position = Vector3.Lerp(PlanetPlaceholderA.transform.position, PlanetPlaceholderB.transform.position, currentTime / TimePerRound);
+
+
+        float orbit = 200f;
+        for (int i = 0; i < moons.Length; i++)
+        {
+            float angle = 360f * ((float)i / (float)moons.Length);
+            angle += currentTime * Mathf.Lerp(0.3f, 0.05f, ((float)i / (float)moons.Length));
+            angle += moonPhase[i];//semi-randomnessssss
+            moons[i].transform.position = PlanetGO.transform.position + new Vector3(orbit * Mathf.Sin(angle), orbit * Mathf.Cos(angle), 0);
+            orbit += 55f;
+        }
     }
 }
