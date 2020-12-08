@@ -49,6 +49,10 @@ public class ViewInfoTerra : MonoBehaviour
     public TextMeshProUGUI dany4;
     public Image imatgeFaccio4;
 
+    public GameObject infoNoAtacs;
+
+    public Image fletxaVariacioPoblacio;
+
     public bool GameOver = false;
     void Awake()
     {
@@ -64,7 +68,7 @@ public class ViewInfoTerra : MonoBehaviour
         ShowInfo(nomTerra, terra.Nom);
         ShowInfo(poblacioTerra, string.Format("{0:n0}", terra.Poblacio));
         variacio = terra.Poblacio - terraAnterior.Poblacio;
-        ColorOnValue(poblacioTerraVariacio, null, variacio);
+        ColorOnValue(poblacioTerraVariacio, fletxaVariacioPoblacio, variacio);
         ShowInfo(poblacioTerraVariacio, TransformLong(variacio));
 
         ShowInfo(recursosXTerra, TransformLong(terra.materials[0]));
@@ -93,6 +97,14 @@ public class ViewInfoTerra : MonoBehaviour
         Targeta2.SetActive(false);
         Targeta3.SetActive(false);
         Targeta4.SetActive(false);
+
+        if(terra.atacants.Count == 0)
+        {
+            infoNoAtacs.SetActive(true);
+        } else
+        {
+            infoNoAtacs.SetActive(false);
+        }
 
         for (int i = 0; i < terra.atacants.Count; i++)
         {
