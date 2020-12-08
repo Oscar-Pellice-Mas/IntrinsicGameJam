@@ -72,11 +72,12 @@ public class ViewInfoTerra : MonoBehaviour
         ColorOnValue(poblacioTerraVariacio, fletxaVariacioPoblacio, variacio);
         if (terra.Poblacio <= 0)
         {
-            ShowInfo(poblacioTerraVariacio, "0");
+            ShowInfo(poblacioTerra, "0");
         } else
         {
-            ShowInfo(poblacioTerraVariacio, TransformLong(variacio));
+            ShowInfo(poblacioTerra, string.Format("{0:n0}", terra.Poblacio));
         }
+        ShowInfo(poblacioTerraVariacio, TransformLong(variacio));
 
         if (terra.materials[0] <= 0)
         {

@@ -24,7 +24,7 @@ public class PlanetGenerator : MonoBehaviour
     int EdatEspecieMin = 60000, EdatEspecieMax = 400000;
 
     // Terra creator values
-    private const long PoblacioInicial = 1000000;
+    private const long PoblacioInicial = 5000000;
     private const int MaterialsInicials = 1000000;
 
     private const float coeficient_reduccio = 0.1f;
