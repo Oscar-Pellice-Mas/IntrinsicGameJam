@@ -33,9 +33,10 @@ public class PlayerController : MonoBehaviour
             }
         } else
         {
-            if (Input.GetButtonDown("A"))
+            if (Input.GetButtonDown("A") && !gameManager.decisionMade)
             {
                 StartCoroutine(gameManager.StartRound());
+                gameManager.decisionMade = true;
             }
         }
     }

@@ -24,7 +24,7 @@ public class PlanetGenerator : MonoBehaviour
     int EdatEspecieMin = 60000, EdatEspecieMax = 400000;
 
     // Terra creator values
-    private const long PoblacioInicial = 10000;
+    private const long PoblacioInicial = 1000000;
     private const int MaterialsInicials = 1000000;
 
     private const float coeficient_reduccio = 0.1f;
@@ -265,7 +265,7 @@ public class PlanetGenerator : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             Faction f = ScriptableObject.CreateInstance<Faction>();
-            f.agresivitat = Random.Range(-25, 25);
+            f.agresivitat = Random.Range(-15, 35);
             f.densitat = 0; //Setejar un cop es creein planetes nous
             f.especie = (Faction.raca)i;
             f.imatge = Sprites[i];
@@ -282,7 +282,7 @@ public class PlanetGenerator : MonoBehaviour
         terra.planetPrefab = PlanetPrefab[10];
 
         //Nom
-        terra.Nom = "Terra";
+        terra.Nom = "Earth";
 
         //Poblacio
         terra.Poblacio = PoblacioInicial;
