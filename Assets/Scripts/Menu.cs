@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class Menu : MonoBehaviour
     public GameObject menu_controls;
     public GameObject palanca;
     public GameObject boto;
+
+    public Image BlackScreenCanvas;
+    public float BlackScreenProgress = 0;
 
     public Animator saveLeverAnimator;
     public Animator killPlanetButton;
@@ -61,6 +65,16 @@ public class Menu : MonoBehaviour
             textos[i].GetComponent<RectTransform>().position = Vector3.Lerp(textos[i].GetComponent<RectTransform>().position, initialPos[i], 0.03f);
         }
 
+    }
+    
+    public void ShowBlackScreen()
+    {
+        BlackScreenCanvas.color = new Color(0, 0, 0, 1);
+    }
+
+    public void HideBlackScreen()
+    {
+        BlackScreenCanvas.color = new Color(0, 0, 0, 0);
     }
 
     public void initGame()
