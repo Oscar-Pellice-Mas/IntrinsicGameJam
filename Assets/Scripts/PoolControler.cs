@@ -192,24 +192,24 @@ public class PoolControler : MonoBehaviour
         // Depenent de la ronda, recalculem diferents consums
         switch (terra.indexTipus){
             case 1:
-                terra.consum[0] = terra.Poblacio * 25;
-                terra.consum[1] = terra.Poblacio * 15;
-                terra.consum[2] = terra.Poblacio * 5;
+                terra.consum[0] = terra.Poblacio * 5;
+                terra.consum[1] = terra.Poblacio * 2;
+                terra.consum[2] = terra.Poblacio * 1;
                 break;
             case 2:
-                terra.consum[0] = terra.Poblacio * 30;
-                terra.consum[1] = terra.Poblacio * 20;
-                terra.consum[2] = terra.Poblacio * 10;
+                terra.consum[0] = terra.Poblacio * 5;
+                terra.consum[1] = terra.Poblacio * 2;
+                terra.consum[2] = terra.Poblacio * 1;
                 break;
             case 3:
-                terra.consum[0] = terra.Poblacio * 35;
-                terra.consum[1] = terra.Poblacio * 25;
-                terra.consum[2] = terra.Poblacio * 15;
+                terra.consum[0] = terra.Poblacio * 10;
+                terra.consum[1] = terra.Poblacio * 4;
+                terra.consum[2] = terra.Poblacio * 2;
                 break;
             case 4:
-                terra.consum[0] = terra.Poblacio * 40;
-                terra.consum[1] = terra.Poblacio * 30;
-                terra.consum[2] = terra.Poblacio * 20;
+                terra.consum[0] = terra.Poblacio * 15;
+                terra.consum[1] = terra.Poblacio * 8;
+                terra.consum[2] = terra.Poblacio * 4;
                 break;
         }
 
