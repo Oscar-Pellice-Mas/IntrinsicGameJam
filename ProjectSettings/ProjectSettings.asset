@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: la sa ie
   productName: PLANEXT
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -270,7 +270,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: f473c7c6f1d4dbc4d8fccef7dd39af2c, type: 3}
+      m_Icon: {fileID: 2800000, guid: fbbf9df81746dbe49a81f806be050920, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

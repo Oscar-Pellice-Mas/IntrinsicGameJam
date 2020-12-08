@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class gameOverController : MonoBehaviour
 {
@@ -54,12 +55,21 @@ public class gameOverController : MonoBehaviour
         yield return new WaitForSeconds(2);
         completed = false;
     }
-
+    bool returned = false;
     // Update is called once per frame
     void Update()
     {
         phaseTime += Time.deltaTime;
         terraGO.GetComponent<RectTransform>().Rotate(new Vector3(0, 0, 1), Time.deltaTime * 5f);
+
+
+        if (phaseTime > 15 && !returned)
+        {
+            returned = true;
+            StartCoroutine(BackToMenu());
+            
+        }
+
         if (completed)
         {
             return;
@@ -69,10 +79,19 @@ public class gameOverController : MonoBehaviour
         if (currentTime > timePerChar)
         {
             currentTime %= timePerChar;
-            addLetter();
-
-            
+            addLetter();  
         }
+
+
+    }
+
+    IEnumerator BackToMenu()
+    {
+        FindObjectOfType<CameraShakeManager>().ShowBlackScreen();
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("mainMenu");
+
+        yield return null;
     }
 
     void addLetter() { 
