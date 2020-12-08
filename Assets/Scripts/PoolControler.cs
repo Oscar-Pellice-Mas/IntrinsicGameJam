@@ -45,10 +45,12 @@ public class PoolControler : MonoBehaviour
             }
         }
 
+        Debug.Log("Planetes:" + planetPool.Count);
         for (int i = 0; i < gameManager.factions.Count; i++)
         {
             gameManager.factions[i].densitat = count[i] * 100 / planetPool.Count;
-            //gameManager.factions[i].mitjaPerillositat = gameManager.factions[i].mitjaPerillositat / count[i];
+            gameManager.factions[i].mitjaPerillositat = gameManager.factions[i].mitjaPerillositat / count[i];
+            Debug.Log("Facció " + i + ": Perill: " + gameManager.factions[i].mitjaPerillositat + " - Attitude: " + gameManager.factions[i].agresivitat);
         }
     }
 
@@ -91,33 +93,32 @@ public class PoolControler : MonoBehaviour
             //Agressivitat de la faccio
             for (int i = 0; i < gameManager.factions.Count; i++)
             {
+                if (planet.faction.especie == Faction.raca.humans) continue;
                 if (planet.faction.especie == gameManager.factions[i].especie)
                 {
-                    
                     //Calculem la agresivitat que generem en una faccio al matar un dels seus planetes
-                    gameManager.factions[i].agresivitat += (int)(planet.Poblacio / planetGenerator.maxPopulation) * terra.indexTipus;
+                    gameManager.factions[i].agresivitat += (int)(planet.Poblacio/(planetGenerator.maxPopulation/5)) * terra.indexTipus;
                     break;
                 }
-
             }
-
-
         }
         else
         {
             for (int i = 0; i < gameManager.factions.Count; i++)
             {
+                if (planet.faction.especie == Faction.raca.humans) continue;
                 if (planet.faction.especie == gameManager.factions[i].especie)
                 {
-
                     //Calculem la agresivitat que generem en una faccio al matar un dels seus planetes
-                    gameManager.factions[i].agresivitat -= (int)(planet.Poblacio / planetGenerator.maxPopulation) * terra.indexTipus;
+                    gameManager.factions[i].agresivitat -= (int)(planet.Poblacio / (planetGenerator.maxPopulation / 5)) * terra.indexTipus;
                     break;
                 }
 
             }
 
         }
+        RefreshFactions();
+
         gameManager.terra = terra;
     }
 
@@ -179,7 +180,6 @@ public class PoolControler : MonoBehaviour
 
         if (materialsRestants > 2 * materialsConsumits)
         {
-
             long valorAugment = materialsRestants / (2 * materialsConsumits);
             terra.Poblacio += (long)(terra.Poblacio*valorAugment*0.01);
             //terra.Poblacio *= valorAugment;

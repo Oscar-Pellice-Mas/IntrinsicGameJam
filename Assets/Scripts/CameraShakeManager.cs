@@ -33,14 +33,25 @@ public class CameraShakeManager : MonoBehaviour
     public float tintDuration;
     public Color tintedColor = Color.red;
 
-    void Start()
+    //blackscreen
+    public Image BlackScreenCanvas;
+    float BlackScreenProgress = 0;
+    bool ShouldBeBlack = false;
+    float currentBlackScreenProgress = 0;
+    public float BlackscreenAnimationDuration = 1;
+    void Awake()
     {
         InitialPositions = new Vector3[ObjectsToShake.Length];
         for (int i = 0; i < ObjectsToShake.Length; i++)
         {
             InitialPositions[i] = ObjectsToShake[i].transform.position;
         }
+        currentBlackScreenProgress = BlackscreenAnimationDuration;
+        BlackScreenCanvas.color = new Color(0, 0, 0, 1);
+        ShouldBeBlack = false;
     }
+
+
 
     public void StartShake(float shakeduration, float amplitude, ShakeType shakeType_)
     {
@@ -59,9 +70,30 @@ public class CameraShakeManager : MonoBehaviour
     {
         return FlickerCount * (timeOn + timeOff);
     }
+    public void ShowBlackScreen()
+    {
+        ShouldBeBlack = true;
+        currentBlackScreenProgress = Mathf.Clamp(currentBlackScreenProgress, 0, BlackscreenAnimationDuration);
+    }
 
+    public void HideBlackScreen()
+    {
+        ShouldBeBlack = false;
+        currentBlackScreenProgress = Mathf.Clamp(currentBlackScreenProgress, 0, BlackscreenAnimationDuration);
+    }
     void Update()
     {
+        currentBlackScreenProgress = Mathf.Clamp(currentBlackScreenProgress, 0, BlackscreenAnimationDuration);
+        BlackScreenCanvas.color = new Color(0,0,0, Mathf.Pow(currentBlackScreenProgress/ BlackscreenAnimationDuration, 2));
+        if (ShouldBeBlack)
+        {
+            currentBlackScreenProgress += Time.deltaTime;
+        }
+        else
+        {
+            currentBlackScreenProgress -= Time.deltaTime;
+        }
+
         if (trigerTint)
         {
             tintDuration = FlickerCount * (timeOn+ timeOff);

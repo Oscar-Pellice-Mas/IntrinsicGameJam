@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class Menu : MonoBehaviour
     public GameObject palanca;
     public GameObject boto;
 
+
     public Animator saveLeverAnimator;
     public Animator killPlanetButton;
 
@@ -32,7 +34,6 @@ public class Menu : MonoBehaviour
     bool menuActive = false;
 
     
-
     void Start()
     {
         initGame();
@@ -62,6 +63,7 @@ public class Menu : MonoBehaviour
         }
 
     }
+    
 
     public void initGame()
     {
